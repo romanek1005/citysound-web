@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <polygon points="40,10 60,30 60,60 20,60 20,30" fill="#0891B2" stroke="#0EA5E9" stroke-width="2"/>
+  <text x="40" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">HRADEC</text>
+  <text x="40" y="50" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">KRÁLOVÉ</text>
+</svg>

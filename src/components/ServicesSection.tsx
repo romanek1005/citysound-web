@@ -1,0 +1,177 @@
+import React from 'react';
+import { Lightbulb, Gift as Lift, Truck, Radar, ArrowRight } from 'lucide-react';
+
+const ServicesSection: React.FC = () => {
+  const mainService = {
+    icon: Lightbulb,
+    title: 'Veřejné osvětlení',
+    description: 'Naše hlavní specializace - kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
+    benefits: [
+      'Úspora až 70% nákladů na elektřinu',
+      'Zvýšení bezpečnosti v nočních hodinách', 
+      'Moderní LED technologie s dlouhou životností',
+      'Komplexní servis a údržba'
+    ],
+    image: 'https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800',
+    highlight: true
+  };
+
+  const additionalServices = [
+    {
+      icon: Lift,
+      title: 'Práce s montážní plošinou',
+      description: 'Díky vlastní plošině jsme flexibilní a efektivní při montážních pracích ve výškách.',
+      image: 'https://images.pexels.com/photos/1427541/pexels-photo-1427541.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      icon: Truck,
+      title: 'Zemní práce minibagrem',
+      description: 'Disponujeme vlastní technikou pro výkopy a terénní úpravy v těžko dostupných místech.',
+      image: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      icon: Truck,
+      title: 'Autodoprava a kontejnerizace',
+      description: 'Zajišťujeme dopravu materiálu i odvoz sutě během realizace projektů.',
+      image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      icon: Radar,
+      title: 'Montáž radarů',
+      description: 'Vedle osvětlení zvyšujeme bezpečnost také instalací rychlostních radarů.',
+      image: 'https://images.pexels.com/photos/163945/highway-the-high-speed-1-highway-163945.jpeg?auto=compress&cs=tinysrgb&w=400'
+    }
+  ];
+
+  return (
+    <section id="services" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-slide-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Co všechno pro vás zajistíme
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Naše hlavní specializace je veřejné osvětlení, ale díky vlastní technice a zkušenému týmu 
+            dokážeme pokrýt i související služby.
+          </p>
+        </div>
+
+        {/* Main Service - Featured */}
+        <div className="mb-16 animate-fade-in">
+          <div className="bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Content */}
+              <div className="p-8 lg:p-12 text-white">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <mainService.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
+                    Hlavní specializace
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl lg:text-4xl font-bold mb-4">{mainService.title}</h3>
+                <p className="text-xl text-green-100 mb-8 leading-relaxed">
+                  {mainService.description}
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  {mainService.benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-citysound-red-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-green-100">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                  <span className="flex items-center space-x-2">
+                    <span>Zjistit více</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </button>
+              </div>
+
+              {/* Image */}
+              <div className="relative">
+                <img
+                  src={mainService.image}
+                  alt={mainService.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-citysound-green-600/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Services */}
+        <div>
+          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+            Doplňkové služby
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {additionalServices.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <service.icon className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h4 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-citysound-green-600 transition-colors">
+                    {service.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-citysound-green-600 text-sm font-medium group-hover:text-citysound-green-700">
+                    <span>Zjistit více</span>
+                    <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-citysound-green-100">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              Potřebujete kombinaci více služeb?
+            </h3>
+            <p className="text-lg text-gray-600 mb-6">
+              Rádi pro vás připravíme komplexní nabídku šitou na míru vašemu projektu.
+            </p>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+            >
+              Poptat kombinaci služeb
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
