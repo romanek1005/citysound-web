@@ -3,22 +3,22 @@ import { Building2, MapPin, Users, Award } from 'lucide-react';
 
 const ReferencesSection: React.FC = () => {
   const constructionCompanies = [
-    { name: 'Continental Frenštát', logoPath: '/src/assets/logos/companies/continental_frenstat.png' },
-    { name: 'IDS VM', logoPath: '/src/assets/logos/companies/ids_vm.png' },
-    { name: 'Lars MK', logoPath: '/src/assets/logos/companies/lars_mk.jpg' },
-    { name: 'SIVAP', logoPath: '/src/assets/logos/companies/sivap.png' },
-    { name: 'TJ Jurinka', logoPath: '/src/assets/logos/companies/tj_jurinka.png' },
-    { name: 'Zenit spol. s r.o.', logoPath: '/src/assets/logos/companies/zenit_spol_s_r_o.jpg' }
+    { name: 'Continental Frenštát', logoPath: '/logos/companies/continental_frenstat.png' },
+    { name: 'IDS VM', logoPath: '/logos/companies/ids_vm.png' },
+    { name: 'Lars MK', logoPath: '/logos/companies/lars_mk.jpg' },
+    { name: 'SIVAP', logoPath: '/logos/companies/sivap.png' },
+    { name: 'TJ Jurinka', logoPath: '/logos/companies/tj_jurinka.png' },
+    { name: 'Zenit spol. s r.o.', logoPath: '/logos/companies/zenit_spol_s_r_o.jpg' }
   ];
 
   const municipalities = [
-    { name: 'Choryně', logoPath: '/src/assets/logos/municipalities/choryne.png' },
-    { name: 'Hrachovek', logoPath: '/src/assets/logos/municipalities/hrachovec.png' },
-    { name: 'Kateřinice', logoPath: '/src/assets/logos/municipalities/katerinice.png' },
-    { name: 'Morkov', logoPath: '/src/assets/logos/municipalities/morkov.jpg' },
-    { name: 'Nový Hrozenkov', logoPath: '/src/assets/logos/municipalities/novy_hrozenkov.png' },
-    { name: 'Valašské Meziříčí', logoPath: '/src/assets/logos/municipalities/valasske_mezirici.jpg' },
-    { name: 'Vsetín', logoPath: '/src/assets/logos/municipalities/vsetin.png' }
+    { name: 'Choryně', logoPath: '/logos/municipalities/choryne.png' },
+    { name: 'Hrachovek', logoPath: '/logos/municipalities/hrachovec.png' },
+    { name: 'Kateřinice', logoPath: '/logos/municipalities/katerinice.png' },
+    { name: 'Morkov', logoPath: '/logos/municipalities/morkov.jpg' },
+    { name: 'Nový Hrozenkov', logoPath: '/logos/municipalities/novy_hrozenkov.png' },
+    { name: 'Valašské Meziříčí', logoPath: '/logos/municipalities/valasske_mezirici.jpg' },
+    { name: 'Vsetín', logoPath: '/logos/municipalities/vsetin.png' }
   ];
 
   const stats = [

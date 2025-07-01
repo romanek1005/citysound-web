@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import lightsOffImage from '../assets/hero/after2.png';
-import lightsOnImage from '../assets/hero/before2.jpg';
 
 const HeroSection: React.FC = () => {
   const [showLights, setShowLights] = useState(false);
@@ -25,12 +23,12 @@ const HeroSection: React.FC = () => {
       {/* Background Images with Animation */}
       <div className="absolute inset-0 z-0">
         <img
-          src={lightsOffImage}
+          src="/hero/after2.png"
           alt="Veřejné osvětlení zhasnuté"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <img
-          src={lightsOnImage}
+          src="/hero/before2.jpg"
           alt="Veřejné osvětlení rozsvícené"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
             showLights ? 'opacity-100' : 'opacity-0'
