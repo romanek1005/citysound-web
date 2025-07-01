@@ -13,13 +13,13 @@ const ServicesSection: React.FC = () => {
         'Moderní LED technologie',
         'Komplexní servis a údržba'
       ],
-      image: 'https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/work/20250511_212135.jpg',
       highlight: true,
       imagePosition: 'right'
     },
     {
       icon: Radio,
-      title: 'Rozhlas a ozvučení',
+      title: 'Obecní a městský rozhlas',
       description: 'Specializujeme se na instalaci a údržbu rozhlasových systémů pro obce a veřejné prostory s moderní digitální technologií.',
       benefits: [
         'Digitální rozhlasové systémy',
@@ -27,7 +27,7 @@ const ServicesSection: React.FC = () => {
         'Dálkové ovládání a monitoring',
         'Integrace s varovnými systémy'
       ],
-      image: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/work/rozhlas.jpg',
       highlight: true,
       imagePosition: 'left'
     }
