@@ -114,8 +114,8 @@ const Footer: React.FC = () => {
                 <MapPin className="w-5 h-5 text-citysound-green-400 mt-0.5" />
                 <div>
                   <span className="text-gray-300">
-                    Průmyslová 123<br />
-                    602 00 Brno
+                    Oznice 101<br />
+                    756 24 Bystřička
                   </span>
                 </div>
               </div>

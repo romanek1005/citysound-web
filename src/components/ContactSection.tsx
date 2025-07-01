@@ -57,7 +57,7 @@ const ContactSection: React.FC = () => {
     {
       icon: MapPin,
       title: 'Adresa',
-      value: 'Průmyslová 123, 602 00 Brno',
+      value: 'Oznice 101, 756 24 Bystřička',
       href: '#',
       description: 'Možnost osobní konzultace'
     },
