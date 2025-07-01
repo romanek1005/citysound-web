@@ -6,7 +6,7 @@ const ServicesSection: React.FC = () => {
     {
       icon: Lightbulb,
       title: 'Veřejné osvětlení',
-      description: 'Naše hlavní specializace - kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
+      description: 'Kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
       benefits: [
         'Úspora až 70% nákladů na elektřinu',
         'Zvýšení bezpečnosti v nočních hodinách', 
