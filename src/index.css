@@ -60,7 +60,4 @@
 /* IDS VM logo inversion for better readability */
 .logo-container img[alt*="IDS VM"] {
   filter: invert(1) !important;
-  background-color: white;
-  border-radius: 4px;
-  padding: 4px;
 }
