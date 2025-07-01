@@ -1,20 +1,37 @@
 import React from 'react';
-import { Lightbulb, Gift as Lift, Truck, Radar, ArrowRight } from 'lucide-react';
+import { Lightbulb, Radio, Gift as Lift, Truck, Radar, ArrowRight } from 'lucide-react';
 
 const ServicesSection: React.FC = () => {
-  const mainService = {
-    icon: Lightbulb,
-    title: 'Veřejné osvětlení',
-    description: 'Naše hlavní specializace - kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
-    benefits: [
-      'Úspora až 70% nákladů na elektřinu',
-      'Zvýšení bezpečnosti v nočních hodinách', 
-      'Moderní LED technologie s dlouhou životností',
-      'Komplexní servis a údržba'
-    ],
-    image: 'https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800',
-    highlight: true
-  };
+  const mainServices = [
+    {
+      icon: Lightbulb,
+      title: 'Veřejné osvětlení',
+      description: 'Naše hlavní specializace - kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
+      benefits: [
+        'Úspora až 70% nákladů na elektřinu',
+        'Zvýšení bezpečnosti v nočních hodinách', 
+        'Moderní LED technologie',
+        'Komplexní servis a údržba'
+      ],
+      image: 'https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800',
+      highlight: true,
+      imagePosition: 'right'
+    },
+    {
+      icon: Radio,
+      title: 'Rozhlas a ozvučení',
+      description: 'Specializujeme se na instalaci a údržbu rozhlasových systémů pro obce a veřejné prostory s moderní digitální technologií.',
+      benefits: [
+        'Digitální rozhlasové systémy',
+        'Krystalově čistý zvuk', 
+        'Dálkové ovládání a monitoring',
+        'Integrace s varovnými systémy'
+      ],
+      image: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=800',
+      highlight: true,
+      imagePosition: 'left'
+    }
+  ];
 
   const additionalServices = [
     {
@@ -57,54 +74,56 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Main Service - Featured */}
-        <div className="mb-16 animate-fade-in">
-          <div className="bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Content */}
-              <div className="p-8 lg:p-12 text-white">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <mainService.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
-                    Hlavní specializace
-                  </span>
-                </div>
-                
-                <h3 className="text-3xl lg:text-4xl font-bold mb-4">{mainService.title}</h3>
-                <p className="text-xl text-green-100 mb-8 leading-relaxed">
-                  {mainService.description}
-                </p>
-
-                <div className="space-y-3 mb-8">
-                  {mainService.benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-citysound-red-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-green-100">{benefit}</span>
+        {/* Main Services - Featured */}
+        <div className="mb-16 space-y-16">
+          {mainServices.map((service, index) => (
+            <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl overflow-hidden shadow-2xl">
+                <div className={`grid lg:grid-cols-2 gap-0 ${service.imagePosition === 'left' ? 'lg:grid-flow-col-dense' : ''}`}>
+                  {/* Content */}
+                  <div className={`p-8 lg:p-12 text-white ${service.imagePosition === 'left' ? 'lg:col-start-2' : ''}`}>
+                    <div className="flex items-center space-x-3 mb-6">
+                      <service.icon className="w-8 h-8 text-white" />
+                      <h3 className="text-3xl lg:text-4xl font-bold">{service.title}</h3>
+                      <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full ml-auto">
+                        Hlavní specializace
+                      </span>
                     </div>
-                  ))}
+                    
+                    <p className="text-xl text-green-100 mb-8 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                      {service.benefits.map((benefit, benefitIndex) => (
+                        <div key={benefitIndex} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-citysound-red-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-green-100 text-sm">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                      <span className="flex items-center space-x-2">
+                        <span>Zjistit více</span>
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Image */}
+                  <div className={`relative ${service.imagePosition === 'left' ? 'lg:col-start-1' : ''}`}>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 ${service.imagePosition === 'left' ? 'bg-gradient-to-r from-transparent to-citysound-green-600/20' : 'bg-gradient-to-l from-transparent to-citysound-green-600/20'}`}></div>
+                  </div>
                 </div>
-
-                <button className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                  <span className="flex items-center space-x-2">
-                    <span>Zjistit více</span>
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </button>
-              </div>
-
-              {/* Image */}
-              <div className="relative">
-                <img
-                  src={mainService.image}
-                  alt={mainService.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-citysound-green-600/20"></div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Additional Services */}
