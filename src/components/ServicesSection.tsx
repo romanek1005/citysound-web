@@ -6,7 +6,7 @@ const ServicesSection: React.FC = () => {
     {
       icon: Lightbulb,
       title: 'Veřejné osvětlení',
-      description: 'Kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
+      description: 'Naše hlavní specializace - kompletní realizace moderního a úsporného veřejného osvětlení od projektové přípravy až po finální předání.',
       benefits: [
         'Úspora až 70% nákladů na elektřinu',
         'Zvýšení bezpečnosti v nočních hodinách', 
@@ -87,9 +87,11 @@ const ServicesSection: React.FC = () => {
                         <service.icon className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-3xl lg:text-4xl font-bold">{service.title}</h3>
-                      <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full ml-auto">
-                        Hlavní specializace
-                      </span>
+                      {service.title === 'Veřejné osvětlení' && (
+                        <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full ml-auto">
+                          Hlavní specializace
+                        </span>
+                      )}
                     </div>
                     
                     <p className="text-xl text-green-100 mb-8 leading-relaxed">
