@@ -43,7 +43,7 @@ const ContactSection: React.FC = () => {
     {
       icon: Phone,
       title: 'Telefon',
-      value: '+420 123 456 789',
+      value: '+420 774 456 960',
       href: 'tel:+420774456960',
       description: 'Volejte kdykoliv během pracovní doby'
     },
