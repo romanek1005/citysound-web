@@ -7,25 +7,29 @@ const ProcessSection: React.FC = () => {
       icon: FileText,
       title: 'Projekt & Konzultace',
       description: 'Analyzujeme vaše potřeby a navrhneme optimální řešení včetně výběru nejvhodnějších svítidel a technologií.',
-      details: ['Technická konzultace zdarma', 'Návrh optimálního řešení', 'Výpočet úspor energie']
+      details: ['Technická konzultace zdarma', 'Návrh optimálního řešení', 'Výpočet úspor energie'],
+      bgImage: '/work/20230219_150700.jpg'
     },
     {
       icon: Shovel,
       title: 'Zemní práce & NN sítě',
       description: 'Pomocí vlastní techniky připravíme terén a profesionálně položíme kabeláž nízkého napětí.',
-      details: ['Vlastní bagr a technika', 'Příprava výkopů', 'Pokládka elektrických sítí']
+      details: ['Vlastní bagr a technika', 'Příprava výkopů', 'Pokládka elektrických sítí'],
+      bgImage: '/work/20210630_145321.jpg'
     },
     {
       icon: Lightbulb,
       title: 'Montáž osvětlení',
       description: 'Nainstalujeme stožáry, výložníky a moderní úsporná LED svítidla podle projektové dokumentace.',
-      details: ['Montáž stožárů a výložníků', 'Instalace LED svítidel', 'Připojení rozvodů']
+      details: ['Montáž stožárů a výložníků', 'Instalace LED svítidel', 'Připojení rozvodů'],
+      bgImage: '/work/20250511_210358.jpg'
     },
     {
       icon: CheckCircle,
       title: 'Revize & Předání',
       description: 'Vše odborně zapojíme, provedeme povinné revize a předáme vám kompletně funkční osvětlení.',
-      details: ['Odborné zapojení', 'Elektrické revize', 'Předání dokumentace']
+      details: ['Odborné zapojení', 'Elektrické revize', 'Předání dokumentace'],
+      bgImage: '/work/20250511_213123.jpg'
     }
   ];
 
@@ -51,31 +55,46 @@ const ProcessSection: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                {/* Step Card */}
-                <div className="bg-white border-2 border-gray-100 hover:border-citysound-green-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                  {/* Step Number */}
-                  <div className="absolute -top-4 left-6 w-8 h-8 bg-citysound-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
+                {/* Step Number */}
+                <div className="absolute -top-4 left-6 w-8 h-8 bg-citysound-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm z-20">
+                  {index + 1}
+                </div>
+
+                {/* Step Card with Split Layout */}
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
+                  {/* Image Background with Icon - Top Half */}
+                  <div 
+                    className="relative h-48 bg-cover bg-center flex items-center justify-center"
+                    style={{ backgroundImage: `url(${step.bgImage})` }}
+                  >
+                    {/* Dark overlay for better icon visibility */}
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-300"></div>
+                    
+                    {/* Floating Icon */}
+                    <div className="relative z-10 w-16 h-16 bg-white/20 backdrop-blur-sm group-hover:bg-white/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <step.icon className="w-8 h-8 text-white" />
+                    </div>
                   </div>
 
-                  {/* Icon */}
-                  <div className="w-16 h-16 bg-citysound-green-100 group-hover:bg-citysound-green-200 rounded-full flex items-center justify-center mb-4 transition-colors">
-                    <step.icon className="w-8 h-8 text-citysound-green-600" />
+                  {/* Content - Bottom Half */}
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-citysound-green-700 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                      {step.description}
+                    </p>
+                    
+                    {/* Details List */}
+                    <ul className="space-y-2">
+                      {step.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="flex items-start space-x-2 text-xs text-gray-600">
+                          <CheckCircle className="w-3 h-3 text-citysound-green-500 flex-shrink-0 mt-0.5" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{step.description}</p>
-
-                  {/* Details */}
-                  <ul className="space-y-2">
-                    {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start space-x-2">
-                        <CheckCircle size={16} className="text-citysound-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 {/* Arrow - Mobile */}
