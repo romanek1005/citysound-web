@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CitySound - Veřejné osvětlení</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff; /* Pozadí za okrajem hero sekce nastaveno na bílou */
+            /* min-height: 100%; */ /* Zajistí, že body bude mít alespoň výšku viewportu */
+        }
+
+        body {
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 40px); /* Výška přes celou obrazovku mínus padding body */
+            overflow: hidden; 
+            background-color: #222; 
+            border: 5px solid white; 
+            border-radius: 30px; 
+            box-sizing: border-box; 
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: opacity 1.5s ease-in-out; 
+        }
+
+        .lights-on-image { /* Společná třída pro obrázky, které se mají zviditelnit */
+            opacity: 0;
+        }
+
+        .hero-content {
+            position: absolute; 
+            z-index: 1; 
+            color: white;
+            text-align: left; 
+            top: 50%; 
+            left: 8%;  
+            transform: translateY(-50%); 
+            padding: 25px 35px; 
+            background-color: rgba(0, 0, 0, 0.65); 
+            border-radius: 10px; 
+            max-width: 50%; 
+            box-sizing: border-box;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2em; 
+            font-weight: 700; 
+            margin-top: 0;
+            margin-bottom: 0.4em;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.3em; 
+            font-weight: 400; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            line-height: 1.6; 
+            margin-bottom: 0;
+        }
+
+        /* Styly pro druhou, kompaktní sekci */
+        .hero-section-compact {
+            position: relative;
+            max-width: 850px; /* Maximální šířka kompaktní sekce */
+            min-height: 450px; /* Minimální výška */
+            height: auto; /* Automatická výška podle obsahu */
+            overflow: hidden; 
+            background-color: #222; 
+            border: 5px solid white; 
+            border-radius: 25px; /* Mírně menší zaoblení */
+            box-sizing: border-box; 
+            margin: 60px auto; /* Odsazení a centrování */
+            padding: 40px; /* Větší vnitřní padding */
+        }
+        
+        /* Obsah v kompaktní sekci - centrováno */
+        .hero-content-compact {
+            position: absolute;
+            z-index: 1;
+            color: white;
+            text-align: center; /* Text a tlačítka centrovány */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            width: 85%; /* Šířka content boxu */
+            max-width: 550px; /* Maximální šířka content boxu */
+            box-sizing: border-box;
+        }
+
+        .hero-content-compact h1 {
+            font-size: 2.4em; /* Menší font pro H1 */
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .hero-content-compact p {
+            font-size: 1.1em; /* Menší font pro P */
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 1.5em; /* Prostor pro tlačítka */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 8px;
+            text-decoration: none;
+            border-radius: 25px; /* Pilulkový tvar */
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: #FF8C00; /* Výrazná oranžová */
+            color: white;
+            border-color: #FF8C00;
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e00;
+            border-color: #e67e00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <img src="after2.png" alt="Veřejné osvětlení zhasnuté" class="hero-image" id="lights-off">
+        <img src="before2.jpg" alt="Veřejné osvětlení rozsvícené" class="hero-image lights-on-image" id="lights-on">
+        <div class="hero-content">
+            <h1>CitySound</h1>
+            <p>Specialisté na veřejné osvětlení. Nabízíme unikátní komplexní služby: od výkopových prací a NN sítí až po finální instalaci a následný servis.</p>
+        </div>
+    </header>
+
+    <section class="hero-section hero-section-compact">
+        <img src="after2.png" alt="Moderní řešení osvětlení" class="hero-image" id="lights-off-s2">
+        <img src="before2.jpg" alt="Inovativní veřejné osvětlení" class="hero-image lights-on-image" id="lights-on-s2">
+        <div class="hero-content hero-content-compact">
+            <h1>Zjistěte více</h1>
+            <p>Prohlédněte si naše úspěšné projekty nebo nás kontaktujte pro nezávaznou konzultaci.</p>
+            <div class="hero-buttons">
+                <a href="#kontakt" class="btn btn-primary">Kontaktujte nás</a>
+                <a href="#reference" class="btn btn-secondary">Reference</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('load', () => {
+            const imagesToAnimate = [
+                { id: 'lights-on', delay: 2000 },
+                { id: 'lights-on-s2', delay: 2500 } // Druhá se animuje o něco později
+            ];
+
+            imagesToAnimate.forEach(imgData => {
+                const imageElement = document.getElementById(imgData.id);
+                if (imageElement) {
+                    setTimeout(() => {
+                        imageElement.style.opacity = '1';
+                    }, imgData.delay);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
