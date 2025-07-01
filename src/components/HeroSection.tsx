@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import lightsOffImage from '../assets/hero/after2.png';
 import lightsOnImage from '../assets/hero/before2.jpg';
 
 const HeroSection: React.FC = () => {
   const [showLights, setShowLights] = useState(false);
-  const [showSecondLights, setShowSecondLights] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowLights(true);
     }, 2000);
 
-    const timer2 = setTimeout(() => {
-      setShowSecondLights(true);
-    }, 2500);
-
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -25,80 +20,98 @@ const HeroSection: React.FC = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToReferences = () => {
-    document.getElementById('references')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <div className="bg-white p-5 font-['Poppins',sans-serif] min-h-screen">
-      {/* Main Hero Section */}
-      <section className="relative w-full h-[calc(100vh-40px)] overflow-hidden bg-gray-800 border-[5px] border-white rounded-[30px] box-border">
-        <div className="absolute inset-0">
-          <img
-            src={lightsOffImage}
-            alt="Veřejné osvětlení zhasnuté"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <img
-            src={lightsOnImage}
-            alt="Veřejné osvětlení rozsvícené"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
-              showLights ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        </div>
-        
-        <div className="absolute z-10 text-white text-left top-1/2 left-[8%] transform -translate-y-1/2 p-[25px_35px] bg-black/65 rounded-[10px] max-w-[50%] box-border">
-          <h1 className="text-[3.2em] font-bold mt-0 mb-[0.4em] [text-shadow:2px_2px_5px_rgba(0,0,0,0.8)]">
-            CitySound
-          </h1>
-          <p className="text-[1.3em] font-normal [text-shadow:1px_1px_4px_rgba(0,0,0,0.8)] leading-[1.6] mb-0">
-            Specialisté na veřejné osvětlení. Nabízíme unikátní komplexní služby: od výkopových prací a NN sítí až po finální instalaci a následný servis.
-          </p>
-        </div>
-      </section>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Images with Animation */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={lightsOffImage}
+          alt="Veřejné osvětlení zhasnuté"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <img
+          src={lightsOnImage}
+          alt="Veřejné osvětlení rozsvícené"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            showLights ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      </div>
 
-      {/* Compact Second Section */}
-      <section className="relative max-w-[850px] min-h-[450px] h-auto overflow-hidden bg-gray-800 border-[5px] border-white rounded-[25px] box-border my-[60px] mx-auto p-10">
-        <div className="absolute inset-0">
-          <img
-            src={lightsOffImage}
-            alt="Moderní řešení osvětlení"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <img
-            src={lightsOnImage}
-            alt="Inovativní veřejné osvětlení"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
-              showSecondLights ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        </div>
-        
-        <div className="absolute z-10 text-white text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 bg-black/70 rounded-lg w-[85%] max-w-[550px] box-border">
-          <h1 className="text-[2.4em] font-semibold mt-0 mb-[0.5em] [text-shadow:1px_1px_3px_rgba(0,0,0,0.7)]">
-            Zjistěte více
+      {/* Content with Frosted Glass Effect */}
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center text-white">
+        <div className="max-w-4xl mx-auto animate-fade-in">
+          {/* Logo */}
+          <div className="flex justify-center items-center space-x-3 mb-6">
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
+              <span className="text-white font-bold text-xl">C</span>
+            </div>
+            <span className="text-2xl font-bold text-white">Citysound</span>
+          </div>
+
+          {/* Badge */}
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6">
+            <CheckCircle size={16} className="text-citysound-green-400" />
+            <span className="text-sm font-medium text-white">Jediní, kdo realizují veřejné osvětlení kompletně</span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Veřejné osvětlení
+            <span className="block text-citysound-green-400">od A do Z</span>
           </h1>
-          <p className="text-[1.1em] font-normal leading-[1.5] mb-6 [text-shadow:1px_1px_3px_rgba(0,0,0,0.7)]">
-            Prohlédněte si naše úspěšné projekty nebo nás kontaktujte pro nezávaznou konzultaci.
-          </p>
-          <div className="mt-5">
+
+          {/* Subheading */}
+          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-6 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white leading-relaxed">
+              Zajistíme vše od výkopu a položení sítí až po finální instalaci a revizi. 
+              <strong className="text-citysound-green-300"> Kompletní řešení pro stavební firmy i obce.</strong>
+            </p>
+          </div>
+
+          {/* Key Benefits */}
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            {[
+              'Vlastní technika',
+              'Zkušený tým',
+              'Komplexní řešení',
+              'Dodržujeme termíny'
+            ].map((benefit) => (
+              <div key={benefit} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+                <CheckCircle size={16} className="text-citysound-green-400" />
+                <span className="text-sm font-medium text-white">{benefit}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={scrollToContact}
-              className="inline-block py-3 px-7 mx-2 my-2 no-underline rounded-[25px] font-semibold text-[0.95em] transition-all duration-300 cursor-pointer border-2 border-transparent uppercase tracking-[0.5px] bg-[#FF8C00] text-white border-[#FF8C00] hover:bg-[#e67e00] hover:border-[#e67e00] hover:-translate-y-[3px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.2)]"
+              className="group bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-citysound-red-500/25"
             >
-              Kontaktujte nás
+              <span className="flex items-center justify-center space-x-2">
+                <span>Nezávazně poptat</span>
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </button>
             <button
-              onClick={scrollToReferences}
-              className="inline-block py-3 px-7 mx-2 my-2 no-underline rounded-[25px] font-semibold text-[0.95em] transition-all duration-300 cursor-pointer border-2 border-white uppercase tracking-[0.5px] bg-transparent text-white hover:bg-white hover:text-gray-800 hover:-translate-y-[3px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15)]"
+              onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
             >
-              Reference
+              Více o nás
             </button>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
   );
 };
 
