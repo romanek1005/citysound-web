@@ -78,7 +78,7 @@ const ServicesSection: React.FC = () => {
         <div className="mb-16 space-y-16">
           {mainServices.map((service, index) => (
             <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl overflow-hidden shadow-2xl min-h-[500px]">
                 <div className={`grid lg:grid-cols-2 gap-0 ${service.imagePosition === 'left' ? 'lg:grid-flow-col-dense' : ''}`}>
                   {/* Content */}
                   <div className={`p-8 lg:p-12 text-white ${service.imagePosition === 'left' ? 'lg:col-start-2' : ''}`}>
