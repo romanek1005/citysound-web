@@ -120,7 +120,7 @@ const ServicesSection: React.FC = () => {
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className={`absolute inset-0 ${service.imagePosition === 'left' ? 'bg-gradient-to-r from-transparent to-citysound-green-600/20' : 'bg-gradient-to-l from-transparent to-citysound-green-600/20'}`}></div>
                   </div>
