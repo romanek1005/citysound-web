@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lightbulb, Radio, Gift as Lift, Truck, Radar, ArrowRight } from 'lucide-react';
+import { Lightbulb, Radio, Gift as Lift, Truck, Radar, ArrowRight, Construction } from 'lucide-react';
 
 const ServicesSection: React.FC = () => {
   const mainServices = [
@@ -41,7 +41,7 @@ const ServicesSection: React.FC = () => {
       image: 'https://images.pexels.com/photos/1427541/pexels-photo-1427541.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
-      icon: Truck,
+      icon: Construction,
       title: 'Zemní práce minibagrem',
       description: 'Disponujeme vlastní technikou pro výkopy a terénní úpravy v těžko dostupných místech.',
       image: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400'
@@ -56,7 +56,7 @@ const ServicesSection: React.FC = () => {
       icon: Radar,
       title: 'Montáž radarů',
       description: 'Vedle osvětlení zvyšujeme bezpečnost také instalací rychlostních radarů.',
-      image: 'https://images.pexels.com/photos/163945/highway-the-high-speed-1-highway-163945.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/work/radar.jpg'
     }
   ];
 
