@@ -7,28 +7,28 @@ const BenefitsSection: React.FC = () => {
       icon: Wrench,
       title: 'Vlastní technika',
       description: 'Žádné prostoje kvůli čekání na subdodavatele. Máme vlastní bagr, plošinu i specializované nástroje.',
-      bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
       details: 'Kompletní technické vybavení pro realizaci projektů bez závislosti na třetích stranách.'
     },
     {
       icon: Users,
       title: 'Zkušený tým',
       description: 'Desítky let praxe v oboru elektroinstalací a veřejného osvětlení. Certifikovaní elektrikáři s oprávněním pro revize.',
-      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
       details: 'Náš tým tvoří odborníci s dlouholetou praxí a průběžnými školeními.'
     },
     {
       icon: Shield,
       title: 'Komplexní řešení',
       description: 'Jeden partner pro celý projekt od přípravy až po předání. Nemusíte koordinovat více dodavatelů.',
-      bgImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
       details: 'Zajistíme projektovou přípravu, realizaci i následný servis z jedné ruky.'
     },
     {
       icon: Clock,
       title: 'Spolehlivost a termíny',
       description: 'Zakládáme si na dodržování dohod a termínů. Naše reference hovoří za nás.',
-      bgImage: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=80',
       details: 'Pečlivé plánování a koordinace zajišťuje dodržení stanovených termínů.'
     }
   ];
