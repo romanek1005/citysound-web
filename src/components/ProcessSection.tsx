@@ -50,7 +50,7 @@ const ProcessSection: React.FC = () => {
         {/* Process Steps */}
         <div className="relative">
           {/* Connection Line - Desktop */}
-          <div className="hidden lg:block absolute top-24 left-0 w-full h-0.5 bg-gradient-to-r from-citysound-green-200 via-citysound-green-400 to-citysound-green-200"></div>
+          <div className="hidden lg:block absolute top-24 left-0 w-full h-1 bg-gradient-to-r from-citysound-green-300 via-citysound-green-500 to-citysound-green-300"></div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
@@ -61,35 +61,35 @@ const ProcessSection: React.FC = () => {
                 </div>
 
                 {/* Step Card with Split Layout */}
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
                   {/* Image Background with Icon - Top Half */}
                   <div 
-                    className="relative h-48 bg-cover bg-center flex items-center justify-center"
+                    className="relative h-48 bg-cover bg-center"
                     style={{ backgroundImage: `url(${step.bgImage})` }}
                   >
                     {/* Dark overlay for better icon visibility */}
-                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-300"></div>
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300"></div>
                     
-                    {/* Floating Icon */}
-                    <div className="relative z-10 w-16 h-16 bg-white/20 backdrop-blur-sm group-hover:bg-white/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                      <step.icon className="w-8 h-8 text-white" />
+                    {/* Icon in Top-Left Corner */}
+                    <div className="absolute top-4 left-4 z-10 w-12 h-12 bg-citysound-green-600 group-hover:bg-citysound-green-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <step.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
 
                   {/* Content - Bottom Half */}
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-citysound-green-700 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-citysound-green-700 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    <p className="text-gray-600 mb-4 leading-relaxed text-base">
                       {step.description}
                     </p>
                     
                     {/* Details List */}
                     <ul className="space-y-2">
                       {step.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start space-x-2 text-xs text-gray-600">
-                          <CheckCircle className="w-3 h-3 text-citysound-green-500 flex-shrink-0 mt-0.5" />
+                        <li key={detailIndex} className="flex items-start space-x-2 text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-citysound-green-500 flex-shrink-0 mt-0.5" />
                           <span>{detail}</span>
                         </li>
                       ))}
