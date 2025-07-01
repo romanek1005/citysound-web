@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-  <shield cx="40" cy="40" r="35" fill="#DC2626"/>
-  <rect x="15" y="15" width="50" height="50" rx="10" fill="#DC2626" stroke="#FCD34D" stroke-width="2"/>
-  <text x="40" y="45" text-anchor="middle" fill="#FCD34D" font-family="Arial, sans-serif" font-size="14" font-weight="bold">BRNO</text>
-</svg>

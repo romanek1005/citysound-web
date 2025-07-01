@@ -3,21 +3,22 @@ import { Building2, MapPin, Users, Award } from 'lucide-react';
 
 const ReferencesSection: React.FC = () => {
   const constructionCompanies = [
-    { name: 'STRABAG', logoPath: '/src/assets/logos/companies/strabag.svg' },
-    { name: 'SKANSKA', logoPath: '/src/assets/logos/companies/skanska.svg' },
-    { name: 'METROSTAV', logoPath: '/src/assets/logos/companies/metrostav.svg' },
-    { name: 'EUROVIA', logoPath: '/src/assets/logos/companies/eurovia.svg' },
-    { name: 'HOCHTIEF', logoPath: '/src/assets/logos/companies/hochtief.svg' },
-    { name: 'PORR', logoPath: '/src/assets/logos/companies/porr.svg' }
+    { name: 'Continental Frenštát', logoPath: '/src/assets/logos/companies/continental_frenstat.png' },
+    { name: 'IDS VM', logoPath: '/src/assets/logos/companies/ids_vm.png' },
+    { name: 'Lars MK', logoPath: '/src/assets/logos/companies/lars_mk.jpg' },
+    { name: 'SIVAP', logoPath: '/src/assets/logos/companies/sivap.png' },
+    { name: 'TJ Jurinka', logoPath: '/src/assets/logos/companies/tj_jurinka.png' },
+    { name: 'Zenit spol. s r.o.', logoPath: '/src/assets/logos/companies/zenit_spol_s_r_o.jpg' }
   ];
 
   const municipalities = [
-    { name: 'Praha 6', logoPath: '/src/assets/logos/municipalities/praha6.svg' },
-    { name: 'Brno', logoPath: '/src/assets/logos/municipalities/brno.svg' },
-    { name: 'Ostrava', logoPath: '/src/assets/logos/municipalities/ostrava.svg' },
-    { name: 'Plzeň', logoPath: '/src/assets/logos/municipalities/plzen.svg' },
-    { name: 'České Budějovice', logoPath: '/src/assets/logos/municipalities/ceske-budejovice.svg' },
-    { name: 'Hradec Králové', logoPath: '/src/assets/logos/municipalities/hradec-kralove.svg' }
+    { name: 'Choryně', logoPath: '/src/assets/logos/municipalities/choryne.png' },
+    { name: 'Hrachovek', logoPath: '/src/assets/logos/municipalities/hrachovec.png' },
+    { name: 'Kateřinice', logoPath: '/src/assets/logos/municipalities/katerinice.png' },
+    { name: 'Morkov', logoPath: '/src/assets/logos/municipalities/morkov.jpg' },
+    { name: 'Nový Hrozenkov', logoPath: '/src/assets/logos/municipalities/novy_hrozenkov.png' },
+    { name: 'Valašské Meziříčí', logoPath: '/src/assets/logos/municipalities/valasske_mezirici.jpg' },
+    { name: 'Vsetín', logoPath: '/src/assets/logos/municipalities/vsetin.png' }
   ];
 
   const stats = [
