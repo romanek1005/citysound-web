@@ -97,8 +97,8 @@ const BenefitsSection: React.FC = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+        <div className="bg-gradient-to-r from-citysound-green-50 to-citysound-green-100 border-2 border-citysound-green-200 rounded-2xl p-8 lg:p-12 shadow-lg">
+          <h3 className="text-2xl font-bold text-citysound-green-800 mb-8 text-center">
             Co říkají naši klienti
           </h3>
           
@@ -106,7 +106,7 @@ const BenefitsSection: React.FC = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-lg animate-fade-in"
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl border border-citysound-green-200 animate-fade-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Stars */}
