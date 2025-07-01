@@ -44,7 +44,7 @@ const ContactSection: React.FC = () => {
       icon: Phone,
       title: 'Telefon',
       value: '+420 123 456 789',
-      href: 'tel:+420123456789',
+      href: 'tel:+420774456960',
       description: 'Volejte kdykoliv během pracovní doby'
     },
     {
@@ -235,7 +235,7 @@ const ContactSection: React.FC = () => {
               <h4 className="text-xl font-bold mb-2">Potřebujete rychlou odpověď?</h4>
               <p className="mb-4">Zavolejte nám přímo, rádi si s vámi promluvíme o vašem projektu.</p>
               <a
-                href="tel:+420123456789"
+                href="tel:+420774456960"
                 className="inline-block bg-white text-citysound-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
                 Zavolat +420 123 456 789

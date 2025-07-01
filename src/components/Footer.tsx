@@ -88,10 +88,10 @@ const Footer: React.FC = () => {
                 <Phone className="w-5 h-5 text-citysound-green-400 mt-0.5" />
                 <div>
                   <a
-                    href="tel:+420123456789"
+                    href="tel:+420774456960"
                     className="text-gray-300 hover:text-citysound-green-400 transition-colors"
                   >
-                    +420 123 456 789
+                    +420 774 456 960
                   </a>
                   <p className="text-xs text-gray-400">Po-Pá: 7:00-16:00</p>
                 </div>

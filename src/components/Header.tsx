@@ -59,11 +59,11 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-4">
             {/* Phone */}
             <a
-              href="tel:+420722113729"
+              href="tel:+420774456960"
               className="flex items-center space-x-2 text-gray-700 hover:text-citysound-green-600 transition-colors"
             >
               <Phone size={16} />
-              <span className="text-sm font-medium">+420 722 113 729</span>
+              <span className="text-sm font-medium">+420 774 456 960</span>
             </a>
             
             {/* Social Media */}
@@ -119,11 +119,11 @@ const Header: React.FC = () => {
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
                 <a
-                  href="tel:+420722113729"
+                  href="tel:+420774456960"
                   className="flex items-center space-x-2 text-gray-700 py-2"
                 >
                   <Phone size={16} />
-                  <span>+420 722 113 729</span>
+                  <span>+420 774 456 960</span>
                 </a>
                 <div className="flex items-center space-x-4 py-2">
                   <a href="#" className="flex items-center space-x-2 text-gray-700">
