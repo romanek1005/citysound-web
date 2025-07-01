@@ -238,7 +238,7 @@ const ContactSection: React.FC = () => {
                 href="tel:+420774456960"
                 className="inline-block bg-white text-citysound-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Zavolat +420 123 456 789
+                Zavolat +420 774 456 960
               </a>
             </div>
           </div>
