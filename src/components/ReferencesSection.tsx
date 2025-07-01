@@ -7,15 +7,15 @@ const ReferencesSection: React.FC = () => {
     { name: 'IDS VM', logoPath: '/logos/companies/ids_vm.png' },
     { name: 'Lars MK', logoPath: '/logos/companies/lars_mk.jpg' },
     { name: 'SIVAP', logoPath: '/logos/companies/sivap.png' },
-    { name: 'TJ Jurinka', logoPath: '/logos/companies/tj_jurinka.png' },
-    { name: 'Zenit spol. s r.o.', logoPath: '/logos/companies/zenit_spol_s_r_o.jpg' }
+    { name: 'TJ Juřinka', logoPath: '/logos/companies/tj_jurinka.png' },
+    { name: 'Zenit spol. s. r. o.', logoPath: '/logos/companies/zenit_spol_s_r_o.jpg' }
   ];
 
   const municipalities = [
     { name: 'Choryně', logoPath: '/logos/municipalities/choryne.png' },
-    { name: 'Hrachovek', logoPath: '/logos/municipalities/hrachovec.png' },
+    { name: 'Hrachovec', logoPath: '/logos/municipalities/hrachovec.png' },
     { name: 'Kateřinice', logoPath: '/logos/municipalities/katerinice.png' },
-    { name: 'Morkov', logoPath: '/logos/municipalities/morkov.jpg' },
+    { name: 'Mořkov', logoPath: '/logos/municipalities/morkov.jpg' },
     { name: 'Nový Hrozenkov', logoPath: '/logos/municipalities/novy_hrozenkov.png' },
     { name: 'Valašské Meziříčí', logoPath: '/logos/municipalities/valasske_mezirici.jpg' }
   ];
