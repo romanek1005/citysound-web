@@ -83,7 +83,9 @@ const ServicesSection: React.FC = () => {
                   {/* Content */}
                   <div className={`p-8 lg:p-12 text-white ${service.imagePosition === 'left' ? 'lg:col-start-2' : ''}`}>
                     <div className="flex items-center space-x-3 mb-6">
-                      <service.icon className="w-8 h-8 text-white" />
+                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <service.icon className="w-6 h-6 text-white" />
+                      </div>
                       <h3 className="text-3xl lg:text-4xl font-bold">{service.title}</h3>
                       <span className="bg-citysound-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full ml-auto">
                         Hlavní specializace
