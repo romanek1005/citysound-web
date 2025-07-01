@@ -17,8 +17,7 @@ const ReferencesSection: React.FC = () => {
     { name: 'Kateřinice', logoPath: '/logos/municipalities/katerinice.png' },
     { name: 'Morkov', logoPath: '/logos/municipalities/morkov.jpg' },
     { name: 'Nový Hrozenkov', logoPath: '/logos/municipalities/novy_hrozenkov.png' },
-    { name: 'Valašské Meziříčí', logoPath: '/logos/municipalities/valasske_mezirici.jpg' },
-    { name: 'Vsetín', logoPath: '/logos/municipalities/vsetin.png' }
+    { name: 'Valašské Meziříčí', logoPath: '/logos/municipalities/valasske_mezirici.jpg' }
   ];
 
   const stats = [
@@ -127,6 +126,47 @@ const ReferencesSection: React.FC = () => {
             <span className="text-citysound-green-800 font-semibold">
               Certifikovaní elektrikáři s oprávněním pro revize
             </span>
+          </div>
+        </div>
+        
+        {/* Our Work Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+              Naše realizace
+            </h3>
+            <p className="text-lg text-gray-600">
+              Prohlédněte si výběr z našich úspěšných projektů
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              '/work/20210107_150459.jpg',
+              '/work/20210630_145321.jpg',
+              '/work/20220530_143714.jpg',
+              '/work/20230219_150700.jpg',
+              '/work/20241115_112046.jpg',
+              '/work/20241213_085617.jpg',
+              '/work/20250226_091248.jpg',
+              '/work/20250412_091130.jpg',
+              '/work/20250511_205703.jpg',
+              '/work/20250511_210358.jpg',
+              '/work/20250511_211440.jpg',
+              '/work/20250511_212135.jpg'
+            ].map((imagePath, index) => (
+              <div
+                key={index}
+                className="group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <img
+                  src={imagePath}
+                  alt={`Realizace č. ${index + 1}`}
+                  className="w-full h-48 object-cover group-hover:brightness-110 transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

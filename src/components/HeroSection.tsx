@@ -5,13 +5,14 @@ const HeroSection: React.FC = () => {
   const [showLights, setShowLights] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLights(true);
-    }, 2000);
+    // Disabled monochrome effect - uncomment to re-enable
+    // const timer = setTimeout(() => {
+    //   setShowLights(true);
+    // }, 2000);
 
-    return () => {
-      clearTimeout(timer);
-    };
+    // return () => {
+    //   clearTimeout(timer);
+    // };
   }, []);
 
   const scrollToContact = () => {
