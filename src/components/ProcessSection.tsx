@@ -56,11 +56,7 @@ const ProcessSection: React.FC = () => {
             {steps.map((step, index) => (
               <div key={index} className="relative animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 {/* Step Card with Split Layout */}
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
-                  {/* Step Number - Top Right Corner */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-citysound-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm z-20 shadow-lg">
-                    {index + 1}
-                  </div>
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
                   {/* Image Background with Icon - Top Half */}
                   <div 
                     className="relative h-48 bg-cover bg-center"
