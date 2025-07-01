@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, Menu, X, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, Menu, X, Facebook, Instagram, ArrowRight } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,9 +85,12 @@ const Header: React.FC = () => {
             {/* CTA Button */}
             <button
               onClick={scrollToContact}
-              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
+              className="group bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
             >
-              Nezávazně poptat
+              <span className="flex items-center space-x-2">
+                <span>Nezávazně poptat</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </button>
           </div>
 

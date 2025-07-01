@@ -7,24 +7,28 @@ const BenefitsSection: React.FC = () => {
       icon: Wrench,
       title: 'Vlastní technika',
       description: 'Žádné prostoje kvůli čekání na subdodavatele. Máme vlastní bagr, plošinu i specializované nástroje.',
+      bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'
       details: 'Kompletní technické vybavení pro realizaci projektů bez závislosti na třetích stranách.'
     },
     {
       icon: Users,
       title: 'Zkušený tým',
       description: 'Desítky let praxe v oboru elektroinstalací a veřejného osvětlení. Certifikovaní elektrikáři s oprávněním pro revize.',
+      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
       details: 'Náš tým tvoří odborníci s dlouholetou praxí a průběžnými školeními.'
     },
     {
       icon: Shield,
       title: 'Komplexní řešení',
       description: 'Jeden partner pro celý projekt od přípravy až po předání. Nemusíte koordinovat více dodavatelů.',
+      bgImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
       details: 'Zajistíme projektovou přípravu, realizaci i následný servis z jedné ruky.'
     },
     {
       icon: Clock,
       title: 'Spolehlivost a termíny',
       description: 'Zakládáme si na dodržování dohod a termínů. Naše reference hovoří za nás.',
+      bgImage: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=80'
       details: 'Pečlivé plánování a koordinace zajišťuje dodržení stanovených termínů.'
     }
   ];
@@ -62,24 +66,32 @@ const BenefitsSection: React.FC = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group text-center animate-scale-in"
+              className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Icon */}
-              <div className="w-20 h-20 bg-citysound-green-100 group-hover:bg-citysound-green-200 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
-                <benefit.icon className="w-10 h-10 text-citysound-green-600" />
+              {/* Image Background with Icon - Top Half */}
+              <div 
+                className="relative h-48 bg-cover bg-center flex items-center justify-center"
+                style={{ backgroundImage: `url(${benefit.bgImage})` }}
+              >
+                {/* Dark overlay for better icon visibility */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+                
+                {/* Floating Icon */}
+                <div className="relative z-10 w-16 h-16 bg-white/20 backdrop-blur-sm group-hover:bg-white/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                  <benefit.icon className="w-8 h-8 text-white group-hover:text-citysound-green-200" />
+                </div>
               </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-citysound-green-700 transition-colors">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {benefit.description}
-              </p>
-              <p className="text-sm text-gray-500 italic">
-                {benefit.details}
-              </p>
+              {/* Content - Bottom Half */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-citysound-green-700 transition-colors">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
