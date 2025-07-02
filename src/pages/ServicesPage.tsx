@@ -101,18 +101,18 @@ const ServicesPage: React.FC = () => {
               <img
                 src="/work/20241115_112046.jpg"
                 alt="Montážní plošina Renault Maxity"
-                className="rounded-xl shadow-lg w-full"
+                className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
                   src="/work/20250511_212135.jpg"
                   alt="Práce s montážní plošinou"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
                 <img
                   src="/work/20220530_143714.jpg"
                   alt="Montážní plošina detail"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
               </div>
             </div>
@@ -200,18 +200,18 @@ const ServicesPage: React.FC = () => {
               <img
                 src="/work/20250511_211440.jpg"
                 alt="Minibagr Kubota KX-019"
-                className="rounded-xl shadow-lg w-full"
+                className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
                   src="/work/20250226_091248.jpg"
                   alt="Zemní práce"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
                 <img
                   src="/work/20250412_091130.jpg"
                   alt="Výkopové práce"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ const ServicesPage: React.FC = () => {
               <img
                 src="/work/20210107_150459.jpg"
                 alt="Autodoprava a kontejnery"
-                className="rounded-xl shadow-lg w-full"
+                className="rounded-xl shadow-lg w-full h-80 object-cover"
               />
             </div>
             
@@ -295,17 +295,17 @@ const ServicesPage: React.FC = () => {
                 <img
                   src="/work/20241115_112046.jpg"
                   alt="Radar installation 1"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
                 <img
                   src="/work/20250511_212135.jpg"
                   alt="Radar installation 2"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
                 <img
                   src="/work/20220530_143714.jpg"
                   alt="Radar installation 3"
-                  className="rounded-lg shadow-md"
+                  className="rounded-lg shadow-md h-32 w-full object-cover"
                 />
               </div>
               
