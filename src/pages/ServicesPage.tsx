@@ -96,8 +96,8 @@ const ServicesPage: React.FC = () => {
       {/* Renault Maxity Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="h-full flex flex-col justify-between">
               <img
                 src="/work/20241115_112046.jpg"
                 alt="Montážní plošina Renault Maxity"
@@ -159,7 +159,7 @@ const ServicesPage: React.FC = () => {
       {/* Kubota Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                 Zemní práce minibagrem <span className="text-citysound-green-600">Kubota KX-019</span>
@@ -196,7 +196,7 @@ const ServicesPage: React.FC = () => {
               </button>
             </div>
             
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 h-full flex flex-col justify-between">
               <img
                 src="/work/20250511_211440.jpg"
                 alt="Minibagr Kubota KX-019"
@@ -222,8 +222,8 @@ const ServicesPage: React.FC = () => {
       {/* Transportation Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="h-full flex items-center">
               <img
                 src="/work/20210107_150459.jpg"
                 alt="Autodoprava a kontejnery"
