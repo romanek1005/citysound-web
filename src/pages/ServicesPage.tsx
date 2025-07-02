@@ -68,8 +68,10 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            {services.map((service, index) => {
+              const serviceId = service.title.toLowerCase().replace(/\s+/g, '-').replace(/ž/g, 'z').replace(/í/g, 'i').replace(/á/g, 'a').replace(/é/g, 'e').replace(/ř/g, 'r').replace(/ů/g, 'u').replace(/ý/g, 'y').replace(/č/g, 'c').replace(/š/g, 's').replace(/ť/g, 't').replace(/ď/g, 'd').replace(/ň/g, 'n');
+              return (
+              <a href={`#${serviceId}`} key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block">
                 <div className="relative">
                   <img
                     src={service.image}
@@ -87,14 +89,15 @@ const ServicesPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </div>
-              </div>
-            ))}
+              </a>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Renault Maxity Section */}
-      <section className="py-20 bg-white">
+      <section id="montazni-plosina" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="flex flex-col">
@@ -157,7 +160,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Kubota Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="zemni-prace" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="order-2 lg:order-1">
@@ -220,7 +223,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Transportation Section */}
-      <section className="py-20 bg-white">
+      <section id="autodoprava" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -271,7 +274,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Radar Installation Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="montaz-radaru" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
