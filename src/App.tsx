@@ -1,25 +1,16 @@
 import React from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import ReferencesSection from './components/ReferencesSection';
-import ProcessSection from './components/ProcessSection';
-import ServicesSection from './components/ServicesSection';
-import BenefitsSection from './components/BenefitsSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PublicLightingPage from './pages/PublicLightingPage';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <HeroSection />
-      <ReferencesSection />
-      <ProcessSection />
-      <ServicesSection />
-      <BenefitsSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/verejne-osvetleni" element={<PublicLightingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
