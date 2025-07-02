@@ -110,21 +110,35 @@ const PublicLightingPage: React.FC = () => {
           >
             {/* Gradient Definitions */}
             <defs>
-              <radialGradient id="lightGlow" cx="50%" cy="0%" r="60%">
-                <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.4" />
+              <radialGradient id="lightGlow" cx="50%" cy="0%" r="80%">
+                <stop offset="0%" stopColor="#ffd700" stopOpacity="0.9" />
+                <stop offset="30%" stopColor="#fbbf24" stopOpacity="0.7" />
+                <stop offset="70%" stopColor="#f59e0b" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
               </radialGradient>
-              <radialGradient id="lightGlow2" cx="50%" cy="0%" r="60%">
-                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.6" />
-                <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.3" />
+              <radialGradient id="lightGlow2" cx="50%" cy="0%" r="80%">
+                <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.8" />
+                <stop offset="30%" stopColor="#60a5fa" stopOpacity="0.6" />
+                <stop offset="70%" stopColor="#3b82f6" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0" />
               </radialGradient>
+              <radialGradient id="intenseLightGlow" cx="50%" cy="0%" r="40%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ffd700" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+              </radialGradient>
               <linearGradient id="poleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#374151" />
-                <stop offset="50%" stopColor="#4b5563" />
-                <stop offset="100%" stopColor="#374151" />
+                <stop offset="0%" stopColor="#1f2937" />
+                <stop offset="50%" stopColor="#374151" />
+                <stop offset="100%" stopColor="#1f2937" />
               </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge> 
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
 
             {/* Background City Silhouette */}
@@ -143,73 +157,148 @@ const PublicLightingPage: React.FC = () => {
             {/* Street Lamp 1 */}
             <g>
               {/* Pole */}
-              <rect x="250" y="500" width="8" height="200" fill="url(#poleGradient)" />
+              <rect x="248" y="480" width="12" height="220" fill="url(#poleGradient)" rx="6" />
               {/* Lamp Head */}
-              <ellipse cx="254" cy="490" rx="25" ry="15" fill="#374151" />
-              {/* Light Glow */}
-              <ellipse cx="254" cy="500" rx="60" ry="120" fill="url(#lightGlow)" opacity="0">
-                <animate attributeName="opacity" values="0;0.8;0.6;0.8" dur="3s" begin="0.5s" repeatCount="indefinite" />
+              <ellipse cx="254" cy="470" rx="35" ry="20" fill="#1f2937" />
+              <ellipse cx="254" cy="465" rx="30" ry="15" fill="#374151" />
+              {/* Intense Core Light */}
+              <ellipse cx="254" cy="480" rx="20" ry="40" fill="url(#intenseLightGlow)" opacity="0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;1;0.8;1" dur="2s" begin="0.5s" repeatCount="indefinite" />
               </ellipse>
-              {/* Light Beam */}
-              <polygon points="229,500 279,500 300,650 200,650" fill="url(#lightGlow)" opacity="0">
-                <animate attributeName="opacity" values="0;0.3;0.2;0.3" dur="3s" begin="0.5s" repeatCount="indefinite" />
+              {/* Main Light Glow */}
+              <ellipse cx="254" cy="490" rx="80" ry="150" fill="url(#lightGlow)" opacity="0">
+                <animate attributeName="opacity" values="0;0.7;0.5;0.7" dur="3s" begin="0.5s" repeatCount="indefinite" />
+              </ellipse>
+              {/* Wider Light Beam */}
+              <polygon points="214,485 294,485 320,700 180,700" fill="url(#lightGlow)" opacity="0">
+                <animate attributeName="opacity" values="0;0.4;0.3;0.4" dur="3s" begin="0.5s" repeatCount="indefinite" />
               </polygon>
+              {/* Light Source */}
+              <circle cx="254" cy="475" r="8" fill="#ffd700" opacity="0">
+                <animate attributeName="opacity" values="0;1;0.9;1" dur="1s" begin="0.5s" repeatCount="indefinite" />
+              </circle>
             </g>
 
             {/* Street Lamp 2 */}
             <g>
-              <rect x="450" y="520" width="8" height="180" fill="url(#poleGradient)" />
-              <ellipse cx="454" cy="510" rx="25" ry="15" fill="#374151" />
-              <ellipse cx="454" cy="520" rx="60" ry="120" fill="url(#lightGlow2)" opacity="0">
-                <animate attributeName="opacity" values="0;0.7;0.5;0.7" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              <rect x="448" y="500" width="12" height="200" fill="url(#poleGradient)" rx="6" />
+              <ellipse cx="454" cy="490" rx="35" ry="20" fill="#1f2937" />
+              <ellipse cx="454" cy="485" rx="30" ry="15" fill="#374151" />
+              {/* Intense Core Light */}
+              <ellipse cx="454" cy="500" rx="20" ry="40" fill="url(#intenseLightGlow)" opacity="0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;0.9;0.7;0.9" dur="2s" begin="1.2s" repeatCount="indefinite" />
               </ellipse>
-              <polygon points="429,520 479,520 500,670 400,670" fill="url(#lightGlow2)" opacity="0">
-                <animate attributeName="opacity" values="0;0.25;0.15;0.25" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              <ellipse cx="454" cy="510" rx="80" ry="150" fill="url(#lightGlow2)" opacity="0">
+                <animate attributeName="opacity" values="0;0.6;0.4;0.6" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              </ellipse>
+              <polygon points="414,505 494,505 520,700 380,700" fill="url(#lightGlow2)" opacity="0">
+                <animate attributeName="opacity" values="0;0.35;0.25;0.35" dur="3s" begin="1.2s" repeatCount="indefinite" />
               </polygon>
+              <circle cx="454" cy="495" r="8" fill="#00d4ff" opacity="0">
+                <animate attributeName="opacity" values="0;1;0.8;1" dur="1s" begin="1.2s" repeatCount="indefinite" />
+              </circle>
             </g>
 
             {/* Street Lamp 3 */}
             <g>
-              <rect x="650" y="510" width="8" height="190" fill="url(#poleGradient)" />
-              <ellipse cx="654" cy="500" rx="25" ry="15" fill="#374151" />
-              <ellipse cx="654" cy="510" rx="60" ry="120" fill="url(#lightGlow)" opacity="0">
-                <animate attributeName="opacity" values="0;0.9;0.7;0.9" dur="3s" begin="1.8s" repeatCount="indefinite" />
+              <rect x="648" y="490" width="12" height="210" fill="url(#poleGradient)" rx="6" />
+              <ellipse cx="654" cy="480" rx="35" ry="20" fill="#1f2937" />
+              <ellipse cx="654" cy="475" rx="30" ry="15" fill="#374151" />
+              {/* Intense Core Light */}
+              <ellipse cx="654" cy="490" rx="20" ry="40" fill="url(#intenseLightGlow)" opacity="0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;1;0.8;1" dur="2s" begin="1.8s" repeatCount="indefinite" />
               </ellipse>
-              <polygon points="629,510 679,510 700,660 600,660" fill="url(#lightGlow)" opacity="0">
-                <animate attributeName="opacity" values="0;0.35;0.25;0.35" dur="3s" begin="1.8s" repeatCount="indefinite" />
+              <ellipse cx="654" cy="500" rx="80" ry="150" fill="url(#lightGlow)" opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0.6;0.8" dur="3s" begin="1.8s" repeatCount="indefinite" />
+              </ellipse>
+              <polygon points="614,495 694,495 720,700 580,700" fill="url(#lightGlow)" opacity="0">
+                <animate attributeName="opacity" values="0;0.45;0.35;0.45" dur="3s" begin="1.8s" repeatCount="indefinite" />
               </polygon>
+              <circle cx="654" cy="485" r="8" fill="#ffd700" opacity="0">
+                <animate attributeName="opacity" values="0;1;0.9;1" dur="1s" begin="1.8s" repeatCount="indefinite" />
+              </circle>
             </g>
 
             {/* Street Lamp 4 */}
             <g>
-              <rect x="850" y="530" width="8" height="170" fill="url(#poleGradient)" />
-              <ellipse cx="854" cy="520" rx="25" ry="15" fill="#374151" />
-              <ellipse cx="854" cy="530" rx="60" ry="120" fill="url(#lightGlow2)" opacity="0">
-                <animate attributeName="opacity" values="0;0.6;0.4;0.6" dur="3s" begin="2.5s" repeatCount="indefinite" />
+              <rect x="848" y="510" width="12" height="190" fill="url(#poleGradient)" rx="6" />
+              <ellipse cx="854" cy="500" rx="35" ry="20" fill="#1f2937" />
+              <ellipse cx="854" cy="495" rx="30" ry="15" fill="#374151" />
+              {/* Intense Core Light */}
+              <ellipse cx="854" cy="510" rx="20" ry="40" fill="url(#intenseLightGlow)" opacity="0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;0.8;0.6;0.8" dur="2s" begin="2.5s" repeatCount="indefinite" />
               </ellipse>
-              <polygon points="829,530 879,530 900,680 800,680" fill="url(#lightGlow2)" opacity="0">
-                <animate attributeName="opacity" values="0;0.2;0.1;0.2" dur="3s" begin="2.5s" repeatCount="indefinite" />
+              <ellipse cx="854" cy="520" rx="80" ry="150" fill="url(#lightGlow2)" opacity="0">
+                <animate attributeName="opacity" values="0;0.5;0.3;0.5" dur="3s" begin="2.5s" repeatCount="indefinite" />
+              </ellipse>
+              <polygon points="814,515 894,515 920,700 780,700" fill="url(#lightGlow2)" opacity="0">
+                <animate attributeName="opacity" values="0;0.3;0.2;0.3" dur="3s" begin="2.5s" repeatCount="indefinite" />
               </polygon>
+              <circle cx="854" cy="505" r="8" fill="#00d4ff" opacity="0">
+                <animate attributeName="opacity" values="0;1;0.8;1" dur="1s" begin="2.5s" repeatCount="indefinite" />
+              </circle>
             </g>
 
             {/* Floating Light Particles */}
             <g className="opacity-60">
-              <circle cx="300" cy="400" r="3" fill="#fbbf24">
-                <animate attributeName="cy" values="400;380;400" dur="4s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
+              <circle cx="300" cy="400" r="4" fill="#ffd700" filter="url(#glow)">
+                <animate attributeName="cy" values="400;350;400" dur="6s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite" />
+                <animate attributeName="r" values="4;6;4" dur="3s" repeatCount="indefinite" />
               </circle>
-              <circle cx="500" cy="420" r="2" fill="#60a5fa">
-                <animate attributeName="cy" values="420;400;420" dur="3.5s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.5s" repeatCount="indefinite" />
+              <circle cx="500" cy="420" r="3" fill="#00d4ff" filter="url(#glow)">
+                <animate attributeName="cy" values="420;370;420" dur="5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.2;0.9;0.2" dur="5s" repeatCount="indefinite" />
+                <animate attributeName="r" values="3;5;3" dur="4s" repeatCount="indefinite" />
               </circle>
-              <circle cx="700" cy="380" r="2.5" fill="#fbbf24">
-                <animate attributeName="cy" values="380;360;380" dur="5s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0.9;0.5" dur="5s" repeatCount="indefinite" />
+              <circle cx="700" cy="380" r="3.5" fill="#ffd700" filter="url(#glow)">
+                <animate attributeName="cy" values="380;330;380" dur="7s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="7s" repeatCount="indefinite" />
+                <animate attributeName="r" values="3.5;5.5;3.5" dur="3.5s" repeatCount="indefinite" />
               </circle>
-              <circle cx="900" cy="410" r="2" fill="#60a5fa">
-                <animate attributeName="cy" values="410;390;410" dur="4.5s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4.5s" repeatCount="indefinite" />
+              <circle cx="900" cy="410" r="3" fill="#00d4ff" filter="url(#glow)">
+                <animate attributeName="cy" values="410;360;410" dur="5.5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite" />
+                <animate attributeName="r" values="3;4.5;3" dur="4s" repeatCount="indefinite" />
               </circle>
+              {/* Additional sparkle particles */}
+              <circle cx="380" cy="350" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="cy" values="350;320;350" dur="4s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="600" cy="360" r="1.5" fill="#ffd700" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;0.8;0" dur="3s" begin="1s" repeatCount="indefinite" />
+                <animate attributeName="cy" values="360;330;360" dur="6s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="750" cy="340" r="2" fill="#00d4ff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0;0.9;0" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+                <animate attributeName="cy" values="340;310;340" dur="5s" repeatCount="indefinite" />
+              </circle>
+            </g>
+
+            {/* Light Rays emanating from lamps */}
+            <g className="opacity-20">
+              {/* Rays from lamp 1 */}
+              <line x1="254" y1="475" x2="254" y2="300" stroke="#ffd700" strokeWidth="2" opacity="0">
+                <animate attributeName="opacity" values="0;0.6;0" dur="4s" begin="1s" repeatCount="indefinite" />
+              </line>
+              <line x1="254" y1="475" x2="200" y2="320" stroke="#ffd700" strokeWidth="1" opacity="0">
+                <animate attributeName="opacity" values="0;0.4;0" dur="5s" begin="1.2s" repeatCount="indefinite" />
+              </line>
+              <line x1="254" y1="475" x2="308" y2="310" stroke="#ffd700" strokeWidth="1" opacity="0">
+                <animate attributeName="opacity" values="0;0.4;0" dur="4.5s" begin="1.5s" repeatCount="indefinite" />
+              </line>
+              
+              {/* Rays from lamp 3 */}
+              <line x1="654" y1="485" x2="654" y2="300" stroke="#ffd700" strokeWidth="2" opacity="0">
+                <animate attributeName="opacity" values="0;0.6;0" dur="4s" begin="2.5s" repeatCount="indefinite" />
+              </line>
+              <line x1="654" y1="485" x2="600" y2="320" stroke="#ffd700" strokeWidth="1" opacity="0">
+                <animate attributeName="opacity" values="0;0.4;0" dur="5s" begin="2.7s" repeatCount="indefinite" />
+              </line>
+              <line x1="654" y1="485" x2="708" y2="310" stroke="#ffd700" strokeWidth="1" opacity="0">
+                <animate attributeName="opacity" values="0;0.4;0" dur="4.5s" begin="3s" repeatCount="indefinite" />
+              </line>
             </g>
 
             {/* Power Grid Lines */}
