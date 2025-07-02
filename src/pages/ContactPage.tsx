@@ -95,15 +95,52 @@ const ContactPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <section className="pt-24 pb-20 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16 animate-slide-up">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Kontaktujte nás
+      {/* Hero Section */}
+      <section className="min-h-[60vh] flex items-center bg-gradient-to-br from-citysound-green-50 via-white to-citysound-blue-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-citysound-green-600 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-citysound-blue-600 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+              Máte projekt? <span className="text-citysound-green-600">Pojďme se bavit!</span>
             </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+              Ozvěte se nám kdykoliv. První konzultace je zdarma a bez závazků. 
+              Rádi si s vámi promluvíme o vašich potřebách.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="tel:+420774456960"
+                className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Zavolat +420 774 456 960</span>
+              </a>
+              <a
+                href="mailto:info@citysound.cz"
+                className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
+              >
+                <Mail className="w-5 h-5" />
+                <span>info@citysound.cz</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Napište nám
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Napište nám nebo zavolejte. První konzultace je zdarma a bez závazků.
+              Vyplňte formulář níže a my se vám ozveme do 24 hodin.
             </p>
           </div>
 
@@ -275,28 +312,32 @@ const ContactPage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
-              <div className="mt-8 bg-white rounded-xl p-6 shadow-lg">
-                <h4 className="text-xl font-bold text-gray-800 mb-4">Kde nás najdete</h4>
-                <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <p className="text-lg font-medium">Mapa bude brzy k dispozici</p>
-                    <p className="text-sm">Oznice 101, 756 24 Bystřička</p>
-                  </div>
-                </div>
-              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Quick CTA */}
-              <div className="mt-8 bg-gradient-to-r from-citysound-green-600 to-citysound-green-700 rounded-2xl p-6 text-white">
-                <h4 className="text-xl font-bold mb-2">Potřebujete rychlou odpověď?</h4>
-                <p className="mb-4">Zavolejte nám přímo, rádi si s vámi promluvíme o vašem projektu.</p>
-                <a
-                  href="tel:+420774456960"
-                  className="inline-block bg-white text-citysound-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  Zavolat +420 774 456 960
-                </a>
+      {/* Map Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Kde nás najdete
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Naše firma sídlí v obci Bystřička, odkud pokrýváme celou Moravskoslezskou oblast.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
+                <div className="text-center text-gray-600">
+                  <MapPin className="w-16 h-16 mx-auto mb-4 text-citysound-green-600" />
+                  <p className="text-xl font-semibold mb-2">Mapa bude brzy k dispozici</p>
+                  <p className="text-lg text-gray-700 font-medium">Oznice 101, 756 24 Bystřička</p>
+                  <p className="text-sm text-gray-500 mt-2">Možnost osobní konzultace po předchozí domluvě</p>
+                </div>
               </div>
             </div>
           </div>
