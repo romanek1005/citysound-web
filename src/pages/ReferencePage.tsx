@@ -207,7 +207,7 @@ const ReferencePage: React.FC = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative">
@@ -216,27 +216,18 @@ const ReferencePage: React.FC = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-semibold text-lg">Zobrazit projekt</span>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-gray-600">
-                      <Building className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{project.client}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{project.location}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{project.year}</span>
-                    </div>
-                  </div>
-                  <button className="w-full bg-citysound-green-600 hover:bg-citysound-green-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-300">
-                    Zobrazit projekt
-                  </button>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">{project.title}</h3>
+                  <p className="text-gray-600 font-medium mb-2">{project.client}</p>
+                  <p className="text-gray-500 text-sm mb-3">{project.location} • {project.year}</p>
+                  <span className="inline-block bg-citysound-green-100 text-citysound-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    {project.category}
+                  </span>
                 </div>
               </div>
             ))}
