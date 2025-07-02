@@ -149,7 +149,7 @@ const ServicesPage: React.FC = () => {
                 onClick={scrollToContact}
                 className="w-full bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
               >
-                Nezávazně poptat
+                Pronajmout montážní plošinu
               </button>
             </div>
           </div>
@@ -192,7 +192,7 @@ const ServicesPage: React.FC = () => {
                 onClick={scrollToContact}
                 className="w-full bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
               >
-                Nezávazně poptat
+                Objednat zemní práce
               </button>
             </div>
             
@@ -263,7 +263,7 @@ const ServicesPage: React.FC = () => {
                 onClick={scrollToContact}
                 className="w-full bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
               >
-                Nezávazně poptat
+                Zajistit dopravu a kontejnery
               </button>
             </div>
           </div>
@@ -314,7 +314,7 @@ const ServicesPage: React.FC = () => {
                   onClick={scrollToContact}
                   className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block"
                 >
-                  Nezávazně poptat
+                  Objednat instalaci radarů
                 </button>
               </div>
             </div>
