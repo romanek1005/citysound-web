@@ -56,7 +56,7 @@ const ServicesSection: React.FC = () => {
       icon: Radar,
       title: 'Montáž radarů',
       description: 'Vedle osvětlení zvyšujeme bezpečnost také instalací rychlostních radarů.',
-      image: '/work/radarRychlost.jpg'
+      image: '/work/radarRychlost.jpeg'
     }
   ];
 
