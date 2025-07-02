@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import { ArrowRight, CheckCircle, Building2, MapPin, Lightbulb, Users, Clock, Shield, Search, Wrench, HardHat } from 'lucide-react';
+import { ArrowRight, CheckCircle, Building2, MapPin, Lightbulb, Users, Clock, Shield, Search, Wrench, HardHat, Construction } from 'lucide-react';
 
 const PublicLightingPage: React.FC = () => {
   const processSteps = [
@@ -17,7 +17,7 @@ const PublicLightingPage: React.FC = () => {
       number: 2,
       title: 'Zemní Práce & NN Sítě',
       description: 'Disponujeme vlastní technikou pro výkopy a pokládku kabelových sítí nízkého napětí. Nemusíte tak čekat na dalšího dodavatele, vše probíhá plynule.',
-      icon: Shield,
+      icon: Construction,
       color: 'bg-citysound-green-100 text-citysound-green-600'
     },
     {
@@ -128,7 +128,7 @@ const PublicLightingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12 mx-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-6xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
                 <div className="flex items-start space-x-4 mb-4">
