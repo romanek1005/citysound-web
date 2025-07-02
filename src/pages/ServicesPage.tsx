@@ -50,6 +50,10 @@ const ServicesPage: React.FC = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToService = (serviceId: string) => {
+    document.getElementById(serviceId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -71,7 +75,11 @@ const ServicesPage: React.FC = () => {
             {services.map((service, index) => {
               const serviceId = service.title.toLowerCase().replace(/\s+/g, '-').replace(/ž/g, 'z').replace(/í/g, 'i').replace(/á/g, 'a').replace(/é/g, 'e').replace(/ř/g, 'r').replace(/ů/g, 'u').replace(/ý/g, 'y').replace(/č/g, 'c').replace(/š/g, 's').replace(/ť/g, 't').replace(/ď/g, 'd').replace(/ň/g, 'n');
               return (
-              <a href={`#${serviceId}`} key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block">
+              <div 
+                key={index} 
+                onClick={() => scrollToService(serviceId)}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+              >
                 <div className="relative">
                   <img
                     src={service.image}
@@ -89,7 +97,7 @@ const ServicesPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </div>
-              </a>
+              </div>
               );
             })}
           </div>
