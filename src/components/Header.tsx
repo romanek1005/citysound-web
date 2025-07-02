@@ -86,12 +86,16 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-2">
               <a
                 href="https://www.facebook.com/citysoundsro"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-citysound-green-600 transition-colors"
               >
                 <Facebook size={16} />
               </a>
               <a
                 href="https://www.instagram.com/_citysound_"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-citysound-green-600 transition-colors"
               >
                 <Instagram size={16} />
@@ -157,11 +161,21 @@ const Header: React.FC = () => {
                   <span>+420 774 456 960</span>
                 </a>
                 <div className="flex items-center space-x-4 py-2">
-                  <a href="#" className="flex items-center space-x-2 text-gray-700">
+                  <a
+                    href="https://www.facebook.com/citysoundsro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-700"
+                  >
                     <Facebook size={16} />
                     <span>Facebook</span>
                   </a>
-                  <a href="#" className="flex items-center space-x-2 text-gray-700">
+                  <a
+                    href="https://www.instagram.com/_citysound_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-700"
+                  >
                     <Instagram size={16} />
                     <span>Instagram</span>
                   </a>

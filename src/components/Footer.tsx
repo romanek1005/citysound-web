@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Lightbulb } from 'lucide-react';
+import { Phone, Mail, MapPin, Lightbulb, Facebook, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -117,6 +117,28 @@ const Footer: React.FC = () => {
                     Oznice 101<br />
                     756 24 Bystřička
                   </span>
+                </div>
+              </div>
+              
+              {/* Social Media */}
+              <div className="mt-6 pt-6 border-t border-gray-700">
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="https://www.facebook.com/citysoundsro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-citysound-green-400 transition-colors"
+                  >
+                    <Facebook size={16} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/_citysound_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-citysound-green-400 transition-colors"
+                  >
+                    <Instagram size={16} />
+                  </a>
                 </div>
               </div>
             </div>
