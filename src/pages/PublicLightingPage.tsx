@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import { ArrowRight, CheckCircle, Building2, MapPin, Lightbulb, Users, Clock, Shield, Search, Wrench } from 'lucide-react';
+import { ArrowRight, CheckCircle, Building2, MapPin, Lightbulb, Users, Clock, Shield, Search, Wrench, HardHat } from 'lucide-react';
 
 const PublicLightingPage: React.FC = () => {
   const processSteps = [
@@ -94,7 +94,7 @@ const PublicLightingPage: React.FC = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-20 bg-gray-50">
+      <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-citysound-green-50 to-citysound-green-100">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
@@ -132,8 +132,8 @@ const PublicLightingPage: React.FC = () => {
             {processSteps.map((step, index) => (
               <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
                 <div className="flex items-start space-x-4 mb-4">
-                  <div className={`w-12 h-12 ${step.color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                    <step.icon className="w-6 h-6" />
+                  <div className={`w-16 h-16 ${step.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                    <step.icon className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-citysound-green-600 mb-1">
@@ -151,11 +151,11 @@ const PublicLightingPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Result CTA */}
+          {/* Result */}
           <div className="text-center">
-            <button className="bg-citysound-green-600 hover:bg-citysound-green-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300">
-              Výsledek: Kompletní osvětlení bez starostí pro vás
-            </button>
+            <div className="inline-block bg-citysound-green-100 text-citysound-green-800 px-8 py-4 rounded-2xl font-bold text-lg border-2 border-citysound-green-200">
+              ✓ Výsledek: Kompletní osvětlení bez starostí pro vás
+            </div>
           </div>
         </div>
       </section>
@@ -175,10 +175,10 @@ const PublicLightingPage: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* For Construction Companies */}
-            <div className="bg-citysound-green-50 rounded-2xl p-8">
+            <div className="bg-citysound-blue-50 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-citysound-green-600 rounded-full flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-citysound-blue-600 rounded-full flex items-center justify-center">
+                  <HardHat className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Pro Stavební Firmy</h3>
               </div>
@@ -188,7 +188,7 @@ const PublicLightingPage: React.FC = () => {
               <ul className="space-y-3">
                 {constructionBenefits.map((benefit, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-citysound-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-citysound-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-gray-700">{benefit}</span>
                   </li>
                 ))}
@@ -196,10 +196,10 @@ const PublicLightingPage: React.FC = () => {
             </div>
 
             {/* For Municipalities */}
-            <div className="bg-citysound-green-50 rounded-2xl p-8">
+            <div className="bg-citysound-green-50 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-citysound-green-600 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
+                  <Building2 className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Pro Města a Obce</h3>
               </div>
