@@ -9,19 +9,19 @@ const ServicesPage: React.FC = () => {
     {
       icon: Construction,
       title: 'Montážní plošina',
-      description: 'Nabízíme pronájem plošiny na podvozku Renault Maxity - 3,5 t. Výškový dosah 18 m, stranivý dosah 7,5 m, nosnost koše 200 kg.',
+      description: 'Pronájem montážní plošiny Renault Maxity pro práce ve výškách až 16 metrů.',
       image: '/work/20241115_112046.jpg'
     },
     {
       icon: Wrench,
       title: 'Zemní práce',
-      description: 'Nabízíme pronájem minibagru Kubota KX-019 - 2t. Hloubkový dosah 2680 mm, výsypná výška 2560 mm, stavitelná šířka pásů 990-1300 mm.',
+      description: 'Výkopy, terénní úpravy a pokládka kabelů pomocí minibagru Kubota KX-019.',
       image: '/work/20250511_212135.jpg'
     },
     {
       icon: Truck,
       title: 'Autodoprava',
-      description: 'Nabízíme možnost přepravy 3,5 t - 8 t. Máme k dispozici dodávkové vozy Renault Trafic, vůz Ford Tranzit Custom a kontejnerový sklápěč IVECO Eurocargo 8 t.',
+      description: 'Přeprava materiálu a poskytování kontejnerů pro stavební práce.',
       image: '/work/20220530_143714.jpg'
     },
     {
