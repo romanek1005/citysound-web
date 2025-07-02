@@ -85,13 +85,13 @@ const Header: React.FC = () => {
             {/* Social Media */}
             <div className="flex items-center space-x-2">
               <a
-                href="#"
+                href="https://www.facebook.com/citysoundsro"
                 className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-citysound-green-600 transition-colors"
               >
                 <Facebook size={16} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/_citysound_"
                 className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-citysound-green-600 transition-colors"
               >
                 <Instagram size={16} />
