@@ -21,7 +21,7 @@ const Header: React.FC = () => {
     { label: 'Veřejné osvětlení', href: '/verejne-osvetleni', type: 'route' },
     { label: 'Další služby', href: '#services', type: 'anchor' },
     { label: 'Reference', href: '#references', type: 'anchor' },
-    { label: 'Kontakt', href: '#contact', type: 'anchor' },
+    { label: 'Kontakt', href: '/kontakt', type: 'route' },
   ];
 
   const scrollToContact = () => {
