@@ -96,21 +96,116 @@ const PublicLightingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-citysound-green-50 to-citysound-green-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-              Komplexní realizace <span className="text-citysound-green-600">veřejného osvětlení</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl">
-              Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
-              od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
-              partnera pro celý projekt a ušetříte čas i náklady.
-            </p>
-            <button
-              onClick={scrollToContact}
-              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              Chci nezávaznou konzultaci →
-            </button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-4xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                Komplexní realizace <span className="text-citysound-green-600">veřejného osvětlení</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl">
+                Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
+                od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
+                partnera pro celý projekt a ušetříte čas i náklady.
+              </p>
+              <button
+                onClick={scrollToContact}
+                className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Chci nezávaznou konzultaci →
+              </button>
+            </div>
+            
+            {/* Animated Street Lamp */}
+            <div className="hidden lg:flex justify-center items-center">
+              <div className="relative">
+                <style jsx>{`
+                  @keyframes lampGlow {
+                    0% {
+                      filter: brightness(0.3);
+                      opacity: 0.5;
+                    }
+                    50% {
+                      filter: brightness(1.2) drop-shadow(0 0 20px #10b981);
+                      opacity: 1;
+                    }
+                    100% {
+                      filter: brightness(1) drop-shadow(0 0 15px #10b981);
+                      opacity: 1;
+                    }
+                  }
+                  
+                  @keyframes lightCone {
+                    0% {
+                      opacity: 0;
+                      transform: scaleY(0);
+                    }
+                    60% {
+                      opacity: 0.3;
+                      transform: scaleY(0.8);
+                    }
+                    100% {
+                      opacity: 0.4;
+                      transform: scaleY(1);
+                    }
+                  }
+                  
+                  @keyframes pulse {
+                    0%, 100% {
+                      filter: drop-shadow(0 0 15px #10b981);
+                    }
+                    50% {
+                      filter: drop-shadow(0 0 25px #10b981);
+                    }
+                  }
+                  
+                  .lamp-bulb {
+                    animation: lampGlow 3s ease-in-out, pulse 4s ease-in-out 3s infinite;
+                  }
+                  
+                  .light-cone {
+                    animation: lightCone 2s ease-out 2s both;
+                  }
+                `}</style>
+                
+                <svg width="300" height="400" viewBox="0 0 300 400" className="relative z-10">
+                  {/* Light cone */}
+                  <defs>
+                    <linearGradient id="lightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.3"/>
+                      <stop offset="50%" stopColor="#fbbf24" stopOpacity="0.15"/>
+                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.05"/>
+                    </linearGradient>
+                  </defs>
+                  
+                  <polygon 
+                    points="140,140 160,140 200,350 100,350" 
+                    fill="url(#lightGradient)" 
+                    className="light-cone"
+                    style={{transformOrigin: '150px 140px'}}
+                  />
+                  
+                  {/* Lamp post */}
+                  <rect x="145" y="140" width="10" height="200" fill="#059669" rx="2"/>
+                  
+                  {/* Lamp arm */}
+                  <rect x="155" y="60" width="40" height="8" fill="#059669" rx="4"/>
+                  
+                  {/* Lamp fixture */}
+                  <rect x="185" y="45" width="30" height="40" fill="#047857" rx="6"/>
+                  
+                  {/* Bulb/Light */}
+                  <circle 
+                    cx="200" 
+                    cy="65" 
+                    r="12" 
+                    fill="#fbbf24" 
+                    className="lamp-bulb"
+                  />
+                  
+                  {/* Base */}
+                  <rect x="140" y="340" width="20" height="15" fill="#047857" rx="3"/>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </section>
