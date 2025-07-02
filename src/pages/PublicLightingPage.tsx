@@ -117,93 +117,156 @@ const PublicLightingPage: React.FC = () => {
             {/* Animated Street Lamp */}
             <div className="hidden lg:flex justify-center items-center">
               <div className="relative">
-                <style jsx>{`
-                  @keyframes lampGlow {
-                    0% {
-                      filter: brightness(0.3);
-                      opacity: 0.5;
-                    }
-                    50% {
-                      filter: brightness(1.2) drop-shadow(0 0 20px #10b981);
-                      opacity: 1;
-                    }
-                    100% {
-                      filter: brightness(1) drop-shadow(0 0 15px #10b981);
-                      opacity: 1;
-                    }
-                  }
-                  
-                  @keyframes lightCone {
-                    0% {
-                      opacity: 0;
-                      transform: scaleY(0);
-                    }
-                    60% {
-                      opacity: 0.3;
-                      transform: scaleY(0.8);
-                    }
-                    100% {
-                      opacity: 0.4;
-                      transform: scaleY(1);
-                    }
-                  }
-                  
-                  @keyframes pulse {
-                    0%, 100% {
-                      filter: drop-shadow(0 0 15px #10b981);
-                    }
-                    50% {
-                      filter: drop-shadow(0 0 25px #10b981);
-                    }
-                  }
-                  
-                  .lamp-bulb {
-                    animation: lampGlow 3s ease-in-out, pulse 4s ease-in-out 3s infinite;
-                  }
-                  
-                  .light-cone {
-                    animation: lightCone 2s ease-out 2s both;
-                  }
-                `}</style>
-                
-                <svg width="300" height="400" viewBox="0 0 300 400" className="relative z-10">
-                  {/* Light cone */}
+                <svg width="350" height="450" viewBox="0 0 350 450" className="relative z-10">
                   <defs>
-                    <linearGradient id="lightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.3"/>
-                      <stop offset="50%" stopColor="#fbbf24" stopOpacity="0.15"/>
+                    {/* Light cone gradient */}
+                    <radialGradient id="lightCone" cx="50%" cy="0%" r="80%">
+                      <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.6"/>
+                      <stop offset="30%" stopColor="#10b981" stopOpacity="0.3"/>
                       <stop offset="100%" stopColor="#10b981" stopOpacity="0.05"/>
+                    </radialGradient>
+                    
+                    {/* Bulb glow */}
+                    <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.9"/>
+                      <stop offset="40%" stopColor="#fbbf24" stopOpacity="0.8"/>
+                      <stop offset="80%" stopColor="#10b981" stopOpacity="0.3"/>
+                      <stop offset="100%" stopColor="#10b981" stopOpacity="0"/>
+                    </radialGradient>
+
+                    {/* Lamp post gradient */}
+                    <linearGradient id="lampPost" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#047857"/>
+                      <stop offset="50%" stopColor="#059669"/>
+                      <stop offset="100%" stopColor="#047857"/>
                     </linearGradient>
                   </defs>
                   
-                  <polygon 
-                    points="140,140 160,140 200,350 100,350" 
-                    fill="url(#lightGradient)" 
-                    className="light-cone"
-                    style={{transformOrigin: '150px 140px'}}
+                  {/* Ground light cone */}
+                  <ellipse 
+                    cx="175" 
+                    cy="420" 
+                    rx="80" 
+                    ry="25" 
+                    fill="url(#lightCone)"
+                    style={{
+                      opacity: 0,
+                      animation: 'fadeInScale 2s ease-out 2.5s forwards'
+                    }}
                   />
                   
-                  {/* Lamp post */}
-                  <rect x="145" y="140" width="10" height="200" fill="#059669" rx="2"/>
+                  {/* Main light cone */}
+                  <polygon 
+                    points="160,180 190,180 220,400 130,400" 
+                    fill="url(#lightCone)"
+                    style={{
+                      opacity: 0,
+                      transformOrigin: '175px 180px',
+                      animation: 'lightConeAppear 2s ease-out 2s forwards'
+                    }}
+                  />
+                  
+                  {/* Lamp post base */}
+                  <rect x="170" y="400" width="10" height="30" fill="#047857" rx="2"/>
+                  
+                  {/* Main lamp post */}
+                  <rect 
+                    x="172" 
+                    y="180" 
+                    width="6" 
+                    height="220" 
+                    fill="url(#lampPost)" 
+                    rx="3"
+                    style={{
+                      filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
+                    }}
+                  />
                   
                   {/* Lamp arm */}
-                  <rect x="155" y="60" width="40" height="8" fill="#059669" rx="4"/>
-                  
-                  {/* Lamp fixture */}
-                  <rect x="185" y="45" width="30" height="40" fill="#047857" rx="6"/>
-                  
-                  {/* Bulb/Light */}
-                  <circle 
-                    cx="200" 
-                    cy="65" 
-                    r="12" 
-                    fill="#fbbf24" 
-                    className="lamp-bulb"
+                  <rect 
+                    x="178" 
+                    y="120" 
+                    width="45" 
+                    height="6" 
+                    fill="url(#lampPost)" 
+                    rx="3"
+                    style={{
+                      filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.2))'
+                    }}
                   />
                   
-                  {/* Base */}
-                  <rect x="140" y="340" width="20" height="15" fill="#047857" rx="3"/>
+                  {/* Lamp fixture housing */}
+                  <rect 
+                    x="215" 
+                    y="105" 
+                    width="35" 
+                    height="45" 
+                    fill="#047857" 
+                    rx="8"
+                    style={{
+                      filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.3))'
+                    }}
+                  />
+                  
+                  {/* Lamp fixture detail */}
+                  <rect x="220" y="110" width="25" height="35" fill="#065f46" rx="4"/>
+                  
+                  {/* Bulb glow effect */}
+                  <circle 
+                    cx="232" 
+                    cy="127" 
+                    r="25" 
+                    fill="url(#bulbGlow)"
+                    style={{
+                      opacity: 0,
+                      animation: 'bulbGlow 3s ease-in-out 1s forwards, pulse 4s ease-in-out 4s infinite'
+                    }}
+                  />
+                  
+                  {/* Main bulb */}
+                  <circle 
+                    cx="232" 
+                    cy="127" 
+                    r="8" 
+                    fill="#fbbf24"
+                    style={{
+                      opacity: 0.3,
+                      animation: 'bulbLightUp 3s ease-in-out 1s forwards'
+                    }}
+                  />
                 </svg>
+                
+                <style dangerouslySetInnerHTML={{
+                  __html: `
+                    @keyframes bulbGlow {
+                      0% { opacity: 0; transform: scale(0.5); }
+                      50% { opacity: 0.8; transform: scale(1.1); }
+                      100% { opacity: 0.6; transform: scale(1); }
+                    }
+                    
+                    @keyframes bulbLightUp {
+                      0% { opacity: 0.3; fill: #6b7280; }
+                      50% { opacity: 1; fill: #fbbf24; }
+                      100% { opacity: 0.9; fill: #fef3c7; }
+                    }
+                    
+                    @keyframes lightConeAppear {
+                      0% { opacity: 0; transform: scaleY(0); }
+                      60% { opacity: 0.4; transform: scaleY(0.8); }
+                      100% { opacity: 0.3; transform: scaleY(1); }
+                    }
+                    
+                    @keyframes fadeInScale {
+                      0% { opacity: 0; transform: scale(0.5); }
+                      100% { opacity: 0.4; transform: scale(1); }
+                    }
+                    
+                    @keyframes pulse {
+                      0%, 100% { opacity: 0.6; transform: scale(1); }
+                      50% { opacity: 0.8; transform: scale(1.05); }
+                    }
+                  `
+                }} />
               </div>
             </div>
           </div>
