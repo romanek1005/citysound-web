@@ -173,9 +173,9 @@ const PublicLightingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* For Construction Companies */}
-            <div className="bg-citysound-blue-50 rounded-2xl p-6 mx-4">
+            <div className="rounded-2xl p-6" style={{backgroundColor: '#e3efff'}}>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-16 h-16 bg-citysound-blue-600 rounded-full flex items-center justify-center">
                   <HardHat className="w-8 h-8 text-white" />
@@ -196,7 +196,7 @@ const PublicLightingPage: React.FC = () => {
             </div>
 
             {/* For Municipalities */}
-            <div className="bg-citysound-green-50 rounded-2xl p-6 mx-4">
+            <div className="rounded-2xl p-6" style={{backgroundColor: '#dffbed'}}>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-16 h-16 bg-citysound-green-600 rounded-full flex items-center justify-center">
                   <Building2 className="w-8 h-8 text-white" />
