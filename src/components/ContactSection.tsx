@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
-const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  customTitle?: string;
+  customSubtitle?: string;
+}
+
+const ContactSection: React.FC<ContactSectionProps> = ({ 
+  customTitle = "Máte projekt nebo se chcete jen poradit?",
+  customSubtitle = "Napište nám nebo zavolejte. První konzultace je zdarma a bez závazků."
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -76,10 +84,10 @@ const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Máte projekt nebo se chcete jen poradit?
+            {customTitle}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Napište nám nebo zavolejte. <strong>První konzultace je zdarma</strong> a bez závazků.
+            {customSubtitle}
           </p>
         </div>
 

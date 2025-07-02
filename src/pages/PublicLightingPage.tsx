@@ -128,7 +128,7 @@ const PublicLightingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12 mx-4">
             {processSteps.map((step, index) => (
               <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
                 <div className="flex items-start space-x-4 mb-4">
@@ -175,14 +175,14 @@ const PublicLightingPage: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* For Construction Companies */}
-            <div className="bg-citysound-blue-50 rounded-2xl p-6">
+            <div className="bg-citysound-blue-50 rounded-2xl p-6 mx-4">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-citysound-blue-600 rounded-full flex items-center justify-center">
-                  <HardHat className="w-6 h-6 text-white" />
+                <div className="w-16 h-16 bg-citysound-blue-600 rounded-full flex items-center justify-center">
+                  <HardHat className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Pro Stavební Firmy</h3>
               </div>
-              <p className="text-lg text-gray-600 mb-6 font-semibold">
+              <p className="text-lg text-citysound-blue-600 mb-6 font-semibold">
                 Spolehlivý subdodavatel pro vaše projekty
               </p>
               <ul className="space-y-3">
@@ -196,14 +196,14 @@ const PublicLightingPage: React.FC = () => {
             </div>
 
             {/* For Municipalities */}
-            <div className="bg-citysound-green-50 rounded-2xl p-6">
+            <div className="bg-citysound-green-50 rounded-2xl p-6 mx-4">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-citysound-green-600 rounded-full flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-white" />
+                <div className="w-16 h-16 bg-citysound-green-600 rounded-full flex items-center justify-center">
+                  <Building2 className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Pro Města a Obce</h3>
               </div>
-              <p className="text-lg text-gray-600 mb-6 font-semibold">
+              <p className="text-lg text-citysound-green-600 mb-6 font-semibold">
                 Moderní a bezpečné osvětlení pro vaše občany
               </p>
               <ul className="space-y-3">
@@ -264,22 +264,11 @@ const PublicLightingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Section Header */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Máte projekt? Pojďme se o něm pobavit.
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Napište nám nebo zavolejte. První konzultace a návrh řešení jsou zdarma.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Use existing ContactSection component */}
-      <ContactSection />
+      {/* Use existing ContactSection component with custom title */}
+      <ContactSection 
+        customTitle="Máte projekt? Pojďme se o něm pobavit."
+        customSubtitle="Napište nám nebo zavolejte. První konzultace a návrh řešení jsou zdarma."
+      />
       
       <Footer />
     </div>
