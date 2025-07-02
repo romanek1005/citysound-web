@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     { label: 'Domů', href: '/', type: 'route' },
     { label: 'Veřejné osvětlení', href: '/verejne-osvetleni', type: 'route' },
     { label: 'Další služby', href: '/dalsi-sluzby', type: 'route' },
-    { label: 'Reference', href: '#references', type: 'anchor' },
+    { label: 'Reference', href: '/reference', type: 'route' },
     { label: 'Kontakt', href: '/kontakt', type: 'route' },
   ];
 
