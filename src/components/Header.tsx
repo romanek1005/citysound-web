@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, Menu, X, Facebook, Instagram, ArrowRight } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +17,11 @@ const Header: React.FC = () => {
   }, []);
 
   const menuItems = [
-    { label: 'Veřejné osvětlení', href: '#hero' },
-    { label: 'Další služby', href: '#services' },
-    { label: 'Dotace', href: '#grants' },
-    { label: 'Reference', href: '#references' },
-    { label: 'Kontakt', href: '#contact' },
+    { label: 'Domů', href: '/', type: 'route' },
+    { label: 'Veřejné osvětlení', href: '/verejne-osvetleni', type: 'route' },
+    { label: 'Další služby', href: '#services', type: 'anchor' },
+    { label: 'Reference', href: '#references', type: 'anchor' },
+    { label: 'Kontakt', href: '#contact', type: 'anchor' },
   ];
 
   const scrollToContact = () => {
@@ -33,24 +35,38 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-citysound-green-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">CS</span>
             </div>
             <span className="text-xl font-bold text-gray-800">Citysound</span>
-          </div>
+          </Link>
 
           {/* Centered Desktop Navigation */}
           <nav className="hidden lg:flex items-center justify-center flex-1">
             <div className="flex items-center space-x-8">
               {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-700 hover:text-citysound-green-600 font-medium transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
+                item.type === 'route' ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`font-medium transition-colors duration-200 ${
+                      location.pathname === item.href 
+                        ? 'text-citysound-green-600' 
+                        : 'text-gray-700 hover:text-citysound-green-600'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="text-gray-700 hover:text-citysound-green-600 font-medium transition-colors duration-200"
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </div>
           </nav>
@@ -108,14 +124,29 @@ const Header: React.FC = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-3 pt-4">
               {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-700 hover:text-citysound-green-600 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                item.type === 'route' ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`font-medium py-2 ${
+                      location.pathname === item.href 
+                        ? 'text-citysound-green-600' 
+                        : 'text-gray-700 hover:text-citysound-green-600'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="text-gray-700 hover:text-citysound-green-600 font-medium py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
                 <a
