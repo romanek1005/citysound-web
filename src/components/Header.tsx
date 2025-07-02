@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const menuItems = [
     { label: 'Domů', href: '/', type: 'route' },
     { label: 'Veřejné osvětlení', href: '/verejne-osvetleni', type: 'route' },
-    { label: 'Další služby', href: '#services', type: 'anchor' },
+    { label: 'Další služby', href: '/dalsi-sluzby', type: 'route' },
     { label: 'Reference', href: '#references', type: 'anchor' },
     { label: 'Kontakt', href: '/kontakt', type: 'route' },
   ];
