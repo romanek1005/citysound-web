@@ -324,11 +324,11 @@ const ContactPage: React.FC = () => {
               Kde nás najdete
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Naše firma sídlí v obci Bystřička, odkud pokrýváme celou Moravskoslezskou oblast.
+              Naše firma sídlí v obci Oznice, odkud pokrýváme celou Moravskoslezskou oblast.
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
                 <div className="text-center text-gray-600">
