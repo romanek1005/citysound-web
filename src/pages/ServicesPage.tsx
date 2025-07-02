@@ -223,11 +223,11 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="h-full flex items-stretch">
+            <div>
               <img
                 src="/work/20210107_150459.jpg"
                 alt="Autodoprava a kontejnery"
-                className="rounded-xl shadow-lg w-full h-full object-cover"
+                className="rounded-xl shadow-lg w-full h-80 object-cover"
               />
             </div>
             
