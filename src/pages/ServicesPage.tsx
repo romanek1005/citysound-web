@@ -28,7 +28,7 @@ const ServicesPage: React.FC = () => {
       icon: Radar,
       title: 'Montáž radarů',
       description: 'Instalace měřičů rychlosti a dopravních systémů.',
-      image: '/work/20250511_211440.jpg'
+      image: '/work/radarRychlost.jpeg'
     }
   ];
 
