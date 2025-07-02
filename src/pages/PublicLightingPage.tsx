@@ -96,179 +96,21 @@ const PublicLightingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-citysound-green-50 to-citysound-green-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-                Komplexní realizace <span className="text-citysound-green-600">veřejného osvětlení</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl">
-                Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
-                od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
-                partnera pro celý projekt a ušetříte čas i náklady.
-              </p>
-              <button
-                onClick={scrollToContact}
-                className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Chci nezávaznou konzultaci →
-              </button>
-            </div>
-            
-            {/* Animated Street Lamp */}
-            <div className="hidden lg:flex justify-center items-center">
-              <div className="relative">
-                <svg width="350" height="450" viewBox="0 0 350 450" className="relative z-10">
-                  <defs>
-                    {/* Light cone gradient */}
-                    <radialGradient id="lightCone" cx="50%" cy="0%" r="80%">
-                      <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.6"/>
-                      <stop offset="30%" stopColor="#10b981" stopOpacity="0.3"/>
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.05"/>
-                    </radialGradient>
-                    
-                    {/* Bulb glow */}
-                    <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.9"/>
-                      <stop offset="40%" stopColor="#fbbf24" stopOpacity="0.8"/>
-                      <stop offset="80%" stopColor="#10b981" stopOpacity="0.3"/>
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0"/>
-                    </radialGradient>
-
-                    {/* Lamp post gradient */}
-                    <linearGradient id="lampPost" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#047857"/>
-                      <stop offset="50%" stopColor="#059669"/>
-                      <stop offset="100%" stopColor="#047857"/>
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Ground light cone */}
-                  <ellipse 
-                    cx="175" 
-                    cy="420" 
-                    rx="80" 
-                    ry="25" 
-                    fill="url(#lightCone)"
-                    style={{
-                      opacity: 0,
-                      animation: 'fadeInScale 2s ease-out 2.5s forwards'
-                    }}
-                  />
-                  
-                  {/* Main light cone */}
-                  <polygon 
-                    points="160,180 190,180 220,400 130,400" 
-                    fill="url(#lightCone)"
-                    style={{
-                      opacity: 0,
-                      transformOrigin: '175px 180px',
-                      animation: 'lightConeAppear 2s ease-out 2s forwards'
-                    }}
-                  />
-                  
-                  {/* Lamp post base */}
-                  <rect x="170" y="400" width="10" height="30" fill="#047857" rx="2"/>
-                  
-                  {/* Main lamp post */}
-                  <rect 
-                    x="172" 
-                    y="180" 
-                    width="6" 
-                    height="220" 
-                    fill="url(#lampPost)" 
-                    rx="3"
-                    style={{
-                      filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
-                    }}
-                  />
-                  
-                  {/* Lamp arm */}
-                  <rect 
-                    x="178" 
-                    y="120" 
-                    width="45" 
-                    height="6" 
-                    fill="url(#lampPost)" 
-                    rx="3"
-                    style={{
-                      filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.2))'
-                    }}
-                  />
-                  
-                  {/* Lamp fixture housing */}
-                  <rect 
-                    x="215" 
-                    y="105" 
-                    width="35" 
-                    height="45" 
-                    fill="#047857" 
-                    rx="8"
-                    style={{
-                      filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.3))'
-                    }}
-                  />
-                  
-                  {/* Lamp fixture detail */}
-                  <rect x="220" y="110" width="25" height="35" fill="#065f46" rx="4"/>
-                  
-                  {/* Bulb glow effect */}
-                  <circle 
-                    cx="232" 
-                    cy="127" 
-                    r="25" 
-                    fill="url(#bulbGlow)"
-                    style={{
-                      opacity: 0,
-                      animation: 'bulbGlow 3s ease-in-out 1s forwards, pulse 4s ease-in-out 4s infinite'
-                    }}
-                  />
-                  
-                  {/* Main bulb */}
-                  <circle 
-                    cx="232" 
-                    cy="127" 
-                    r="8" 
-                    fill="#fbbf24"
-                    style={{
-                      opacity: 0.3,
-                      animation: 'bulbLightUp 3s ease-in-out 1s forwards'
-                    }}
-                  />
-                </svg>
-                
-                <style dangerouslySetInnerHTML={{
-                  __html: `
-                    @keyframes bulbGlow {
-                      0% { opacity: 0; transform: scale(0.5); }
-                      50% { opacity: 0.8; transform: scale(1.1); }
-                      100% { opacity: 0.6; transform: scale(1); }
-                    }
-                    
-                    @keyframes bulbLightUp {
-                      0% { opacity: 0.3; fill: #6b7280; }
-                      50% { opacity: 1; fill: #fbbf24; }
-                      100% { opacity: 0.9; fill: #fef3c7; }
-                    }
-                    
-                    @keyframes lightConeAppear {
-                      0% { opacity: 0; transform: scaleY(0); }
-                      60% { opacity: 0.4; transform: scaleY(0.8); }
-                      100% { opacity: 0.3; transform: scaleY(1); }
-                    }
-                    
-                    @keyframes fadeInScale {
-                      0% { opacity: 0; transform: scale(0.5); }
-                      100% { opacity: 0.4; transform: scale(1); }
-                    }
-                    
-                    @keyframes pulse {
-                      0%, 100% { opacity: 0.6; transform: scale(1); }
-                      50% { opacity: 0.8; transform: scale(1.05); }
-                    }
-                  `
-                }} />
-              </div>
-            </div>
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+              Komplexní realizace <span className="text-citysound-green-600">veřejného osvětlení</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl">
+              Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
+              od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
+              partnera pro celý projekt a ušetříte čas i náklady.
+            </p>
+            <button
+              onClick={scrollToContact}
+              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Chci nezávaznou konzultaci →
+            </button>
           </div>
         </div>
       </section>
