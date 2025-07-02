@@ -49,8 +49,7 @@ const ContactPage: React.FC = () => {
     'Zemní práce minibagrem',
     'Autodoprava a kontejnery',
     'Montáž radarů',
-    'Obecný dotaz',
-    'Do informací viz telefon atd.'
+    'Obecný dotaz'
   ];
 
   const contactInfo = [
@@ -70,8 +69,8 @@ const ContactPage: React.FC = () => {
     },
     {
       icon: MapPin,
-      title: 'Adresa',
-      value: 'Oznice 101, 756 24 Bystřička',
+      title: 'Adresa sídla',
+      value: 'CitySound s.r.o., Oznice 101, 756 24 Bystřička',
       href: '#',
       description: 'Možnost osobní konzultace'
     },
