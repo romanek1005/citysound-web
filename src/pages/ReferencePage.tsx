@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MapPin, Calendar, Building, User, Filter } from 'lucide-react';
+import { X, MapPin, Calendar, Building, User, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -12,6 +12,7 @@ interface Project {
   year: string;
   category: string;
   image: string;
+  images: string[];
   description: string;
   projectType: string;
 }
@@ -23,6 +24,7 @@ const ReferencePage: React.FC = () => {
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState('Všechny');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects: Project[] = [
     {
@@ -33,6 +35,7 @@ const ReferencePage: React.FC = () => {
       year: '2024',
       category: 'Veřejné osvětlení',
       image: '/work/20241115_112046.jpg',
+      images: ['/work/20241115_112046.jpg', '/work/20250511_212135.jpg', '/work/20220530_143714.jpg'],
       description: 'Pro obec Oznice jsme zajistili kompletní rekonstrukci veřejného osvětlení a povýstavbu výkopové práce pro nové chodníky. Projekt zahrnoval instalaci 45 úsporných LED svítidel a pokládku 900 metrů kabeláže.',
       projectType: 'Veřejné osvětlení, zemní práce'
     },
@@ -44,6 +47,7 @@ const ReferencePage: React.FC = () => {
       year: '2024',
       category: 'Veřejné osvětlení',
       image: '/work/20250511_212135.jpg',
+      images: ['/work/20250511_212135.jpg', '/work/20250511_211440.jpg', '/work/20250226_091248.jpg'],
       description: 'Komplexní dodávka osvětlení pro průmyslový areál včetně vysokých stožárů a LED reflektorů s možností dálkového ovládání.',
       projectType: 'Průmyslové osvětlení'
     },
@@ -55,6 +59,7 @@ const ReferencePage: React.FC = () => {
       year: '2023',
       category: 'Zemní práce',
       image: '/work/20220530_143714.jpg',
+      images: ['/work/20220530_143714.jpg', '/work/20250412_091130.jpg', '/work/20210107_150459.jpg'],
       description: 'Rozsáhlé zemní práce pro novou výstavbu včetně pokládky kabeláže nízkého napětí a přípravy základů pro osvětlení.',
       projectType: 'Zemní práce, pokládka kabelů'
     },
@@ -66,6 +71,7 @@ const ReferencePage: React.FC = () => {
       year: '2024',
       category: 'Práce s plošinou',
       image: '/work/20250511_211440.jpg',
+      images: ['/work/20250511_211440.jpg', '/work/20250511_205703.jpg', '/work/20241115_112046.jpg'],
       description: 'Montážní práce ve výškách s využitím naší montážní plošiny pro instalaci osvětlení a technických zařízení.',
       projectType: 'Montážní práce'
     },
@@ -77,6 +83,7 @@ const ReferencePage: React.FC = () => {
       year: '2023',
       category: 'Kontejnery',
       image: '/work/20250226_091248.jpg',
+      images: ['/work/20250226_091248.jpg', '/work/20250412_091130.jpg', '/work/20220530_143714.jpg'],
       description: 'Zajištění kontejnerové dopravy a likvidace odpadu během rekonstrukce městského osvětlení.',
       projectType: 'Autodoprava, kontejnery'
     },
@@ -88,6 +95,7 @@ const ReferencePage: React.FC = () => {
       year: '2024',
       category: 'Montáž radarů',
       image: '/work/20250412_091130.jpg',
+      images: ['/work/20250412_091130.jpg', '/work/20250511_205703.jpg', '/work/20250511_212135.jpg'],
       description: 'Profesionální instalace systémů měření rychlosti na frekventovaných úsecích městských komunikací.',
       projectType: 'Montáž radarů'
     },
@@ -99,6 +107,7 @@ const ReferencePage: React.FC = () => {
       year: '2023',
       category: 'Veřejné osvětlení',
       image: '/work/20210107_150459.jpg',
+      images: ['/work/20210107_150459.jpg', '/work/20250511_211440.jpg', '/work/20250226_091248.jpg'],
       description: 'Designové osvětlení městského parku s důrazem na estetiku a úsporu energie.',
       projectType: 'Parkové osvětlení'
     },
@@ -110,6 +119,7 @@ const ReferencePage: React.FC = () => {
       year: '2024',
       category: 'Veřejné osvětlení',
       image: '/work/20250511_205703.jpg',
+      images: ['/work/20250511_205703.jpg', '/work/20241115_112046.jpg', '/work/20220530_143714.jpg'],
       description: 'Kompletní dodávka infrastruktury včetně osvětlení, zemních prací a dopravních značení.',
       projectType: 'Komplexní projekt'
     }
@@ -137,6 +147,51 @@ const ReferencePage: React.FC = () => {
     municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové'],
     companies: ['PORR', 'STRAMAG', 'METROSTAV', 'SKANSKA', 'HOCHTIEF', 'Eurovia CS', 'SMP CZ', 'SWIETELSKY', 'Subterra']
   };
+
+  // Carousel navigation functions
+  const nextImage = () => {
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => 
+        prev === selectedProject.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? selectedProject.images.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Reset image index when modal opens
+  const openProject = (project: Project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedProject) {
+        if (e.key === 'ArrowLeft') {
+          prevImage();
+        } else if (e.key === 'ArrowRight') {
+          nextImage();
+        } else if (e.key === 'Escape') {
+          setSelectedProject(null);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -208,7 +263,7 @@ const ReferencePage: React.FC = () => {
               <div
                 key={project.id}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
-                onClick={() => setSelectedProject(project)}
+                onClick={() => openProject(project)}
               >
                 <div className="relative">
                   <img
@@ -218,7 +273,7 @@ const ReferencePage: React.FC = () => {
                   />
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-lg">Zobrazit projekt</span>
+                    <span className="text-white font-semibold text-lg">Zobrazit detaily</span>
                   </div>
                 </div>
                 <div className="p-6">
@@ -318,12 +373,59 @@ const ReferencePage: React.FC = () => {
       {selectedProject && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Image Carousel */}
             <div className="relative">
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full h-64 md:h-80 object-cover rounded-t-2xl"
-              />
+              <div className="relative overflow-hidden rounded-t-2xl">
+                <img
+                  src={selectedProject.images[currentImageIndex]}
+                  alt={`${selectedProject.title} - obrázek ${currentImageIndex + 1}`}
+                  className="w-full h-64 md:h-80 object-cover transition-transform duration-300"
+                />
+                
+                {/* Navigation Arrows */}
+                {selectedProject.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+                  </>
+                )}
+                
+                {/* Image Counter */}
+                {selectedProject.images.length > 1 && (
+                  <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                    {currentImageIndex + 1} / {selectedProject.images.length}
+                  </div>
+                )}
+              </div>
+              
+              {/* Dot Indicators */}
+              {selectedProject.images.length > 1 && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {selectedProject.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToImage(index)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-white' 
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+              
+              {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors duration-300"
