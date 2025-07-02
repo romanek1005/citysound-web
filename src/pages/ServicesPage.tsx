@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Truck, Construction, Radar, Package, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const ServicesPage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const services = [
     {
       icon: Construction,
       title: 'Montážní plošina',
-      description: 'Pronájem montážní plošiny Renault Maxity pro práce ve výškách až 16 metrů.',
+      description: 'Pronájem montážní plošiny Renault Maxity pro práce ve výškách až 18 metrů.',
       image: '/work/20241115_112046.jpg'
     },
     {
