@@ -9,19 +9,19 @@ const ServicesPage: React.FC = () => {
     {
       icon: Construction,
       title: 'Montážní plošina',
-      description: 'Pronájem montážní plošiny Renault Maxity pro práce ve výškách až 16 metrů.',
+      description: 'Nabízíme pronájem plošiny na podvozku Renault Maxity - 3,5 t. Výškový dosah 18 m, stranivý dosah 7,5 m, nosnost koše 200 kg.',
       image: '/work/20241115_112046.jpg'
     },
     {
       icon: Wrench,
       title: 'Zemní práce',
-      description: 'Výkopy, terénní úpravy a pokládka kabelů pomocí minibagru Kubota KX-019.',
+      description: 'Nabízíme pronájem minibagru Kubota KX-019 - 2t. Hloubkový dosah 2680 mm, výsypná výška 2560 mm, stavitelná šířka pásů 990-1300 mm.',
       image: '/work/20250511_212135.jpg'
     },
     {
       icon: Truck,
       title: 'Autodoprava',
-      description: 'Přeprava materiálu a poskytování kontejnerů pro stavební práce.',
+      description: 'Nabízíme možnost přepravy 3,5 t - 8 t. Máme k dispozici dodávkové vozy Renault Trafic, vůz Ford Tranzit Custom a kontejnerový sklápěč IVECO Eurocargo 8 t.',
       image: '/work/20220530_143714.jpg'
     },
     {
@@ -133,26 +133,26 @@ const ServicesPage: React.FC = () => {
                 Práce s montážní plošinou <span className="text-citysound-green-600">Renault Maxity</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Naša montážní plošina umožňuje bezpečné práce ve výškách až 16 metrů. 
-                Ideální pro údržbu osvětlení, instalace nebo opravy.
+                Nabízíme pronájem plošiny na podvozku Renault Maxity - 3,5 t. 
+                Ideální pro práce ve výškách, údržbu osvětlení, instalace nebo opravy.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Maximální pracovní výška</span>
-                  <span className="font-bold text-citysound-green-600">16 m</span>
+                  <span className="font-medium text-gray-700">Výškový dosah plošiny</span>
+                  <span className="font-bold text-citysound-green-600">18 m</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Nosnost košíku</span>
-                  <span className="font-bold text-citysound-green-600">230 kg</span>
+                  <span className="font-medium text-gray-700">Stranivý dosah</span>
+                  <span className="font-bold text-citysound-green-600">7,5 m</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Boční dosah</span>
-                  <span className="font-bold text-citysound-green-600">9,5 m</span>
+                  <span className="font-medium text-gray-700">Nosnost koše</span>
+                  <span className="font-bold text-citysound-green-600">200 kg</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Rozměry vozidla</span>
-                  <span className="font-bold text-citysound-green-600">5,99 x 2,13 x 2,85 m</span>
+                  <span className="font-medium text-gray-700">Hmotnost vozidla</span>
+                  <span className="font-bold text-citysound-green-600">3,5 t</span>
                 </div>
               </div>
 
@@ -175,27 +175,49 @@ const ServicesPage: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                 Zemní práce minibagrem <span className="text-citysound-green-600">Kubota KX-019</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Kompaktní minibagr ideální pro práce v omezeném prostoru. 
-                Provádíme výkopy pro kabelové vedení, terénní úpravy a další zemní práce.
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Nabízíme pronájem minibagru Kubota KX-019 - 2t. Rybadlo je vybaveno lžicemi o šířce 25 mm, 40 mm 
+                a naklápěcí svahovou lžici o šířce 1000 mm.
               </p>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-6">
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Provozní hmotnost</span>
-                  <span className="font-bold text-citysound-green-600">1 920 kg</span>
+                  <span className="font-medium text-gray-700">Hmotnost</span>
+                  <span className="font-bold text-citysound-green-600">2 t</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Maximální hloubka kopání</span>
-                  <span className="font-bold text-citysound-green-600">2 390 mm</span>
+                  <span className="font-medium text-gray-700">Hloubkový dosah</span>
+                  <span className="font-bold text-citysound-green-600">2680 mm</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Maximální dosah</span>
-                  <span className="font-bold text-citysound-green-600">4 140 mm</span>
+                  <span className="font-medium text-gray-700">Výsypná výška</span>
+                  <span className="font-bold text-citysound-green-600">2560 mm</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="font-medium text-gray-700">Šířka podvozku</span>
-                  <span className="font-bold text-citysound-green-600">990 mm</span>
+                  <span className="font-medium text-gray-700">Šířka pásů (stavitelná)</span>
+                  <span className="font-bold text-citysound-green-600">990 - 1300 mm</span>
+                </div>
+              </div>
+              
+              <div className="bg-citysound-green-50 p-4 rounded-lg mb-8">
+                <h4 className="font-semibold text-citysound-green-800 mb-2">Dostupné vybavení:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-citysound-green-700">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Lžice 25 mm a 40 mm</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Naklápěcí svahová lžice 1000 mm</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Hydraulické kladivo (na přání)</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Vrtací zařízení (na přání)</span>
+                  </div>
                 </div>
               </div>
 
@@ -247,26 +269,26 @@ const ServicesPage: React.FC = () => {
                 <span className="text-citysound-green-600">Autodoprava</span> a kontejnery
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Zajišťujeme dopravu materiálu a poskytujeme kontejnery pro odvoz stavebního odpadu. 
-                Komplexní logistická podpora pro vaše projekty.
+                Nabízíme možnost přepravy 3,5 t - 8 t. Máme k dispozici dodávkové vozy Renault Trafic, 
+                vůz Ford Tranzit Custom a kontejnerový sklápěč IVECO Eurocargo 8 t s možností různých typů kontejnerových nástaveb.
               </p>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Přeprava materiálu a nářadí</span>
+                  <span className="text-gray-700">Renault Trafic - dodávkový vůz</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Poskytnutí kontejnerů různých velikostí</span>
+                  <span className="text-gray-700">Ford Tranzit Custom</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Odvoz stavebního odpadu</span>
+                  <span className="text-gray-700">IVECO Eurocargo 8 t - kontejnerový sklápěč</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Flexibilní termíny a rychlé vyřízení</span>
+                  <span className="text-gray-700">Různé typy kontejnerových nástaveb</span>
                 </div>
               </div>
 
