@@ -97,11 +97,11 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="h-full flex flex-col justify-between">
+            <div className="h-full flex flex-col">
               <img
                 src="/work/20241115_112046.jpg"
                 alt="Montážní plošina Renault Maxity"
-                className="rounded-xl shadow-lg w-full h-64 object-cover"
+                className="rounded-xl shadow-lg w-full flex-1 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
@@ -196,11 +196,11 @@ const ServicesPage: React.FC = () => {
               </button>
             </div>
             
-            <div className="order-1 lg:order-2 h-full flex flex-col justify-between">
+            <div className="order-1 lg:order-2 h-full flex flex-col">
               <img
                 src="/work/20250511_211440.jpg"
                 alt="Minibagr Kubota KX-019"
-                className="rounded-xl shadow-lg w-full h-64 object-cover"
+                className="rounded-xl shadow-lg w-full flex-1 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
@@ -223,11 +223,11 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="h-full flex items-center">
+            <div className="h-full flex items-stretch">
               <img
                 src="/work/20210107_150459.jpg"
                 alt="Autodoprava a kontejnery"
-                className="rounded-xl shadow-lg w-full h-80 object-cover"
+                className="rounded-xl shadow-lg w-full h-full object-cover"
               />
             </div>
             
