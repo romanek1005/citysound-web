@@ -23,12 +23,12 @@ const HeroSection: React.FC = () => {
       {/* Background Images with Animation */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero/after2.png"
+          src="/hero/lightsOff.png"
           alt="Veřejné osvětlení zhasnuté"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <img
-          src="/hero/before2.jpg"
+          src="/hero/lightsOn.jpg"
           alt="Veřejné osvětlení rozsvícené"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
             showLights ? 'opacity-100' : 'opacity-0'
