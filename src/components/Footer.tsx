@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-citysound-green-400 transition-colors"
                   >
-                    <Facebook size={16} />
+                    <Facebook size={24} />
                   </a>
                   <a
                     href="https://www.instagram.com/_citysound_"
@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-citysound-green-400 transition-colors"
                   >
-                    <Instagram size={16} />
+                    <Instagram size={24} />
                   </a>
                 </div>
               </div>
