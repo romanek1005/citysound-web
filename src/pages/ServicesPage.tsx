@@ -69,12 +69,12 @@ const ServicesPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col">
-                <div className="relative flex-1">
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
@@ -103,16 +103,16 @@ const ServicesPage: React.FC = () => {
                 alt="Montážní plošina Renault Maxity"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-2 gap-4 mt-4 h-40">
                 <img
                   src="/work/20250511_212135.jpg"
                   alt="Práce s montážní plošinou"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
                 <img
                   src="/work/20220530_143714.jpg"
                   alt="Montážní plošina detail"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
               </div>
             </div>
@@ -202,16 +202,16 @@ const ServicesPage: React.FC = () => {
                 alt="Minibagr Kubota KX-019"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-2 gap-4 mt-4 h-40">
                 <img
                   src="/work/20250226_091248.jpg"
                   alt="Zemní práce"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
                 <img
                   src="/work/20250412_091130.jpg"
                   alt="Výkopové práce"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
               </div>
             </div>
@@ -291,21 +291,21 @@ const ServicesPage: React.FC = () => {
                 className="w-full h-64 object-cover rounded-xl mb-8"
               />
               
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="grid md:grid-cols-3 gap-6 mb-8 h-40">
                 <img
                   src="/work/20241115_112046.jpg"
                   alt="Radar installation 1"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
                 <img
                   src="/work/20250511_212135.jpg"
                   alt="Radar installation 2"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
                 <img
                   src="/work/20220530_143714.jpg"
                   alt="Radar installation 3"
-                  className="rounded-lg shadow-md h-32 w-full object-cover"
+                  className="rounded-lg shadow-md h-full w-full object-cover"
                 />
               </div>
               
