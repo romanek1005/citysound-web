@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lightbulb, Radio, Gift as Lift, Truck, Radar, ArrowRight, Construction } from 'lucide-react';
+import { Lightbulb, Radio, TrafficCone as Lift, Truck, Radar, ArrowRight, Construction } from 'lucide-react';
 
 const ServicesSection: React.FC = () => {
   const mainServices = [
