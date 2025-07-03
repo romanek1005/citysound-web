@@ -269,7 +269,7 @@ const ContactPage: React.FC = () => {
                       className="w-full bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center justify-center space-x-2"
                     >
                       <Send size={20} />
-                      <span>Odeslat poptávku</span>
+                      <span>Odeslat zprávu</span>
                     </button>
 
                     <p className="text-sm text-gray-500 text-center">
