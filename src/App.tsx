@@ -5,6 +5,7 @@ import PublicLightingPage from './pages/PublicLightingPage';
 import ContactPage from './pages/ContactPage';
 import ServicesPage from './pages/ServicesPage';
 import ReferencePage from './pages/ReferencePage';
+import DotacePage from './pages/DotacePage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/verejne-osvetleni" element={<PublicLightingPage />} />
         <Route path="/dalsi-sluzby" element={<ServicesPage />} />
+        <Route path="/dotace" element={<DotacePage />} />
         <Route path="/reference" element={<ReferencePage />} />
         <Route path="/kontakt" element={<ContactPage />} />
       </Routes>
