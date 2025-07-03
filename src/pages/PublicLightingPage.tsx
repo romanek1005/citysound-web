@@ -105,9 +105,8 @@ const PublicLightingPage: React.FC = () => {
             <div className="max-w-4xl">
               <div className="mb-8">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 animate-fade-in-up">
-                  Komplexní realizace <span className="text-citysound-green-600 relative">
+                  Komplexní realizace <span className="text-citysound-green-600">
                     veřejného osvětlení
-                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-citysound-green-400 to-citysound-green-600 rounded animate-pulse"></div>
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl animate-fade-in-up animation-delay-200">
@@ -140,7 +139,9 @@ const PublicLightingPage: React.FC = () => {
                   viewBox="0 0 400 300"
                   className="w-full h-full"
                   style={{
-                    filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.3))'
+                    filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.3))',
+                    transform: 'perspective(600px) rotateX(15deg) rotateY(-10deg)',
+                    transformOrigin: 'center center'
                   }}
                 >
                   {/* Grid Lines */}
@@ -177,6 +178,15 @@ const PublicLightingPage: React.FC = () => {
                         .street-lamp:nth-child(13) { animation-delay: 3.6s; }
                         .street-lamp:nth-child(14) { animation-delay: 3.9s; }
                         
+                        .lamp-head {
+                          animation: lampPulse 2s ease-in-out infinite;
+                        }
+                        
+                        .lamp-post {
+                          stroke: #15803d;
+                          stroke-width: 3;
+                        }
+                        
                         @keyframes drawLine {
                           to {
                             stroke-dashoffset: 0;
@@ -195,6 +205,17 @@ const PublicLightingPage: React.FC = () => {
                           100% {
                             opacity: 1;
                             transform: scale(1);
+                          }
+                        }
+                        
+                        @keyframes lampPulse {
+                          0%, 100% {
+                            opacity: 1;
+                            filter: brightness(1) drop-shadow(0 0 8px #22c55e);
+                          }
+                          50% {
+                            opacity: 0.7;
+                            filter: brightness(1.3) drop-shadow(0 0 15px #22c55e);
                           }
                         }
                       `}
@@ -217,28 +238,34 @@ const PublicLightingPage: React.FC = () => {
                   
                   {/* Street Lamps */}
                   <g className="street-lamp">
-                    <circle cx="100" cy="50" r="8" fill="#22c55e" />
-                    <circle cx="100" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="100" y1="50" x2="100" y2="30" />
+                    <ellipse className="lamp-head" cx="100" cy="25" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="100" cy="25" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                   <g className="street-lamp">
-                    <circle cx="200" cy="50" r="8" fill="#22c55e" />
-                    <circle cx="200" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="200" y1="50" x2="200" y2="30" />
+                    <ellipse className="lamp-head" cx="200" cy="25" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="200" cy="25" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                   <g className="street-lamp">
-                    <circle cx="300" cy="50" r="8" fill="#22c55e" />
-                    <circle cx="300" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="300" y1="50" x2="300" y2="30" />
+                    <ellipse className="lamp-head" cx="300" cy="25" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="300" cy="25" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                   <g className="street-lamp">
-                    <circle cx="100" cy="120" r="8" fill="#22c55e" />
-                    <circle cx="100" cy="120" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="100" y1="120" x2="100" y2="100" />
+                    <ellipse className="lamp-head" cx="100" cy="95" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="100" cy="95" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                   <g className="street-lamp">
-                    <circle cx="200" cy="190" r="8" fill="#22c55e" />
-                    <circle cx="200" cy="190" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="200" y1="190" x2="200" y2="170" />
+                    <ellipse className="lamp-head" cx="200" cy="165" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="200" cy="165" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                   <g className="street-lamp">
-                    <circle cx="300" cy="260" r="8" fill="#22c55e" />
-                    <circle cx="300" cy="260" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                    <line className="lamp-post" x1="300" y1="260" x2="300" y2="240" />
+                    <ellipse className="lamp-head" cx="300" cy="235" rx="12" ry="6" fill="#22c55e" />
+                    <circle cx="300" cy="235" r="18" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.2" />
                   </g>
                 </svg>
               </div>
