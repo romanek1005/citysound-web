@@ -1,11 +1,147 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Building } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const ContactPage: React.FC = () => {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  // Load Google Maps script
+  useEffect(() => {
+    const loadGoogleMaps = () => {
+      if (window.google && window.google.maps) {
+        initializeMap();
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDnFrxpDkGB83y-OrTTQg6RY_MbjkuWfGQ&callback=initMap`;
+      script.async = true;
+      script.defer = true;
+      
+      window.initMap = () => {
+        initializeMap();
+      };
+      
+      script.onerror = () => {
+        setMapError(true);
+      };
+      
+      document.head.appendChild(script);
+    };
+
+    const initializeMap = () => {
+      if (!mapRef.current) return;
+
+      const coordinates = { lat: 49.4326431, lng: 17.9185969 };
+      
+      const map = new window.google.maps.Map(mapRef.current, {
+        zoom: 15,
+        center: coordinates,
+        styles: [
+          {
+            featureType: 'all',
+            elementType: 'geometry.fill',
+            stylers: [{ color: '#f5f5f5' }]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{ color: '#e9e9e9' }, { lightness: 17 }]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{ color: '#ffffff' }, { lightness: 17 }]
+          }
+        ],
+        disableDefaultUI: false,
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true
+      });
+
+      // Create custom green gradient marker
+      const markerIcon = {
+        url: createCustomMarkerIcon(),
+        scaledSize: new window.google.maps.Size(50, 60),
+        anchor: new window.google.maps.Point(25, 60)
+      };
+
+      const marker = new window.google.maps.Marker({
+        position: coordinates,
+        map: map,
+        icon: markerIcon,
+        title: 'CitySound s.r.o.',
+        animation: window.google.maps.Animation.DROP
+      });
+
+      // Info window
+      const infoWindow = new window.google.maps.InfoWindow({
+        content: `
+          <div style="padding: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: bold;">CitySound s.r.o.</h3>
+            <p style="margin: 0 0 4px 0; color: #4b5563;">📍 Oznice 101, 756 24 Bystřička</p>
+            <p style="margin: 0 0 4px 0; color: #4b5563;">📞 +420 774 456 960</p>
+            <p style="margin: 0; color: #4b5563;">✉️ info@citysound.cz</p>
+          </div>
+        `
+      });
+
+      marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+      });
+
+      setMapLoaded(true);
+    };
+
+    const createCustomMarkerIcon = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d')!;
+      canvas.width = 50;
+      canvas.height = 60;
+
+      // Create gradient
+      const gradient = ctx.createLinearGradient(0, 0, 0, 50);
+      gradient.addColorStop(0, '#10b981'); // citysound-green-500
+      gradient.addColorStop(1, '#059669'); // citysound-green-600
+
+      // Draw pin shape
+      ctx.beginPath();
+      ctx.arc(25, 20, 18, 0, Math.PI * 2);
+      ctx.moveTo(25, 38);
+      ctx.lineTo(15, 25);
+      ctx.lineTo(35, 25);
+      ctx.closePath();
+      
+      // Fill with gradient
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      // Add shadow
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetY = 2;
+      
+      // Add white icon
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 16px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('🏢', 25, 26);
+      
+      return canvas.toDataURL();
+    };
+
+    loadGoogleMaps();
   }, []);
 
   const [formData, setFormData] = useState({
@@ -334,14 +470,32 @@ const ContactPage: React.FC = () => {
           
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <MapPin className="w-16 h-16 mx-auto mb-4 text-citysound-green-600" />
-                  <p className="text-xl font-semibold mb-2">Mapa bude brzy k dispozici</p>
-                  <p className="text-lg text-gray-700 font-medium">Oznice 101, 756 24 Bystřička</p>
-                  <p className="text-sm text-gray-500 mt-2">Možnost osobní konzultace po předchozí domluvě</p>
+              {mapError ? (
+                <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <MapPin className="w-16 h-16 mx-auto mb-4 text-citysound-green-600" />
+                    <p className="text-xl font-semibold mb-2">Chyba při načítání mapy</p>
+                    <p className="text-lg text-gray-700 font-medium">Oznice 101, 756 24 Bystřička</p>
+                    <p className="text-sm text-gray-500 mt-2">Možnost osobní konzultace po předchozí domluvě</p>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="relative">
+                  {!mapLoaded && (
+                    <div className="absolute inset-0 bg-gray-200 rounded-xl flex items-center justify-center z-10">
+                      <div className="text-center text-gray-600">
+                        <div className="w-8 h-8 border-4 border-citysound-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                        <p className="text-lg font-medium">Načítání mapy...</p>
+                      </div>
+                    </div>
+                  )}
+                  <div 
+                    ref={mapRef} 
+                    className="w-full h-96 rounded-xl"
+                    style={{ minHeight: '384px' }}
+                  ></div>
+                </div>
+              )}
             </div>
           </div>
         </div>
