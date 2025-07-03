@@ -152,7 +152,7 @@ const ContactPage: React.FC = () => {
             <div className="animate-slide-up">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                  Nezávazná poptávka
+                  Kontaktní formulář
                 </h3>
                 
                 {isSubmitted ? (
