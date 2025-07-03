@@ -3,6 +3,7 @@ import { X, MapPin, Calendar, Building, Building2, User, Filter, ChevronLeft, Ch
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import { useCounter } from '../hooks/useCounter';
 
 interface Project {
   id: string;
@@ -132,10 +133,15 @@ const ReferencePage: React.FC = () => {
     : projects.filter(project => project.category === activeFilter);
 
   const statistics = [
-    { number: '150+', label: 'realizovaných projektů' },
-    { number: '80+', label: 'spokojených měst a obcí' },
-    { number: '20+', label: 'let zkušeností v oboru' }
+    { number: 150, suffix: '+', label: 'realizovaných projektů' },
+    { number: 80, suffix: '+', label: 'spokojených měst a obcí' },
+    { number: 20, suffix: '+', label: 'let zkušeností v oboru' }
   ];
+
+  // Counter hooks for statistics
+  const counter1 = useCounter({ end: statistics[0].number, suffix: statistics[0].suffix });
+  const counter2 = useCounter({ end: statistics[1].number, suffix: statistics[1].suffix });
+  const counter3 = useCounter({ end: statistics[2].number, suffix: statistics[2].suffix });
 
   const cities = [
     'Ostrava', 'Brno', 'Zlín', 'Olomouc', 'Plzeň', 'Hradec Králové',
@@ -217,16 +223,30 @@ const ReferencePage: React.FC = () => {
 
           {/* Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {statistics.map((stat, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
-                <div className="text-4xl md:text-5xl font-bold text-citysound-green-600 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-lg text-gray-600 font-medium">
-                  {stat.label}
-                </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div ref={counter1.elementRef} className="text-4xl md:text-5xl font-bold text-citysound-green-600 mb-2">
+                {counter1.displayValue}
               </div>
-            ))}
+              <div className="text-lg text-gray-600 font-medium">
+                {statistics[0].label}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div ref={counter2.elementRef} className="text-4xl md:text-5xl font-bold text-citysound-green-600 mb-2">
+                {counter2.displayValue}
+              </div>
+              <div className="text-lg text-gray-600 font-medium">
+                {statistics[1].label}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div ref={counter3.elementRef} className="text-4xl md:text-5xl font-bold text-citysound-green-600 mb-2">
+                {counter3.displayValue}
+              </div>
+              <div className="text-lg text-gray-600 font-medium">
+                {statistics[2].label}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -338,7 +358,7 @@ const ReferencePage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Municipalities */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-citysound-green-600 mr-3" />
                 Města a obce</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -355,7 +375,7 @@ const ReferencePage: React.FC = () => {
 
             {/* Companies */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
                 <Building2 className="w-6 h-6 text-citysound-green-600 mr-3" />
                 Stavební a průmyslové firmy</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

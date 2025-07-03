@@ -1,5 +1,6 @@
 import React from 'react';
 import { Building2, MapPin, Users, Award } from 'lucide-react';
+import { useCounter } from '../hooks/useCounter';
 
 const ReferencesSection: React.FC = () => {
   const constructionCompanies = [
@@ -21,11 +22,17 @@ const ReferencesSection: React.FC = () => {
   ];
 
   const stats = [
-    { icon: Building2, value: '150+', label: 'Realizovaných projektů' },
-    { icon: MapPin, value: '80+', label: 'Spokojených obcí' },
-    { icon: Users, value: '15', label: 'Let zkušeností' },
-    { icon: Award, value: '100%', label: 'Spokojenost klientů' },
+    { icon: Building2, value: 150, suffix: '+', label: 'Realizovaných projektů' },
+    { icon: MapPin, value: 80, suffix: '+', label: 'Spokojených obcí' },
+    { icon: Users, value: 15, suffix: '', label: 'Let zkušeností' },
+    { icon: Award, value: 100, suffix: '%', label: 'Spokojenost klientů' },
   ];
+
+  // Counter hooks for statistics
+  const counter1 = useCounter({ end: stats[0].value, suffix: stats[0].suffix });
+  const counter2 = useCounter({ end: stats[1].value, suffix: stats[1].suffix });
+  const counter3 = useCounter({ end: stats[2].value, suffix: stats[2].suffix });
+  const counter4 = useCounter({ end: stats[3].value, suffix: stats[3].suffix });
 
   return (
     <section id="references" className="py-20 bg-gray-50">
@@ -42,15 +49,34 @@ const ReferencesSection: React.FC = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="w-16 h-16 bg-citysound-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-8 h-8 text-citysound-green-600" />
-              </div>
-              <div className="text-3xl font-bold text-gray-800 mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
+          <div className="text-center animate-scale-in" style={{ animationDelay: '0s' }}>
+            <div className="w-16 h-16 bg-citysound-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Building2 className="w-8 h-8 text-citysound-green-600" />
             </div>
-          ))}
+            <div ref={counter1.elementRef} className="text-3xl font-bold text-gray-800 mb-1">{counter1.displayValue}</div>
+            <div className="text-gray-600 text-sm">{stats[0].label}</div>
+          </div>
+          <div className="text-center animate-scale-in" style={{ animationDelay: '0.1s' }}>
+            <div className="w-16 h-16 bg-citysound-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin className="w-8 h-8 text-citysound-green-600" />
+            </div>
+            <div ref={counter2.elementRef} className="text-3xl font-bold text-gray-800 mb-1">{counter2.displayValue}</div>
+            <div className="text-gray-600 text-sm">{stats[1].label}</div>
+          </div>
+          <div className="text-center animate-scale-in" style={{ animationDelay: '0.2s' }}>
+            <div className="w-16 h-16 bg-citysound-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Users className="w-8 h-8 text-citysound-green-600" />
+            </div>
+            <div ref={counter3.elementRef} className="text-3xl font-bold text-gray-800 mb-1">{counter3.displayValue}</div>
+            <div className="text-gray-600 text-sm">{stats[2].label}</div>
+          </div>
+          <div className="text-center animate-scale-in" style={{ animationDelay: '0.3s' }}>
+            <div className="w-16 h-16 bg-citysound-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award className="w-8 h-8 text-citysound-green-600" />
+            </div>
+            <div ref={counter4.elementRef} className="text-3xl font-bold text-gray-800 mb-1">{counter4.displayValue}</div>
+            <div className="text-gray-600 text-sm">{stats[3].label}</div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
