@@ -3,7 +3,6 @@ import { X, MapPin, Calendar, Building, Building2, User, Filter, ChevronLeft, Ch
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import ReferencesSection from '../components/ReferencesSection';
 import { useCounter } from '../hooks/useCounter';
 
 interface Project {
@@ -149,6 +148,11 @@ const ReferencePage: React.FC = () => {
     'Praha', 'Pardubice', 'Jihlava', 'Havířov', 'Mladá Boleslav', 'Černá Hora',
     'Opava', 'Frýdek-Místek', 'Rožnov pod Radhoštěm', 'Vsetín', 'Ostravice'
   ];
+
+  const companyLogos = {
+    municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové', 'Olomouc', 'Zlín', 'Pardubice'],
+    companies: ['PORR', 'STRAMAG', 'METROSTAV', 'SKANSKA', 'HOCHTIEF', 'Eurovia CS', 'SMP CZ', 'SWIETELSKY', 'Subterra']
+  };
 
 
   // Carousel navigation functions
@@ -339,8 +343,68 @@ const ReferencePage: React.FC = () => {
         </div>
       </section>
 
-      {/* References Section */}
-      <ReferencesSection />
+      {/* Client Collaboration Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Spolupracují s námi
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Naše zkušenosti a spolehlivost oceňují jak přední stavební firmy, tak desítky měst a 
+              obcí po celé České republice.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Municipalities */}
+            <div className="animate-slide-up">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <MapPin className="w-6 h-6 text-citysound-green-600 mr-3" />
+                Města a obce
+              </h3>
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="grid grid-cols-2 gap-6">
+                  {companyLogos.municipalities.map((city, index) => (
+                    <div
+                      key={index}
+                      className="group cursor-pointer"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
+                        <span className="font-medium text-gray-700">{city}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Companies */}
+            <div className="animate-slide-up">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <Building2 className="w-6 h-6 text-citysound-green-600 mr-3" />
+                Stavební a průmyslové firmy
+              </h3>
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="grid grid-cols-2 gap-6">
+                  {companyLogos.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="group cursor-pointer"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
+                        <span className="font-medium text-gray-700">{company}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Project Detail Modal */}
       {selectedProject && (
