@@ -65,8 +65,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({
     {
       icon: MapPin,
       title: 'Adresa',
-      value: 'Oznice 101, 756 24 Bystřička',
-      href: '#',
+      value: 'Hranická 272, 757 01 Valašské Meziříčí',
+      href: 'https://mapy.com/s/pukosahuvo',
+      target: '_blank',
+      rel: 'noopener noreferrer',
       description: 'Možnost osobní konzultace'
     },
     {

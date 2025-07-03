@@ -39,7 +39,7 @@ const ContactPage: React.FC = () => {
     const initializeMap = () => {
       if (!mapRef.current) return;
 
-      const coordinates = { lat: 49.4326431, lng: 17.9185969 };
+      const coordinates = { lat: 49.4810689, lng: 17.9651569 };
       console.log('Coordinates being used:', coordinates);
       
       const map = new window.google.maps.Map(mapRef.current, {
@@ -241,7 +241,7 @@ const ContactPage: React.FC = () => {
         content: `
           <div style="padding: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
             <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 18px; font-weight: 700;">CitySound s.r.o.</h3>
-            <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Oznice 101, 756 24 Bystřička</p>
+            <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Hranická 272, 757 01 Valašské Meziříčí</p>
             <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📞 +420 774 456 960</p>
             <p style="margin: 0; color: #374151; font-weight: 600;">✉️ citysound@citysound.cz</p>
           </div>
@@ -325,8 +325,8 @@ const ContactPage: React.FC = () => {
     {
       icon: MapPin,
       title: 'Adresa sídla',
-      value: 'CitySound s.r.o., Oznice 101, 756 24 Bystřička',
-      href: '#',
+      value: 'CitySound s.r.o., Hranická 272, 757 01 Valašské Meziříčí',
+      href: 'https://mapy.com/s/pukosahuvo',
       description: 'Možnost osobní konzultace'
     },
     {

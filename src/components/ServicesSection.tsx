@@ -38,7 +38,7 @@ const ServicesSection: React.FC = () => {
       icon: Lift,
       title: 'Práce s montážní plošinou',
       description: 'Díky vlastní plošině jsme flexibilní a efektivní při montážních pracích ve výškách.',
-      image: 'https://images.pexels.com/photos/1427541/pexels-photo-1427541.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/work/plosina.jpg'
     },
     {
       icon: Construction,
