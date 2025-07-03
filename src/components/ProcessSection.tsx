@@ -6,7 +6,7 @@ const ProcessSection: React.FC = () => {
     {
       icon: FileText,
       title: 'Projekt & Konzultace',
-      description: 'Analyzujeme vaše potřeby a navrhneme optimální řešení včetně výběru nejvhodnějších svítidel a technologií.',
+      description: 'Analyzujeme vaše potřeby a navrhneme optimální řešení včetně výběru svítidel a technologií.',
       details: ['Technická konzultace zdarma', 'Návrh optimálního řešení', 'Výpočet úspor energie'],
       bgImage: '/work/dokumentace.jpg'
     },
@@ -22,7 +22,7 @@ const ProcessSection: React.FC = () => {
       title: 'Montáž osvětlení',
       description: 'Nainstalujeme stožáry, výložníky a moderní úsporná LED svítidla podle projektové dokumentace.',
       details: ['Montáž stožárů a výložníků', 'Instalace LED svítidel', 'Připojení rozvodů'],
-      bgImage: '/work/20250511_210358.jpg'
+      bgImage: '/work/elektroinstalace.jpeg'
     },
     {
       icon: CheckCircle,
