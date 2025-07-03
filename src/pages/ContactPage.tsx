@@ -53,49 +53,77 @@ const ContactPage: React.FC = () => {
         fullscreenControl: true
       });
 
-      // Create custom green gradient marker
+      // Create custom green gradient marker with pulse effect
+      let marker: any;
+      
+      const createMarkerWithPulse = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d')!;
+        canvas.width = 50;
+        canvas.height = 60;
+
+        // Create pulsing glow effect
+        const time = Date.now() / 800;
+        const glowIntensity = 0.7 + 0.3 * Math.sin(time);
+        
+        // Create gradient
+        const gradient = ctx.createLinearGradient(0, 0, 0, 50);
+        gradient.addColorStop(0, '#10b981');
+        gradient.addColorStop(1, '#059669');
+
+        // Add pulsing glow
+        ctx.shadowColor = '#10b981';
+        ctx.shadowBlur = 20 * glowIntensity;
+        ctx.globalAlpha = glowIntensity;
+
+        // Draw pin shape
+        ctx.beginPath();
+        ctx.arc(25, 20, 18, 0, Math.PI * 2);
+        ctx.moveTo(25, 38);
+        ctx.lineTo(15, 25);
+        ctx.lineTo(35, 25);
+        ctx.closePath();
+        
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        // Reset for icon
+        ctx.globalAlpha = 1;
+        ctx.shadowBlur = 0;
+        
+        // Add white icon
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('🏢', 25, 27);
+        
+        return canvas.toDataURL();
+      };
+
       const markerIcon = {
-        url: createCustomMarkerIcon(),
+        url: createMarkerWithPulse(),
         scaledSize: new window.google.maps.Size(50, 60),
         anchor: new window.google.maps.Point(25, 60)
       };
 
-      const marker = new window.google.maps.Marker({
+      marker = new window.google.maps.Marker({
         position: coordinates,
         map: map,
         icon: markerIcon,
         title: 'CitySound s.r.o.',
-        animation: window.google.maps.Animation.BOUNCE
+        animation: window.google.maps.Animation.DROP
       });
 
-      // Add pulsing animation by creating a pulsing circle
-      const pulseCircle = new window.google.maps.Circle({
-        strokeColor: '#10b981',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#10b981',
-        fillOpacity: 0.2,
-        map: map,
-        center: coordinates,
-        radius: 100
-      });
-
-      // Animate the pulse
-      let growing = true;
-      let currentRadius = 50;
+      // Update marker icon for continuous pulse effect
       setInterval(() => {
-        if (growing) {
-          currentRadius += 5;
-          if (currentRadius >= 150) growing = false;
-        } else {
-          currentRadius -= 5;
-          if (currentRadius <= 50) growing = true;
+        if (marker) {
+          const newIcon = {
+            url: createMarkerWithPulse(),
+            scaledSize: new window.google.maps.Size(50, 60),
+            anchor: new window.google.maps.Point(25, 60)
+          };
+          marker.setIcon(newIcon);
         }
-        pulseCircle.setRadius(currentRadius);
-        pulseCircle.setOptions({
-          fillOpacity: 0.3 - (currentRadius / 500),
-          strokeOpacity: 0.8 - (currentRadius / 300)
-        });
       }, 100);
 
       // Info window
@@ -117,42 +145,6 @@ const ContactPage: React.FC = () => {
       setMapLoaded(true);
     };
 
-    const createCustomMarkerIcon = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d')!;
-      canvas.width = 50;
-      canvas.height = 60;
-
-      // Create gradient
-      const gradient = ctx.createLinearGradient(0, 0, 0, 50);
-      gradient.addColorStop(0, '#10b981'); // citysound-green-500
-      gradient.addColorStop(1, '#059669'); // citysound-green-600
-
-      // Draw pin shape
-      ctx.beginPath();
-      ctx.arc(25, 20, 18, 0, Math.PI * 2);
-      ctx.moveTo(25, 38);
-      ctx.lineTo(15, 25);
-      ctx.lineTo(35, 25);
-      ctx.closePath();
-      
-      // Fill with gradient
-      ctx.fillStyle = gradient;
-      ctx.fill();
-      
-      // Add shadow
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
-      ctx.shadowBlur = 4;
-      ctx.shadowOffsetY = 2;
-      
-      // Add white icon
-      ctx.fillStyle = 'white';
-      ctx.font = 'bold 18px Arial';
-      ctx.textAlign = 'center';
-      ctx.fillText('🏢', 25, 27);
-      
-      return canvas.toDataURL();
-    };
 
     loadGoogleMaps();
   }, []);
