@@ -150,7 +150,7 @@ const ReferencePage: React.FC = () => {
   ];
 
   const companyLogos = {
-    municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové'],
+    municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové', 'Olomouc', 'Zlín', 'Pardubice'],
     companies: ['PORR', 'STRAMAG', 'METROSTAV', 'SKANSKA', 'HOCHTIEF', 'Eurovia CS', 'SMP CZ', 'SWIETELSKY', 'Subterra']
   };
 
