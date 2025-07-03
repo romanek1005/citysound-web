@@ -25,9 +25,7 @@ const Header: React.FC = () => {
     { label: 'Kontakt', href: '/kontakt', type: 'route' },
   ];
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -104,15 +102,15 @@ const Header: React.FC = () => {
             </div>
             
             {/* CTA Button */}
-            <button
-              onClick={scrollToContact}
-              className="group bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
+            <Link
+              to="/kontakt"
+              className="group bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105 inline-block"
             >
               <span className="flex items-center space-x-2">
                 <span>Nezávazně poptat</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -181,15 +179,13 @@ const Header: React.FC = () => {
                     <span>Instagram</span>
                   </a>
                 </div>
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    scrollToContact();
-                  }}
-                  className="bg-citysound-red-600 text-white px-4 py-2 rounded-lg font-semibold text-sm mt-2"
+                <Link
+                  to="/kontakt"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="bg-citysound-red-600 text-white px-4 py-2 rounded-lg font-semibold text-sm mt-2 text-center inline-block"
                 >
                   Nezávazně poptat
-                </button>
+                </Link>
               </div>
             </nav>
           </div>
