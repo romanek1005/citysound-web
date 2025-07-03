@@ -1,6 +1,0 @@
-- zajistit stejny pading v kontaktu jako na services.tsx
-- zprovoznit mapy na kontaktu
-- zajistit "Dotace" stránku
-- opravit všude fotky
-- zkontrolovat footer
-- zkontrolovat odkazy
