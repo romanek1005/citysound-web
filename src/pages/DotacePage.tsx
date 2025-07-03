@@ -383,10 +383,10 @@ const DotacePage: React.FC = () => {
                 <Mail className="w-8 h-8 text-citysound-blue-600 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-gray-800 mb-2">Napište nám</h3>
                 <a
-                  href="mailto:info@citysound.cz"
+                  href="mailto:citysound@citysound.cz"
                   className="text-xl font-bold text-citysound-blue-600 hover:text-citysound-blue-700 transition-colors block"
                 >
-                  info@citysound.cz
+                  citysound@citysound.cz
                 </a>
                 <p className="text-sm text-gray-600 mt-2">Odpovídáme do 24 hodin</p>
               </div>

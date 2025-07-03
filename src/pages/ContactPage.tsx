@@ -202,7 +202,7 @@ const ContactPage: React.FC = () => {
                   <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 18px; font-weight: 700;">CitySound s.r.o.</h3>
                   <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Oznice 101, 756 24 Bystřička</p>
                   <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📞 +420 774 456 960</p>
-                  <p style="margin: 0; color: #374151; font-weight: 600;">✉️ info@citysound.cz</p>
+                  <p style="margin: 0; color: #374151; font-weight: 600;">✉️ citysound@citysound.cz</p>
                 </div>
               `
             });
@@ -243,7 +243,7 @@ const ContactPage: React.FC = () => {
             <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 18px; font-weight: 700;">CitySound s.r.o.</h3>
             <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Oznice 101, 756 24 Bystřička</p>
             <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📞 +420 774 456 960</p>
-            <p style="margin: 0; color: #374151; font-weight: 600;">✉️ info@citysound.cz</p>
+            <p style="margin: 0; color: #374151; font-weight: 600;">✉️ citysound@citysound.cz</p>
           </div>
         `
       });
@@ -318,8 +318,8 @@ const ContactPage: React.FC = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      value: 'info@citysound.cz',
-      href: 'mailto:info@citysound.cz',
+      value: 'citysound@citysound.cz',
+      href: 'mailto:citysound@citysound.cz',
       description: 'Odpovídáme do 24 hodin'
     },
     {
@@ -375,11 +375,11 @@ const ContactPage: React.FC = () => {
                 <span>Zavolat +420 774 456 960</span>
               </a>
               <a
-                href="mailto:info@citysound.cz"
+                href="mailto:citysound@citysound.cz"
                 className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
               >
                 <Mail className="w-5 h-5" />
-                <span>info@citysound.cz</span>
+                <span>citysound@citysound.cz</span>
               </a>
             </div>
           </div>
