@@ -157,12 +157,12 @@ const Footer: React.FC = () => {
               © {currentYear} Citysound.cz - Všechna práva vyhrazena
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-citysound-green-400 transition-colors">
+              <Link to="/kontakt" className="text-gray-400 hover:text-citysound-green-400 transition-colors">
                 Ochrana osobních údajů
-              </a>
-              <a href="#" className="text-gray-400 hover:text-citysound-green-400 transition-colors">
+              </Link>
+              <Link to="/kontakt" className="text-gray-400 hover:text-citysound-green-400 transition-colors">
                 Obchodní podmínky
-              </a>
+              </Link>
             </div>
           </div>
         </div>
