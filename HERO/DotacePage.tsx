@@ -1,45 +1,49 @@
 import React, { useEffect } from 'react';
-import { ChevronRight, Euro, FileText, Users, Award, MapPin, Phone, Mail, Lightbulb, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle, FileText, Users, Shield, Clock, Award, Euro, Lightbulb, Building2, Phone, Mail } from 'lucide-react';
 import Header from '../components/Header';
+import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-import { useCounter } from '../hooks/useCounter';
 
 const DotacePage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-
   const processSteps = [
     {
       number: 1,
       title: 'Dotační analýza a poradenství',
-      description: 'Zanalyzujeme váš záměr a ověříme možnosti v aktuálních dotačních výzvách.',
-      icon: FileText
+      description: 'Zanalyzujeme váš záměr a ověříme možnosti v aktuálních dotačních výzvách. Posoudíme vhodnost projektu a navržeme optimální strategii.',
+      icon: FileText,
+      color: 'bg-citysound-green-100 text-citysound-green-600'
     },
     {
       number: 2,
       title: 'Projektová a světelná studie',
-      description: 'Připravíme veškeré technické podklady potřebné pro žádost (pasport, světelně-technický výpočet).',
-      icon: Lightbulb
+      description: 'Připravíme veškeré technické podklady potřebné pro žádost - pasport osvětlení, světelně-technický výpočet a projektovou dokumentaci.',
+      icon: Lightbulb,
+      color: 'bg-citysound-green-100 text-citysound-green-600'
     },
     {
       number: 3,
       title: 'Zpracování a podání žádosti',
-      description: 'Zkompletujeme a podáme žádost o dotaci vaším jménem.',
-      icon: Send
+      description: 'Zkompletujeme a podáme žádost o dotaci vaším jménem. Zajistíme všechny potřebné přílohy a dodržíme termíny výzvy.',
+      icon: Users,
+      color: 'bg-citysound-green-100 text-citysound-green-600'
     },
     {
       number: 4,
       title: 'Kompletní realizace projektu',
-      description: 'Po schválení dotace provedeme veškeré práce – od výkopů po montáž a zapojení. Vše vlastní technikou a lidmi.',
-      icon: Users
+      description: 'Po schválení dotace provedeme veškeré práce vlastní technikou - od výkopů po montáž a zapojení. Dodržíme dotační podmínky.',
+      icon: Shield,
+      color: 'bg-citysound-green-100 text-citysound-green-600'
     },
     {
       number: 5,
       title: 'Administrace a vyúčtování',
-      description: 'Pomůžeme s doložením všech potřebných dokumentů pro finální proplacení dotace.',
-      icon: CheckCircle
+      description: 'Pomůžeme s doložením všech potřebných dokumentů pro finální proplacení dotace a zajistíme bezproblémové ukončení projektu.',
+      icon: CheckCircle,
+      color: 'bg-citysound-green-100 text-citysound-green-600'
     }
   ];
 
@@ -47,27 +51,28 @@ const DotacePage: React.FC = () => {
     {
       icon: Users,
       title: 'Jeden partner na vše',
-      description: 'Nemusíte koordinovat projektanta, realizační firmu a dotačního poradce.'
+      description: 'Nemusíte koordinovat projektanta, realizační firmu a dotačního poradce. Vše vyřešíme z jedné ruky.',
+      bgImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: Award,
       title: 'Zkušenosti a reference',
-      description: 'Máme za sebou 150+ projektů pro obce a města. Víme, co funguje.'
+      description: 'Máme za sebou 150+ projektů pro obce a města. Víme, co funguje a jak dosáhnout úspěchu.',
+      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      icon: Clock,
+      title: 'Vlastní technika = Garance termínů',
+      description: 'Realizaci neohrozí zpoždění subdodavatelů, což je pro dodržení dotačních podmínek klíčové.',
+      bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: Shield,
-      title: 'Vlastní technika = Garance termínů',
-      description: 'Realizaci neohrozí zpoždění subdodavatelů, což je pro dodržení dotačních podmínek klíčové.'
-    },
-    {
-      icon: CheckCircle,
       title: 'Maximální úspěšnost',
-      description: 'Naše odbornost zvyšuje šanci na schválení vaší žádosti.'
+      description: 'Naše odbornost a zkušenosti zvyšují šanci na schválení vaší žádosti o dotaci.',
+      bgImage: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=80'
     }
   ];
-
-  const savingsCounter = useCounter({ end: 70, suffix: '%' });
-  const projectsCounter = useCounter({ end: 150, suffix: '+' });
 
   const faqItems = [
     {
@@ -88,13 +93,17 @@ const DotacePage: React.FC = () => {
     },
     {
       question: 'Jaké jsou náklady na vaše služby?',
-      answer: 'První konzultace je vždycky zdarma. Náklady na zpracování žádosti a administraci jsou součástí celkové nabídky projektu. Platíte až při úspěšném získání dotace.'
+      answer: 'První konzultace je vždy zdarma. Náklady na zpracování žádosti a administraci jsou součástí celkové nabídky projektu. Platíte až při úspěšném získání dotace.'
     },
     {
       question: 'Co když dotaci nezískáme?',
-      answer: 'V případě neúspěchu dotační žádosti vám nabídneme alternativní řešení financování nebo možnost čekat na další vhodnou výzvu. Naše zkusenosti však zajišťují vysokou úspěšnost.'
+      answer: 'V případě neúspěchu dotační žádosti vám nabídneme alternativní řešení financování nebo možnost čekat na další vhodnou výzvu. Naše zkušenosti však zajišťují vysokou úspěšnost.'
     }
   ];
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -124,14 +133,14 @@ const DotacePage: React.FC = () => {
               <strong className="text-citysound-green-700"> Jsme váš partner od žádosti o dotaci až po finální revizi.</strong>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-400">
-              <a
-                href="#konzultace"
+              <button
+                onClick={scrollToContact}
                 className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Euro className="w-5 h-5" />
                 <span>Chci konzultaci k dotacím zdarma</span>
-                <ChevronRight className="w-5 h-5" />
-              </a>
+                <ArrowRight className="w-5 h-5" />
+              </button>
               <a
                 href="tel:+420774456960"
                 className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2"
@@ -201,7 +210,7 @@ const DotacePage: React.FC = () => {
               Náš proces od A do Z
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Kompletní služba, která vám ušetří čas, starosti a maximalizuje šanci na úspěch. 
+              Komplexní služba, která vám ušetří čas, starosti a maximalizuje šanci na úspěch. 
               Nemusíte koordinovat více dodavatelů - vše vyřešíme z jedné ruky.
             </p>
           </div>
@@ -210,7 +219,7 @@ const DotacePage: React.FC = () => {
             {processSteps.map((step, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-citysound-green-100 text-citysound-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className={`w-12 h-12 ${step.color} rounded-full flex items-center justify-center flex-shrink-0`}>
                     <step.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
@@ -237,29 +246,42 @@ const DotacePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Citysound Section */}
+      {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               Proč si pro vyřízení dotace vybrat Citysound?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Více než <span ref={projectsCounter.elementRef} className="font-bold text-citysound-green-600">{projectsCounter.displayValue}</span> úspěšných projektů pro obce a města.
+              Kombinujeme odbornost v oblasti osvětlení s hlubokými znalostmi dotačních procesů. 
+              Jsme váš spolehlivý partner pro úspěšnou realizaci.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-citysound-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-citysound-green-600" />
+              <div
+                key={index}
+                className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div 
+                  className="relative h-48 bg-cover bg-center flex items-center justify-center"
+                  style={{ backgroundImage: `url(${benefit.bgImage})` }}
+                >
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+                  <div className="relative z-10 w-16 h-16 bg-white/20 backdrop-blur-sm group-hover:bg-white/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                    <benefit.icon className="w-8 h-8 text-white group-hover:text-citysound-green-200" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">{benefit.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-citysound-green-700 transition-colors">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -267,54 +289,58 @@ const DotacePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Reference Project Section */}
-      <section className="py-20 bg-gradient-to-br from-citysound-green-50 to-citysound-blue-50">
+      {/* Case Study Section */}
+      <section className="py-20 bg-gradient-to-r from-citysound-green-600 to-citysound-green-700">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Referenční projekt
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Úspěšný projekt: <span className="text-citysound-green-200">Modernizace osvětlení v Obci Oznice</span>
               </h2>
-              <p className="text-xl text-gray-600">
-                Modernizace osvětlení v Obci Oznice s podporou dotace
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <img 
-                    src="/work/20241115_112046.jpg" 
-                    alt="Modernizace osvětlení Oznice" 
-                    className="w-full h-64 object-cover rounded-xl"
-                  />
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-6 h-6 text-citysound-green-200" />
+                  <span className="text-lg">Získaná dotace: 75% z celkových nákladů</span>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Kompletní rekonstrukce veřejného osvětlení
-                  </h3>
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 text-citysound-green-600 mr-3" />
-                      <span className="text-gray-600">Oznice, okr. Vsetín</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Lightbulb className="w-5 h-5 text-citysound-green-600 mr-3" />
-                      <span className="text-gray-600">45 úsporných LED svítidel</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Euro className="w-5 h-5 text-citysound-green-600 mr-3" />
-                      <span className="text-gray-600">Úspora 65% nákladů na energie</span>
-                    </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-6 h-6 text-citysound-green-200" />
+                  <span className="text-lg">Úspora energie: 68% oproti původnímu stavu</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-6 h-6 text-citysound-green-200" />
+                  <span className="text-lg">Realizace: 45 nových LED svítidel</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-6 h-6 text-citysound-green-200" />
+                  <span className="text-lg">Doba realizace: 4 měsíce od schválení</span>
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <p className="text-lg italic mb-4">
+                  "Díky Citysound jsme nejen zmodernizovali osvětlení, ale celý proces získání dotace byl nečekaně hladký. 
+                  Jejich komplexní přístup nám ušetřil spoustu času a starostí."
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <Building2 className="w-6 h-6 text-white" />
                   </div>
-                  <div className="bg-citysound-green-50 rounded-xl p-6 border-l-4 border-citysound-green-600">
-                    <p className="text-gray-700 italic">
-                      "Díky Citysound jsme nejen zmodernizovali osvětlení, ale celý proces získání dotace byl nečekaně hladký. Jejich komplexní přístup nám ušetřil spoustu času a starostí."
-                    </p>
-                    <p className="text-sm text-gray-600 mt-2 font-semibold">
-                      - Starosta obce Oznice
-                    </p>
+                  <div>
+                    <div className="font-semibold">Ing. Pavel Novák</div>
+                    <div className="text-citysound-green-200">Starosta obce Oznice</div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src="/work/20241115_112046.jpg"
+                alt="Modernizace osvětlení v Obci Oznice"
+                className="rounded-xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-citysound-green-600">75%</div>
+                  <div className="text-sm text-gray-600">dotační podpora</div>
                 </div>
               </div>
             </div>
@@ -334,7 +360,7 @@ const DotacePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             {faqItems.map((item, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-start">
@@ -355,17 +381,15 @@ const DotacePage: React.FC = () => {
       {/* Final CTA Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Máte zájem o dotaci? <span className="text-citysound-green-600">Pojďme se nezávazně pobavit.</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                První konzultace je zdarma. Probereme váš záměr a navrhneme nejlepší postup 
-                pro získání dotace na modernizaci vašeho veřejného osvětlení.
-              </p>
-            </div>
-
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Máte zájem o dotaci? <span className="text-citysound-green-600">Pojďme se nezávazně pobavit.</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              První konzultace je zdarma. Probereme váš záměr a navrhneme nejlepší postup 
+              pro získání dotace na modernizaci vašeho veřejného osvětlení.
+            </p>
+            
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-citysound-green-50 rounded-xl p-6 border border-citysound-green-200">
                 <Phone className="w-8 h-8 text-citysound-green-600 mx-auto mb-4" />
@@ -392,17 +416,23 @@ const DotacePage: React.FC = () => {
               </div>
             </div>
 
-            <a
-              href="tel:+420774456960"
+            <button
+              onClick={scrollToContact}
               className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2"
             >
               <Euro className="w-5 h-5" />
               <span>Chci nezávaznou konzultaci k dotacím</span>
-              <ChevronRight className="w-5 h-5" />
-            </a>
+              <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <ContactSection 
+        customTitle="Připraveni začít s vaším dotačním projektem?"
+        customSubtitle="Vyplňte formulář a my se vám ozveme do 24 hodin s konkrétním návrhem postupu."
+      />
       
       <Footer />
     </div>
