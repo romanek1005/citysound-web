@@ -5,18 +5,20 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Veřejné osvětlení',
-    'Práce s montážní plošinou',
-    'Zemní práce minibagrem',
-    'Autodoprava a kontejnerizace',
-    'Montáž radarů'
+    { name: 'Veřejné osvětlení', href: '/verejne-osvetleni' },
+    { name: 'Práce s montážní plošinou', href: '/dalsi-sluzby#montazni-plosina' },
+    { name: 'Zemní práce minibagrem', href: '/dalsi-sluzby#zemni-prace' },
+    { name: 'Autodoprava a kontejnerizace', href: '/dalsi-sluzby#autodoprava' },
+    { name: 'Montáž radarů', href: '/dalsi-sluzby#montaz-radaru' }
   ];
 
   const quickLinks = [
     { label: 'Domů', href: '/' },
-    { label: 'Veřejné osvětlení', href: '/public-lighting' },
-    { label: 'Reference', href: '/references' },
-    { label: 'Kontakt', href: '#contact' }
+    { label: 'Veřejné osvětlení', href: '/verejne-osvetleni' },
+    { label: 'Služby', href: '/dalsi-sluzby' },
+    { label: 'Dotace', href: '/dotace' },
+    { label: 'Reference', href: '/reference' },
+    { label: 'Kontakt', href: '/kontakt' }
   ];
 
   return (
@@ -48,10 +50,10 @@ const Footer: React.FC = () => {
               {services.map((service, index) => (
                 <li key={index}>
                   <a
-                    href={service === 'Veřejné osvětlení' ? '/public-lighting' : '#services'}
+                    href={service.href}
                     className="text-gray-300 hover:text-citysound-green-400 transition-colors duration-200"
                   >
-                    {service}
+                    {service.name}
                   </a>
                 </li>
               ))}
