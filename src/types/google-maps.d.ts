@@ -21,6 +21,12 @@ declare namespace google {
       open(map: Map, anchor?: Marker): void;
     }
     
+    class Circle {
+      constructor(opts?: CircleOptions);
+      setRadius(radius: number): void;
+      setOptions(options: CircleOptions): void;
+    }
+    
     class Size {
       constructor(width: number, height: number);
     }
@@ -52,6 +58,17 @@ declare namespace google {
     
     interface InfoWindowOptions {
       content?: string | Element;
+    }
+    
+    interface CircleOptions {
+      strokeColor?: string;
+      strokeOpacity?: number;
+      strokeWeight?: number;
+      fillColor?: string;
+      fillOpacity?: number;
+      map?: Map;
+      center?: LatLng | LatLngLiteral;
+      radius?: number;
     }
     
     interface LatLngLiteral {

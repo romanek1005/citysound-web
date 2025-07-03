@@ -44,23 +44,6 @@ const ContactPage: React.FC = () => {
       const map = new window.google.maps.Map(mapRef.current, {
         zoom: 15,
         center: coordinates,
-        styles: [
-          {
-            featureType: 'all',
-            elementType: 'geometry.fill',
-            stylers: [{ color: '#f5f5f5' }]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{ color: '#e9e9e9' }, { lightness: 17 }]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{ color: '#ffffff' }, { lightness: 17 }]
-          }
-        ],
         disableDefaultUI: false,
         zoomControl: true,
         mapTypeControl: false,
@@ -82,17 +65,47 @@ const ContactPage: React.FC = () => {
         map: map,
         icon: markerIcon,
         title: 'CitySound s.r.o.',
-        animation: window.google.maps.Animation.DROP
+        animation: window.google.maps.Animation.BOUNCE
       });
+
+      // Add pulsing animation by creating a pulsing circle
+      const pulseCircle = new window.google.maps.Circle({
+        strokeColor: '#10b981',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#10b981',
+        fillOpacity: 0.2,
+        map: map,
+        center: coordinates,
+        radius: 100
+      });
+
+      // Animate the pulse
+      let growing = true;
+      let currentRadius = 50;
+      setInterval(() => {
+        if (growing) {
+          currentRadius += 5;
+          if (currentRadius >= 150) growing = false;
+        } else {
+          currentRadius -= 5;
+          if (currentRadius <= 50) growing = true;
+        }
+        pulseCircle.setRadius(currentRadius);
+        pulseCircle.setOptions({
+          fillOpacity: 0.3 - (currentRadius / 500),
+          strokeOpacity: 0.8 - (currentRadius / 300)
+        });
+      }, 100);
 
       // Info window
       const infoWindow = new window.google.maps.InfoWindow({
         content: `
-          <div style="padding: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-            <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 18px; font-weight: bold;">CitySound s.r.o.</h3>
-            <p style="margin: 0 0 4px 0; color: #4b5563;">📍 Oznice 101, 756 24 Bystřička</p>
-            <p style="margin: 0 0 4px 0; color: #4b5563;">📞 +420 774 456 960</p>
-            <p style="margin: 0; color: #4b5563;">✉️ info@citysound.cz</p>
+          <div style="padding: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 18px; font-weight: 700;">CitySound s.r.o.</h3>
+            <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Oznice 101, 756 24 Bystřička</p>
+            <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📞 +420 774 456 960</p>
+            <p style="margin: 0; color: #374151; font-weight: 600;">✉️ info@citysound.cz</p>
           </div>
         `
       });
@@ -134,9 +147,9 @@ const ContactPage: React.FC = () => {
       
       // Add white icon
       ctx.fillStyle = 'white';
-      ctx.font = 'bold 16px Arial';
+      ctx.font = 'bold 18px Arial';
       ctx.textAlign = 'center';
-      ctx.fillText('🏢', 25, 26);
+      ctx.fillText('🏢', 25, 27);
       
       return canvas.toDataURL();
     };
