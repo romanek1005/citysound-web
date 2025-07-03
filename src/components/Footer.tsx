@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Lightbulb, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -28,12 +28,12 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
+            <Link to="/" className="flex items-center space-x-2 mb-6 hover:opacity-80 transition-opacity duration-200">
               <div className="w-10 h-10 bg-citysound-green-600 rounded-lg flex items-center justify-center">
-                <Lightbulb className="w-6 h-6 text-white" />
+                <span className="text-white font-bold text-lg">CS</span>
               </div>
               <span className="text-xl font-bold">Citysound</span>
-            </div>
+            </Link>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Komplexní realizace veřejného osvětlení od A do Z. Spolehlivý partner 
               pro stavební firmy i obce po celé České republice.
