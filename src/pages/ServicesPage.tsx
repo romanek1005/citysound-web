@@ -1,13 +1,27 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Truck, Construction, Radar, Package, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const ServicesPage: React.FC = () => {
+  const location = useLocation();
+
   useEffect(() => {
+    // Scroll to top first
     window.scrollTo(0, 0);
-  }, []);
+    
+    // Then check if there's a hash and scroll to it
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const services = [
     {
