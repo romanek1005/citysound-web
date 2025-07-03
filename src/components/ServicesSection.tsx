@@ -38,25 +38,29 @@ const ServicesSection: React.FC = () => {
       icon: Lift,
       title: 'Práce s montážní plošinou',
       description: 'Díky vlastní plošině jsme flexibilní a efektivní při montážních pracích ve výškách.',
-      image: '/work/plosina.jpg'
+      image: '/work/plosina.jpg',
+      link: '/dalsi-sluzby#montazni-plosina'
     },
     {
       icon: Construction,
       title: 'Zemní práce minibagrem',
       description: 'Disponujeme vlastní technikou pro výkopy a terénní úpravy v těžko dostupných místech.',
-      image: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/dalsi-sluzby#zemni-prace'
     },
     {
       icon: Truck,
       title: 'Autodoprava a kontejnerizace',
       description: 'Zajišťujeme dopravu materiálu i odvoz sutě během realizace projektů.',
-      image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/dalsi-sluzby#autodoprava'
     },
     {
       icon: Radar,
       title: 'Montáž radarů',
       description: 'Vedle osvětlení zvyšujeme bezpečnost také instalací rychlostních radarů.',
-      image: '/work/radarRychlost.jpeg'
+      image: '/work/radarRychlost.jpeg',
+      link: '/dalsi-sluzby#montaz-radaru'
     }
   ];
 
@@ -107,12 +111,17 @@ const ServicesSection: React.FC = () => {
                       ))}
                     </div>
 
-                    <button className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                      <span className="flex items-center space-x-2">
-                        <span>Zjistit více</span>
-                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </button>
+                    {service.title === 'Veřejné osvětlení' ? (
+                      <button 
+                        onClick={() => window.location.href = '/verejne-osvetleni'}
+                        className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+                      >
+                        <span className="flex items-center space-x-2">
+                          <span>Zjistit více</span>
+                          <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </button>
+                    ) : null}
                   </div>
 
                   {/* Image */}
@@ -141,6 +150,7 @@ const ServicesSection: React.FC = () => {
                 key={index}
                 className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => window.location.href = service.link}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
