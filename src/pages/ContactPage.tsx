@@ -43,7 +43,7 @@ const ContactPage: React.FC = () => {
       console.log('Coordinates being used:', coordinates);
       
       const map = new window.google.maps.Map(mapRef.current, {
-        zoom: 13,
+        zoom: 11,
         center: coordinates,
         disableDefaultUI: false,
         zoomControl: true,
@@ -59,16 +59,17 @@ const ContactPage: React.FC = () => {
       style.textContent = `
         .pulse-container {
           position: relative;
-          width: 40px;
-          height: 40px;
+          width: 60px;
+          height: 60px;
           display: flex;
           align-items: center;
           justify-content: center;
+          cursor: pointer;
         }
         
         .pulse-marker {
-          width: 24px;
-          height: 24px;
+          width: 36px;
+          height: 36px;
           background: linear-gradient(135deg, #10b981, #059669);
           border-radius: 50%;
           position: relative;
@@ -77,18 +78,19 @@ const ContactPage: React.FC = () => {
           align-items: center;
           justify-content: center;
           color: white;
-          font-size: 12px;
+          font-size: 18px;
           font-weight: bold;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
           animation: pulse-scale 1.5s infinite;
+          cursor: pointer;
         }
         
         .pulse-layer-0 {
           position: absolute;
-          width: 32px;
-          height: 32px;
+          width: 48px;
+          height: 48px;
           background: white;
-          border: 1px solid #10b981;
+          border: 2px solid #10b981;
           border-radius: 50%;
           z-index: 2;
           animation: pulse-wave 1.5s infinite;
@@ -99,10 +101,10 @@ const ContactPage: React.FC = () => {
         
         .pulse-layer-1 {
           position: absolute;
-          width: 40px;
-          height: 40px;
+          width: 60px;
+          height: 60px;
           background: white;
-          border: 1px solid #10b981;
+          border: 2px solid #10b981;
           border-radius: 50%;
           z-index: 1;
           animation: pulse-wave 1.5s infinite;
@@ -141,14 +143,14 @@ const ContactPage: React.FC = () => {
       `;
       document.head.appendChild(style);
 
-      // Create simple base marker (hidden, just for click events)
+      // Create clickable marker area
       const marker = new window.google.maps.Marker({
         position: coordinates,
         map: map,
         icon: {
-          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><circle cx="0.5" cy="0.5" r="0.5" fill="transparent"/></svg>'),
-          scaledSize: new window.google.maps.Size(1, 1),
-          anchor: new window.google.maps.Point(0.5, 0.5)
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="30" fill="transparent"/></svg>'),
+          scaledSize: new window.google.maps.Size(60, 60),
+          anchor: new window.google.maps.Point(30, 30)
         },
         title: 'CitySound s.r.o.',
         animation: window.google.maps.Animation.DROP
@@ -173,6 +175,22 @@ const ContactPage: React.FC = () => {
             <div class="pulse-marker">🏢</div>
           `;
           
+          // Make the overlay clickable
+          this.div.addEventListener('click', () => {
+            const infoWindow = new window.google.maps.InfoWindow({
+              content: `
+                <div style="padding: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                  <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 18px; font-weight: 700;">CitySound s.r.o.</h3>
+                  <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📍 Oznice 101, 756 24 Bystřička</p>
+                  <p style="margin: 0 0 6px 0; color: #374151; font-weight: 600;">📞 +420 774 456 960</p>
+                  <p style="margin: 0; color: #374151; font-weight: 600;">✉️ info@citysound.cz</p>
+                </div>
+              `
+            });
+            infoWindow.setPosition(this.position);
+            infoWindow.open(marker.getMap());
+          });
+          
           const panes = this.getPanes()!;
           panes.overlayMouseTarget.appendChild(this.div);
         }
@@ -182,8 +200,8 @@ const ContactPage: React.FC = () => {
           const position = overlayProjection.fromLatLngToDivPixel(this.position);
           
           if (this.div && position) {
-            this.div.style.left = (position.x - 20) + 'px';
-            this.div.style.top = (position.y - 20) + 'px';
+            this.div.style.left = (position.x - 30) + 'px';
+            this.div.style.top = (position.y - 30) + 'px';
             this.div.style.position = 'absolute';
           }
         }
