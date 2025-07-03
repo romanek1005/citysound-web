@@ -8,7 +8,7 @@ const ProcessSection: React.FC = () => {
       title: 'Projekt & Konzultace',
       description: 'Analyzujeme vaše potřeby a navrhneme optimální řešení včetně výběru nejvhodnějších svítidel a technologií.',
       details: ['Technická konzultace zdarma', 'Návrh optimálního řešení', 'Výpočet úspor energie'],
-      bgImage: '/work/20230219_150700.jpg'
+      bgImage: '/work/dokumentace.jpg'
     },
     {
       icon: Shovel,

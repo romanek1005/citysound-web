@@ -7,14 +7,14 @@ const BenefitsSection: React.FC = () => {
       icon: Wrench,
       title: 'Vlastní technika',
       description: 'Žádné prostoje kvůli čekání na subdodavatele. Máme vlastní bagr, plošinu i specializované nástroje.',
-      bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+      bgImage: '/work/vlastniTechnika.jpg',
       details: 'Kompletní technické vybavení pro realizaci projektů bez závislosti na třetích stranách.'
     },
     {
       icon: Users,
       title: 'Zkušený tým',
       description: 'Desítky let praxe v oboru elektroinstalací a veřejného osvětlení. Certifikovaní elektrikáři s oprávněním pro revize.',
-      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
+      bgImage: '/work/tym.jpg',
       details: 'Náš tým tvoří odborníci s dlouholetou praxí a průběžnými školeními.'
     },
     {

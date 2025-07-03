@@ -1,5 +1,6 @@
 import React from 'react';
 import { Lightbulb, Radio, TrafficCone as Lift, Truck, Radar, ArrowRight, Construction } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const ServicesSection: React.FC = () => {
   const mainServices = [
@@ -112,15 +113,13 @@ const ServicesSection: React.FC = () => {
                     </div>
 
                     {service.title === 'Veřejné osvětlení' ? (
-                      <button 
-                        onClick={() => window.location.href = '/verejne-osvetleni'}
-                        className="group bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+                      <Link 
+                        to="/verejne-osvetleni"
+                        className="group inline-flex items-center space-x-2 bg-white text-citysound-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
                       >
-                        <span className="flex items-center space-x-2">
-                          <span>Zjistit více</span>
-                          <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </span>
-                      </button>
+                        <span>Zjistit více</span>
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     ) : null}
                   </div>
 
@@ -146,11 +145,11 @@ const ServicesSection: React.FC = () => {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {additionalServices.map((service, index) => (
-              <div
+              <Link
                 key={index}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer animate-scale-in"
+                to={service.link}
+                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer animate-scale-in block"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => window.location.href = service.link}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -180,7 +179,7 @@ const ServicesSection: React.FC = () => {
                     <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
