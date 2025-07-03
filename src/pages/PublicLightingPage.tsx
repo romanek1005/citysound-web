@@ -134,256 +134,108 @@ const PublicLightingPage: React.FC = () => {
 
             {/* Right Animation */}
             <div className="hidden lg:block">
-              <div className="relative w-full h-96 group cursor-pointer">
+              <div className="relative w-full h-96">
                 <svg
                   viewBox="0 0 400 300"
                   className="w-full h-full"
                   style={{
-                    filter: 'drop-shadow(0 0 15px rgba(34, 197, 94, 0.4))',
-                    transform: 'perspective(600px) rotateX(15deg) rotateY(-10deg)',
+                    transform: 'perspective(800px) rotateX(20deg) rotateY(-5deg)',
                     transformOrigin: 'center center'
                   }}
                 >
                   <defs>
-                    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#22c55e" stopOpacity="0.8"/>
-                      <stop offset="100%" stopColor="#22c55e" stopOpacity="0"/>
-                    </radialGradient>
-                    
-                    <linearGradient id="electricFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0"/>
-                      <stop offset="50%" stopColor="#22c55e" stopOpacity="1"/>
-                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0"/>
-                    </linearGradient>
-                    
-                    <filter id="glow">
-                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                      <feMerge>
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                      </feMerge>
-                    </filter>
-                    
                     <style>
                       {`
-                        /* Grid Infrastructure */
                         .grid-line {
-                          stroke: #15803d;
-                          stroke-width: 3;
+                          stroke: #d1d5db;
+                          stroke-width: 2;
                           fill: none;
-                          stroke-dasharray: 1000;
-                          stroke-dashoffset: 1000;
-                          animation: drawLine 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-                          filter: url(#glow);
+                          stroke-dasharray: 600;
+                          stroke-dashoffset: 600;
+                          animation: drawGrid 3s ease-out forwards;
                         }
                         
-                        /* Electrical Flow Particles */
-                        .flow-particle {
-                          fill: #22c55e;
-                          opacity: 0;
-                          animation: particleFlow 1.5s ease-in-out infinite;
-                          filter: url(#glow);
+                        .grid-line.active {
+                          stroke: #16a34a;
+                          stroke-width: 3;
                         }
                         
-                        /* Sequential Grid Drawing */
-                        .grid-line:nth-of-type(1) { animation-delay: 0s; }
-                        .grid-line:nth-of-type(2) { animation-delay: 0.2s; }
-                        .grid-line:nth-of-type(3) { animation-delay: 0.4s; }
-                        .grid-line:nth-of-type(4) { animation-delay: 0.6s; }
-                        .grid-line:nth-of-type(5) { animation-delay: 0.8s; }
-                        .grid-line:nth-of-type(6) { animation-delay: 1.0s; }
-                        .grid-line:nth-of-type(7) { animation-delay: 1.2s; }
-                        .grid-line:nth-of-type(8) { animation-delay: 1.4s; }
+                        .grid-line:nth-child(1) { animation-delay: 0s; }
+                        .grid-line:nth-child(2) { animation-delay: 0.3s; }
+                        .grid-line:nth-child(3) { animation-delay: 0.6s; }
+                        .grid-line:nth-child(4) { animation-delay: 0.9s; }
+                        .grid-line:nth-child(5) { animation-delay: 1.2s; }
+                        .grid-line:nth-child(6) { animation-delay: 1.5s; }
                         
-                        /* Cascade Lamp Activation */
                         .street-lamp {
                           opacity: 0;
-                          transform-origin: center bottom;
-                          animation: cascadeLampLight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                          animation: lightUp 0.8s ease-out forwards;
                         }
                         
-                        .street-lamp:nth-of-type(9) { animation-delay: 2.0s; }
-                        .street-lamp:nth-of-type(10) { animation-delay: 2.2s; }
-                        .street-lamp:nth-of-type(11) { animation-delay: 2.4s; }
-                        .street-lamp:nth-of-type(12) { animation-delay: 2.6s; }
-                        .street-lamp:nth-of-type(13) { animation-delay: 2.8s; }
-                        .street-lamp:nth-of-type(14) { animation-delay: 3.0s; }
+                        .street-lamp:nth-child(7) { animation-delay: 2s; }
+                        .street-lamp:nth-child(8) { animation-delay: 2.3s; }
+                        .street-lamp:nth-child(9) { animation-delay: 2.6s; }
+                        .street-lamp:nth-child(10) { animation-delay: 2.9s; }
                         
-                        /* Lamp Post Structure */
                         .lamp-post {
-                          stroke: #15803d;
-                          stroke-width: 4;
-                          stroke-linecap: round;
+                          stroke: #374151;
+                          stroke-width: 3;
                         }
                         
-                        /* Dynamic Lamp Head */
                         .lamp-head {
-                          animation: professionalPulse 3s ease-in-out infinite;
-                          filter: url(#glow);
-                        }
-                        
-                        /* Light Rays */
-                        .light-ray {
-                          stroke: #22c55e;
-                          stroke-width: 2;
+                          fill: #fbbf24;
                           opacity: 0;
-                          animation: lightRayExpand 2s ease-out infinite;
+                          animation: lampGlow 0.5s ease-out forwards;
                         }
                         
-                        /* Atmospheric Background */
-                        .atmosphere {
-                          fill: url(#lampGlow);
-                          opacity: 0;
-                          animation: atmosphericBuild 4s ease-out forwards;
-                          animation-delay: 1.5s;
+                        .lamp-head.on {
+                          animation-delay: inherit;
                         }
                         
-                        /* Particle Flow Staggering */
-                        .flow-particle:nth-child(1) { animation-delay: 0.5s; }
-                        .flow-particle:nth-child(2) { animation-delay: 0.8s; }
-                        .flow-particle:nth-child(3) { animation-delay: 1.1s; }
-                        .flow-particle:nth-child(4) { animation-delay: 1.4s; }
-                        
-                        /* Keyframe Animations */
-                        @keyframes drawLine {
-                          0% { stroke-dashoffset: 1000; }
-                          100% { stroke-dashoffset: 0; }
+                        @keyframes drawGrid {
+                          to { stroke-dashoffset: 0; }
                         }
                         
-                        @keyframes particleFlow {
+                        @keyframes lightUp {
                           0% { opacity: 0; transform: scale(0.8); }
-                          50% { opacity: 1; transform: scale(1.2); }
-                          100% { opacity: 0; transform: scale(0.8) translateX(20px); }
+                          100% { opacity: 1; transform: scale(1); }
                         }
                         
-                        @keyframes cascadeLampLight {
-                          0% { 
-                            opacity: 0; 
-                            transform: scale(0.3) translateY(10px); 
-                            filter: brightness(0.5);
-                          }
-                          30% { 
-                            opacity: 1; 
-                            transform: scale(1.3); 
-                            filter: brightness(1.8);
-                          }
-                          100% { 
-                            opacity: 1; 
-                            transform: scale(1); 
-                            filter: brightness(1);
-                          }
-                        }
-                        
-                        @keyframes professionalPulse {
-                          0%, 100% { 
-                            opacity: 1; 
-                            filter: brightness(1) drop-shadow(0 0 12px #22c55e);
-                            transform: scale(1);
-                          }
-                          50% { 
-                            opacity: 0.85; 
-                            filter: brightness(1.4) drop-shadow(0 0 20px #22c55e);
-                            transform: scale(1.05);
-                          }
-                        }
-                        
-                        @keyframes lightRayExpand {
-                          0% { opacity: 0; stroke-width: 1; }
-                          30% { opacity: 0.6; stroke-width: 3; }
-                          100% { opacity: 0; stroke-width: 1; }
-                        }
-                        
-                        @keyframes atmosphericBuild {
-                          0% { opacity: 0; }
-                          100% { opacity: 0.15; }
-                        }
-                        
-                        /* Micro-Interactions */
-                        .group:hover .lamp-head {
-                          animation-duration: 1.5s;
-                          filter: brightness(1.6) drop-shadow(0 0 25px #22c55e);
-                        }
-                        
-                        .group:hover .flow-particle {
-                          animation-duration: 0.8s;
-                          fill: #16a34a;
-                        }
-                        
-                        .group:hover .grid-line {
-                          stroke: #22c55e;
-                          stroke-width: 4;
-                          filter: brightness(1.2) url(#glow);
-                        }
-                        
-                        .group:hover .light-ray {
-                          animation-duration: 1s;
-                          opacity: 0.8;
-                        }
-                        
-                        .group:hover .atmosphere {
-                          opacity: 0.25;
+                        @keyframes lampGlow {
+                          0% { opacity: 0; fill: #6b7280; }
+                          100% { opacity: 1; fill: #fbbf24; }
                         }
                       `}
                     </style>
                   </defs>
                   
-                  {/* Atmospheric Background */}
-                  <rect className="atmosphere" x="0" y="0" width="400" height="300" />
+                  {/* Simple Grid */}
+                  <path className="grid-line" d="M60 80 L340 80" />
+                  <path className="grid-line" d="M60 140 L340 140" />
+                  <path className="grid-line" d="M60 200 L340 200" />
+                  <path className="grid-line" d="M120 80 L120 200" />
+                  <path className="grid-line" d="M200 80 L200 200" />
+                  <path className="grid-line" d="M280 80 L280 200" />
                   
-                  {/* Main Grid Infrastructure */}
-                  <path className="grid-line" d="M50 50 L350 50" />
-                  <path className="grid-line" d="M50 120 L350 120" />
-                  <path className="grid-line" d="M50 190 L350 190" />
-                  <path className="grid-line" d="M50 260 L350 260" />
-                  <path className="grid-line" d="M100 50 L100 260" />
-                  <path className="grid-line" d="M200 50 L200 260" />
-                  <path className="grid-line" d="M300 50 L300 260" />
-                  <path className="grid-line" d="M50 50 L50 260" />
-                  
-                  {/* Electrical Flow Particles */}
-                  <circle className="flow-particle" cx="80" cy="50" r="3" />
-                  <circle className="flow-particle" cx="150" cy="120" r="3" />
-                  <circle className="flow-particle" cx="250" cy="190" r="3" />
-                  <circle className="flow-particle" cx="320" cy="260" r="3" />
-                  
-                  {/* Professional Street Lamps with Light Rays */}
+                  {/* Clean Street Lamps */}
                   <g className="street-lamp">
-                    <line className="lamp-post" x1="100" y1="50" x2="100" y2="25" />
-                    <ellipse className="lamp-head" cx="100" cy="20" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="100" cy="20" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
-                    <circle cx="100" cy="20" r="35" fill="none" stroke="#22c55e" strokeWidth="0.5" opacity="0.2" className="light-ray" />
+                    <line className="lamp-post" x1="120" y1="80" x2="120" y2="60" />
+                    <rect className="lamp-head on" x="115" y="55" width="10" height="8" rx="2" />
                   </g>
                   
                   <g className="street-lamp">
-                    <line className="lamp-post" x1="200" y1="50" x2="200" y2="25" />
-                    <ellipse className="lamp-head" cx="200" cy="20" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="200" cy="20" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
-                    <circle cx="200" cy="20" r="35" fill="none" stroke="#22c55e" strokeWidth="0.5" opacity="0.2" className="light-ray" />
+                    <line className="lamp-post" x1="200" y1="80" x2="200" y2="60" />
+                    <rect className="lamp-head on" x="195" y="55" width="10" height="8" rx="2" />
                   </g>
                   
                   <g className="street-lamp">
-                    <line className="lamp-post" x1="300" y1="50" x2="300" y2="25" />
-                    <ellipse className="lamp-head" cx="300" cy="20" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="300" cy="20" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
-                    <circle cx="300" cy="20" r="35" fill="none" stroke="#22c55e" strokeWidth="0.5" opacity="0.2" className="light-ray" />
+                    <line className="lamp-post" x1="280" y1="80" x2="280" y2="60" />
+                    <rect className="lamp-head on" x="275" y="55" width="10" height="8" rx="2" />
                   </g>
                   
                   <g className="street-lamp">
-                    <line className="lamp-post" x1="100" y1="120" x2="100" y2="95" />
-                    <ellipse className="lamp-head" cx="100" cy="90" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="100" cy="90" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
-                  </g>
-                  
-                  <g className="street-lamp">
-                    <line className="lamp-post" x1="200" y1="190" x2="200" y2="165" />
-                    <ellipse className="lamp-head" cx="200" cy="160" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="200" cy="160" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
-                  </g>
-                  
-                  <g className="street-lamp">
-                    <line className="lamp-post" x1="300" y1="260" x2="300" y2="235" />
-                    <ellipse className="lamp-head" cx="300" cy="230" rx="14" ry="7" fill="#22c55e" />
-                    <circle cx="300" cy="230" r="25" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" className="light-ray" />
+                    <line className="lamp-post" x1="160" y1="140" x2="160" y2="120" />
+                    <rect className="lamp-head on" x="155" y="115" width="10" height="8" rx="2" />
                   </g>
                 </svg>
               </div>
