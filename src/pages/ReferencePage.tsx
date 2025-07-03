@@ -3,6 +3,7 @@ import { X, MapPin, Calendar, Building, Building2, User, Filter, ChevronLeft, Ch
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import ReferencesSection from '../components/ReferencesSection';
 import { useCounter } from '../hooks/useCounter';
 
 interface Project {
@@ -149,10 +150,6 @@ const ReferencePage: React.FC = () => {
     'Opava', 'Frýdek-Místek', 'Rožnov pod Radhoštěm', 'Vsetín', 'Ostravice'
   ];
 
-  const companyLogos = {
-    municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové', 'Olomouc', 'Zlín', 'Pardubice'],
-    companies: ['PORR', 'STRAMAG', 'METROSTAV', 'SKANSKA', 'HOCHTIEF', 'Eurovia CS', 'SMP CZ', 'SWIETELSKY', 'Subterra']
-  };
 
   // Carousel navigation functions
   const nextImage = () => {
@@ -342,88 +339,8 @@ const ReferencePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Client Collaboration Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-citysound-blue-50 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-citysound-green-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-citysound-blue-500 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Spolupracují s námi
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Naše zkušenosti a spolehlivost oceňují jak přední stavební firmy, tak desítky měst a 
-              obcí po celé České republice.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Municipalities */}
-            <div className="animate-slide-up">
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 flex items-center justify-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-citysound-green-500 to-citysound-green-600 rounded-full flex items-center justify-center mr-4">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                Města a obce
-              </h3>
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                  {companyLogos.municipalities.map((city, index) => (
-                    <div
-                      key={index}
-                      className="group cursor-pointer"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-citysound-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <MapPin className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="font-medium text-gray-700 text-sm">{city}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Companies */}
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 flex items-center justify-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-citysound-blue-500 to-citysound-blue-600 rounded-full flex items-center justify-center mr-4">
-                  <Building2 className="w-5 h-5 text-white" />
-                </div>
-                Stavební a průmyslové firmy
-              </h3>
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                  {companyLogos.companies.map((company, index) => (
-                    <div
-                      key={index}
-                      className="group cursor-pointer"
-                      style={{ animationDelay: `${(index + companyLogos.municipalities.length) * 0.1}s` }}
-                    >
-                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-blue-50 transition-colors duration-300 p-4">
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-citysound-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <Building2 className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="font-medium text-gray-700 text-sm">{company}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* References Section */}
+      <ReferencesSection />
 
       {/* Project Detail Modal */}
       {selectedProject && (
