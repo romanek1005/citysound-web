@@ -43,7 +43,7 @@ const ContactPage: React.FC = () => {
       console.log('Coordinates being used:', coordinates);
       
       const map = new window.google.maps.Map(mapRef.current, {
-        zoom: 11,
+        zoom: 9,
         center: coordinates,
         disableDefaultUI: false,
         zoomControl: true,
@@ -80,7 +80,11 @@ const ContactPage: React.FC = () => {
           color: white;
           font-size: 18px;
           font-weight: bold;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          box-shadow: 
+            0 4px 12px rgba(0,0,0,0.3),
+            0 0 20px rgba(16, 185, 129, 0.6),
+            0 0 40px rgba(16, 185, 129, 0.4),
+            0 0 60px rgba(16, 185, 129, 0.2);
           animation: pulse-scale 1.5s infinite;
           cursor: pointer;
         }
@@ -89,7 +93,7 @@ const ContactPage: React.FC = () => {
           position: absolute;
           width: 48px;
           height: 48px;
-          background: white;
+          background: transparent;
           border: 2px solid #10b981;
           border-radius: 50%;
           z-index: 2;
@@ -103,7 +107,7 @@ const ContactPage: React.FC = () => {
           position: absolute;
           width: 60px;
           height: 60px;
-          background: white;
+          background: transparent;
           border: 2px solid #10b981;
           border-radius: 50%;
           z-index: 1;
@@ -132,12 +136,27 @@ const ContactPage: React.FC = () => {
         @keyframes pulse-scale {
           0% {
             transform: scale(1);
+            box-shadow: 
+              0 4px 12px rgba(0,0,0,0.3),
+              0 0 20px rgba(16, 185, 129, 0.6),
+              0 0 40px rgba(16, 185, 129, 0.4),
+              0 0 60px rgba(16, 185, 129, 0.2);
           }
           35%, 80% {
             transform: scale(1.1);
+            box-shadow: 
+              0 4px 16px rgba(0,0,0,0.4),
+              0 0 30px rgba(16, 185, 129, 0.8),
+              0 0 60px rgba(16, 185, 129, 0.6),
+              0 0 90px rgba(16, 185, 129, 0.4);
           }
           100% {
             transform: scale(1);
+            box-shadow: 
+              0 4px 12px rgba(0,0,0,0.3),
+              0 0 20px rgba(16, 185, 129, 0.6),
+              0 0 40px rgba(16, 185, 129, 0.4),
+              0 0 60px rgba(16, 185, 129, 0.2);
           }
         }
       `;
