@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MapPin, Calendar, Building, User, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, MapPin, Calendar, Building, Building2, User, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -338,7 +338,9 @@ const ReferencePage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Municipalities */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Města a obce</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                <MapPin className="w-6 h-6 text-citysound-green-600 mr-3" />
+                Města a obce</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {companyLogos.municipalities.map((city, index) => (
                   <div
@@ -353,7 +355,9 @@ const ReferencePage: React.FC = () => {
 
             {/* Companies */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Stavební a průmyslové firmy</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                <Building2 className="w-6 h-6 text-citysound-green-600 mr-3" />
+                Stavební a průmyslové firmy</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {companyLogos.companies.map((company, index) => (
                   <div
