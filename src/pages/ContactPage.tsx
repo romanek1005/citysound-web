@@ -40,9 +40,10 @@ const ContactPage: React.FC = () => {
       if (!mapRef.current) return;
 
       const coordinates = { lat: 49.4326431, lng: 17.9185969 };
+      console.log('Coordinates being used:', coordinates);
       
       const map = new window.google.maps.Map(mapRef.current, {
-        zoom: 15,
+        zoom: 13,
         center: coordinates,
         disableDefaultUI: false,
         zoomControl: true,
@@ -53,78 +54,150 @@ const ContactPage: React.FC = () => {
         fullscreenControl: true
       });
 
-      // Create custom green gradient marker with pulse effect
-      let marker: any;
-      
-      const createMarkerWithPulse = () => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d')!;
-        canvas.width = 50;
-        canvas.height = 60;
-
-        // Create pulsing glow effect
-        const time = Date.now() / 800;
-        const glowIntensity = 0.7 + 0.3 * Math.sin(time);
+      // Add CSS for pulsing animation based on your provided code
+      const style = document.createElement('style');
+      style.textContent = `
+        .pulse-container {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         
-        // Create gradient
-        const gradient = ctx.createLinearGradient(0, 0, 0, 50);
-        gradient.addColorStop(0, '#10b981');
-        gradient.addColorStop(1, '#059669');
-
-        // Add pulsing glow
-        ctx.shadowColor = '#10b981';
-        ctx.shadowBlur = 20 * glowIntensity;
-        ctx.globalAlpha = glowIntensity;
-
-        // Draw pin shape
-        ctx.beginPath();
-        ctx.arc(25, 20, 18, 0, Math.PI * 2);
-        ctx.moveTo(25, 38);
-        ctx.lineTo(15, 25);
-        ctx.lineTo(35, 25);
-        ctx.closePath();
+        .pulse-marker {
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, #10b981, #059669);
+          border-radius: 50%;
+          position: relative;
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 12px;
+          font-weight: bold;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          animation: pulse-scale 1.5s infinite;
+        }
         
-        ctx.fillStyle = gradient;
-        ctx.fill();
+        .pulse-layer-0 {
+          position: absolute;
+          width: 32px;
+          height: 32px;
+          background: white;
+          border: 1px solid #10b981;
+          border-radius: 50%;
+          z-index: 2;
+          animation: pulse-wave 1.5s infinite;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
         
-        // Reset for icon
-        ctx.globalAlpha = 1;
-        ctx.shadowBlur = 0;
+        .pulse-layer-1 {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          background: white;
+          border: 1px solid #10b981;
+          border-radius: 50%;
+          z-index: 1;
+          animation: pulse-wave 1.5s infinite;
+          animation-delay: 0.2s;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
         
-        // Add white icon
-        ctx.fillStyle = 'white';
-        ctx.font = 'bold 18px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('🏢', 25, 27);
+        @keyframes pulse-wave {
+          0%, 10% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.1);
+          }
+          80% {
+            opacity: 0.7;
+            transform: translate(-50%, -50%) scale(1.15, 1.4);
+          }
+          81%, 100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
         
-        return canvas.toDataURL();
-      };
+        @keyframes pulse-scale {
+          0% {
+            transform: scale(1);
+          }
+          35%, 80% {
+            transform: scale(1.1, 1.35);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      `;
+      document.head.appendChild(style);
 
-      const markerIcon = {
-        url: createMarkerWithPulse(),
-        scaledSize: new window.google.maps.Size(50, 60),
-        anchor: new window.google.maps.Point(25, 60)
-      };
-
-      marker = new window.google.maps.Marker({
+      // Create simple base marker (hidden, just for click events)
+      const marker = new window.google.maps.Marker({
         position: coordinates,
         map: map,
-        icon: markerIcon,
+        icon: {
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><circle cx="0.5" cy="0.5" r="0.5" fill="transparent"/></svg>'),
+          scaledSize: new window.google.maps.Size(1, 1),
+          anchor: new window.google.maps.Point(0.5, 0.5)
+        },
         title: 'CitySound s.r.o.',
         animation: window.google.maps.Animation.DROP
       });
 
-      // Update marker icon for continuous pulse effect
-      setInterval(() => {
-        if (marker) {
-          const newIcon = {
-            url: createMarkerWithPulse(),
-            scaledSize: new window.google.maps.Size(50, 60),
-            anchor: new window.google.maps.Point(25, 60)
-          };
-          marker.setIcon(newIcon);
+      // Create pulsing overlay based on your provided component
+      class PulseOverlay extends window.google.maps.OverlayView {
+        private position: any;
+        private div: HTMLDivElement | null = null;
+
+        constructor(position: any) {
+          super();
+          this.position = position;
         }
-      }, 100);
+
+        onAdd() {
+          this.div = document.createElement('div');
+          this.div.className = 'pulse-container';
+          this.div.innerHTML = `
+            <div class="pulse-layer-1"></div>
+            <div class="pulse-layer-0"></div>
+            <div class="pulse-marker">🏢</div>
+          `;
+          
+          const panes = this.getPanes()!;
+          panes.overlayMouseTarget.appendChild(this.div);
+        }
+
+        draw() {
+          const overlayProjection = this.getProjection();
+          const position = overlayProjection.fromLatLngToDivPixel(this.position);
+          
+          if (this.div && position) {
+            this.div.style.left = (position.x - 20) + 'px';
+            this.div.style.top = (position.y - 20) + 'px';
+            this.div.style.position = 'absolute';
+          }
+        }
+
+        onRemove() {
+          if (this.div && this.div.parentNode) {
+            this.div.parentNode.removeChild(this.div);
+            this.div = null;
+          }
+        }
+      }
+
+      const pulseOverlay = new PulseOverlay(coordinates);
+      pulseOverlay.setMap(map);
 
       // Info window
       const infoWindow = new window.google.maps.InfoWindow({

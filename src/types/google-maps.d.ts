@@ -27,6 +27,29 @@ declare namespace google {
       setOptions(options: CircleOptions): void;
     }
     
+    class OverlayView {
+      constructor();
+      onAdd(): void;
+      draw(): void;
+      onRemove(): void;
+      setMap(map: Map | null): void;
+      getMap(): Map;
+      getPanes(): MapPanes;
+      getProjection(): MapCanvasProjection;
+    }
+    
+    interface MapPanes {
+      floatPane: Element;
+      mapPane: Element;
+      markerLayer: Element;
+      overlayLayer: Element;
+      overlayMouseTarget: Element;
+    }
+    
+    interface MapCanvasProjection {
+      fromLatLngToDivPixel(latLng: LatLng | LatLngLiteral): Point;
+    }
+    
     class Size {
       constructor(width: number, height: number);
     }
