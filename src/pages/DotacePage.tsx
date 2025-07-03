@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ChevronRight, Euro, FileText, Users, Award, MapPin, Phone, Mail, Lightbulb, Shield } from 'lucide-react';
+import { ChevronRight, Euro, FileText, Users, Award, MapPin, Phone, Mail, Lightbulb, Shield, CheckCircle, Send } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useCounter } from '../hooks/useCounter';
