@@ -13,9 +13,9 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
-    { label: 'O nás', href: '#about' },
-    { label: 'Služby', href: '#services' },
-    { label: 'Reference', href: '#references' },
+    { label: 'Domů', href: '/' },
+    { label: 'Veřejné osvětlení', href: '/public-lighting' },
+    { label: 'Reference', href: '/references' },
     { label: 'Kontakt', href: '#contact' }
   ];
 
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
               {services.map((service, index) => (
                 <li key={index}>
                   <a
-                    href="#services"
+                    href={service === 'Veřejné osvětlení' ? '/public-lighting' : '#services'}
                     className="text-gray-300 hover:text-citysound-green-400 transition-colors duration-200"
                   >
                     {service}
