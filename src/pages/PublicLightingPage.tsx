@@ -99,36 +99,149 @@ const PublicLightingPage: React.FC = () => {
       
       {/* Hero Section */}
       <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-citysound-green-50 to-citysound-green-100 relative overflow-hidden">
-
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-4xl">
-            <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 animate-fade-in-up">
-                Komplexní realizace <span className="text-citysound-green-600 relative">
-                  veřejného osvětlení
-                  <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-citysound-green-400 to-citysound-green-600 rounded animate-pulse"></div>
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl animate-fade-in-up animation-delay-200">
-                Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
-                od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
-                partnera pro celý projekt a ušetříte čas i náklady.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Content */}
+            <div className="max-w-4xl">
+              <div className="mb-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 animate-fade-in-up">
+                  Komplexní realizace <span className="text-citysound-green-600 relative">
+                    veřejného osvětlení
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-citysound-green-400 to-citysound-green-600 rounded animate-pulse"></div>
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl animate-fade-in-up animation-delay-200">
+                  Pro stavební firmy a obce zajišťujeme kompletní dodávku veřejného osvětlení – 
+                  od prvního výkopu až po finální revizi. S námi získáte jediného spolehlivého 
+                  partnera pro celý projekt a ušetříte čas i náklady.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
+                <button
+                  onClick={scrollToContact}
+                  className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group"
+                >
+                  <span className="flex items-center justify-center space-x-2">
+                    <Lightbulb className="w-5 h-5 group-hover:animate-pulse" />
+                    <span>Chci nezávaznou konzultaci</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </button>
+                <button className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                  Prohlédnout reference
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
-              <button
-                onClick={scrollToContact}
-                className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group"
-              >
-                <span className="flex items-center justify-center space-x-2">
-                  <Lightbulb className="w-5 h-5 group-hover:animate-pulse" />
-                  <span>Chci nezávaznou konzultaci</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-              <button className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-                Prohlédnout reference
-              </button>
+
+            {/* Right Animation */}
+            <div className="hidden lg:block">
+              <div className="relative w-full h-96">
+                <svg
+                  viewBox="0 0 400 300"
+                  className="w-full h-full"
+                  style={{
+                    filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.3))'
+                  }}
+                >
+                  {/* Grid Lines */}
+                  <defs>
+                    <style>
+                      {`
+                        .grid-line {
+                          stroke: #22c55e;
+                          stroke-width: 2;
+                          fill: none;
+                          stroke-dasharray: 1000;
+                          stroke-dashoffset: 1000;
+                          animation: drawLine 3s ease-in-out forwards;
+                        }
+                        
+                        .grid-line:nth-child(1) { animation-delay: 0s; }
+                        .grid-line:nth-child(2) { animation-delay: 0.3s; }
+                        .grid-line:nth-child(3) { animation-delay: 0.6s; }
+                        .grid-line:nth-child(4) { animation-delay: 0.9s; }
+                        .grid-line:nth-child(5) { animation-delay: 1.2s; }
+                        .grid-line:nth-child(6) { animation-delay: 1.5s; }
+                        .grid-line:nth-child(7) { animation-delay: 1.8s; }
+                        .grid-line:nth-child(8) { animation-delay: 2.1s; }
+                        
+                        .street-lamp {
+                          opacity: 0;
+                          animation: lampLight 0.8s ease-in-out forwards;
+                        }
+                        
+                        .street-lamp:nth-child(9) { animation-delay: 2.4s; }
+                        .street-lamp:nth-child(10) { animation-delay: 2.7s; }
+                        .street-lamp:nth-child(11) { animation-delay: 3.0s; }
+                        .street-lamp:nth-child(12) { animation-delay: 3.3s; }
+                        .street-lamp:nth-child(13) { animation-delay: 3.6s; }
+                        .street-lamp:nth-child(14) { animation-delay: 3.9s; }
+                        
+                        @keyframes drawLine {
+                          to {
+                            stroke-dashoffset: 0;
+                          }
+                        }
+                        
+                        @keyframes lampLight {
+                          0% {
+                            opacity: 0;
+                            transform: scale(0.8);
+                          }
+                          50% {
+                            opacity: 1;
+                            transform: scale(1.2);
+                          }
+                          100% {
+                            opacity: 1;
+                            transform: scale(1);
+                          }
+                        }
+                      `}
+                    </style>
+                  </defs>
+                  
+                  {/* Main Grid Lines */}
+                  <path className="grid-line" d="M50 50 L350 50" />
+                  <path className="grid-line" d="M50 120 L350 120" />
+                  <path className="grid-line" d="M50 190 L350 190" />
+                  <path className="grid-line" d="M50 260 L350 260" />
+                  
+                  {/* Vertical Lines */}
+                  <path className="grid-line" d="M100 50 L100 260" />
+                  <path className="grid-line" d="M200 50 L200 260" />
+                  <path className="grid-line" d="M300 50 L300 260" />
+                  
+                  {/* Connection Lines */}
+                  <path className="grid-line" d="M50 50 L50 260" />
+                  
+                  {/* Street Lamps */}
+                  <g className="street-lamp">
+                    <circle cx="100" cy="50" r="8" fill="#22c55e" />
+                    <circle cx="100" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                  <g className="street-lamp">
+                    <circle cx="200" cy="50" r="8" fill="#22c55e" />
+                    <circle cx="200" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                  <g className="street-lamp">
+                    <circle cx="300" cy="50" r="8" fill="#22c55e" />
+                    <circle cx="300" cy="50" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                  <g className="street-lamp">
+                    <circle cx="100" cy="120" r="8" fill="#22c55e" />
+                    <circle cx="100" cy="120" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                  <g className="street-lamp">
+                    <circle cx="200" cy="190" r="8" fill="#22c55e" />
+                    <circle cx="200" cy="190" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                  <g className="street-lamp">
+                    <circle cx="300" cy="260" r="8" fill="#22c55e" />
+                    <circle cx="300" cy="260" r="12" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+                  </g>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
