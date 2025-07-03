@@ -117,11 +117,11 @@ const ContactPage: React.FC = () => {
         @keyframes pulse-wave {
           0%, 10% {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1);
           }
           80% {
             opacity: 0.7;
-            transform: translate(-50%, -50%) scale(1.15, 1.4);
+            transform: translate(-50%, -50%) scale(1.3);
           }
           81%, 100% {
             opacity: 0;
@@ -134,7 +134,7 @@ const ContactPage: React.FC = () => {
             transform: scale(1);
           }
           35%, 80% {
-            transform: scale(1.1, 1.35);
+            transform: scale(1.1);
           }
           100% {
             transform: scale(1);
