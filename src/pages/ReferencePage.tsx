@@ -364,53 +364,61 @@ const ReferencePage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Municipalities */}
             <div className="animate-slide-up">
-              <h3 className="text-2xl font-bold text-gray-800 mb-10 text-center flex items-center justify-center">
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 flex items-center justify-center">
                 <div className="w-10 h-10 bg-gradient-to-r from-citysound-green-500 to-citysound-green-600 rounded-full flex items-center justify-center mr-4">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 Města a obce
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {companyLogos.municipalities.map((city, index) => (
-                  <div
-                    key={index}
-                    className="group cursor-pointer transform transition-all duration-300 hover:scale-105"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="bg-gradient-to-br from-white to-citysound-green-50 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-citysound-green-100 group-hover:border-citysound-green-300">
-                      <div className="w-12 h-12 bg-gradient-to-r from-citysound-green-500 to-citysound-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <MapPin className="w-6 h-6 text-white" />
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                  {companyLogos.municipalities.map((city, index) => (
+                    <div
+                      key={index}
+                      className="group cursor-pointer"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
+                        <div className="text-center">
+                          <div className="w-8 h-8 bg-citysound-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <MapPin className="w-4 h-4 text-white" />
+                          </div>
+                          <span className="font-medium text-gray-700 text-sm">{city}</span>
+                        </div>
                       </div>
-                      <span className="font-semibold text-gray-800 group-hover:text-citysound-green-700 transition-colors duration-300">{city}</span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Companies */}
             <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <h3 className="text-2xl font-bold text-gray-800 mb-10 text-center flex items-center justify-center">
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 flex items-center justify-center">
                 <div className="w-10 h-10 bg-gradient-to-r from-citysound-blue-500 to-citysound-blue-600 rounded-full flex items-center justify-center mr-4">
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 Stavební a průmyslové firmy
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {companyLogos.companies.map((company, index) => (
-                  <div
-                    key={index}
-                    className="group cursor-pointer transform transition-all duration-300 hover:scale-105"
-                    style={{ animationDelay: `${(index + companyLogos.municipalities.length) * 0.1}s` }}
-                  >
-                    <div className="bg-gradient-to-br from-white to-citysound-blue-50 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-citysound-blue-100 group-hover:border-citysound-blue-300">
-                      <div className="w-12 h-12 bg-gradient-to-r from-citysound-blue-500 to-citysound-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Building2 className="w-6 h-6 text-white" />
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                  {companyLogos.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="group cursor-pointer"
+                      style={{ animationDelay: `${(index + companyLogos.municipalities.length) * 0.1}s` }}
+                    >
+                      <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-blue-50 transition-colors duration-300 p-4">
+                        <div className="text-center">
+                          <div className="w-8 h-8 bg-citysound-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <Building2 className="w-4 h-4 text-white" />
+                          </div>
+                          <span className="font-medium text-gray-700 text-sm">{company}</span>
+                        </div>
                       </div>
-                      <span className="font-semibold text-gray-800 group-hover:text-citysound-blue-700 transition-colors duration-300">{company}</span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
