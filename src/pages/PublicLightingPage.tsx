@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -126,9 +127,11 @@ const PublicLightingPage: React.FC = () => {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>
-                <button className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-                  Prohlédnout reference
-                </button>
+                <Link to="/reference">
+                  <button className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                    Prohlédnout reference
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -277,10 +280,12 @@ const PublicLightingPage: React.FC = () => {
           </div>
 
           <div className="text-center">
+            <Link to="/reference">
             <button className="border-2 border-citysound-green-600 text-citysound-green-600 hover:bg-citysound-green-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center space-x-2">
               <span>Zobrazit všechny reference</span>
               <ArrowRight size={20} />
             </button>
+            </Link>
           </div>
         </div>
       </section>

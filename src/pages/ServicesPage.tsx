@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Truck, Construction, Radar, Package, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
+import { Truck, Construction, Radar, TrafficCone as Lift, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -25,13 +25,13 @@ const ServicesPage: React.FC = () => {
 
   const services = [
     {
-      icon: Construction,
+      icon: Lift,
       title: 'Montážní plošina',
       description: 'Pronájem montážní plošiny Renault Maxity pro práce ve výškách až 18 metrů.',
       image: '/work/20241115_112046.jpg'
     },
     {
-      icon: Wrench,
+      icon: Construction,
       title: 'Zemní práce',
       description: 'Výkopy, terénní úpravy a pokládka kabelů pomocí minibagru Kubota KX-019.',
       image: '/work/20250511_212135.jpg'
@@ -276,7 +276,7 @@ const ServicesPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <img
-                src="/work/20210107_150459.jpg"
+                src="/work/doprava.jpg"
                 alt="Autodoprava a kontejnery"
                 className="rounded-xl shadow-lg w-full h-80 object-cover"
               />
