@@ -367,24 +367,24 @@ const DotacePage: React.FC = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-citysound-green-50 rounded-xl p-6 border border-citysound-green-200">
+              <div className="bg-citysound-green-50 rounded-xl p-6 border border-citysound-green-200 text-center">
                 <Phone className="w-8 h-8 text-citysound-green-600 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-gray-800 mb-2">Zavolejte nám</h3>
                 <a
                   href="tel:+420774456960"
-                  className="text-xl font-bold text-citysound-green-600 hover:text-citysound-green-700 transition-colors"
+                  className="text-xl font-bold text-citysound-green-600 hover:text-citysound-green-700 transition-colors block"
                 >
                   +420 774 456 960
                 </a>
                 <p className="text-sm text-gray-600 mt-2">Po-Pá: 7:00-16:00</p>
               </div>
               
-              <div className="bg-citysound-blue-50 rounded-xl p-6 border border-citysound-blue-200">
+              <div className="bg-citysound-blue-50 rounded-xl p-6 border border-citysound-blue-200 text-center">
                 <Mail className="w-8 h-8 text-citysound-blue-600 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-gray-800 mb-2">Napište nám</h3>
                 <a
                   href="mailto:info@citysound.cz"
-                  className="text-xl font-bold text-citysound-blue-600 hover:text-citysound-blue-700 transition-colors"
+                  className="text-xl font-bold text-citysound-blue-600 hover:text-citysound-blue-700 transition-colors block"
                 >
                   info@citysound.cz
                 </a>
@@ -394,7 +394,7 @@ const DotacePage: React.FC = () => {
 
             <a
               href="tel:+420774456960"
-              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2"
+              className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full max-w-lg mx-auto"
             >
               <Euro className="w-5 h-5" />
               <span>Chci nezávaznou konzultaci k dotacím</span>
