@@ -34,13 +34,13 @@ const ServicesPage: React.FC = () => {
       icon: Construction,
       title: 'Zemní práce',
       description: 'Výkopy, terénní úpravy a pokládka kabelů pomocí minibagru Kubota KX-019.',
-      image: '/work/20250511_212135.jpg'
+      image: '/nove-fotky-vyber-pridat/Zemní práce a NN sítě.jpg'
     },
     {
       icon: Truck,
       title: 'Autodoprava',
       description: 'Přeprava materiálu a poskytování kontejnerů pro stavební práce.',
-      image: '/work/20220530_143714.jpg'
+      image: '/nove-fotky-vyber-pridat/Autodoprava kontejner.jpg'
     },
   ];
 
@@ -83,7 +83,7 @@ const ServicesPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => {
               const serviceId = service.title.toLowerCase().replace(/\s+/g, '-').replace(/ž/g, 'z').replace(/í/g, 'i').replace(/á/g, 'a').replace(/é/g, 'e').replace(/ř/g, 'r').replace(/ů/g, 'u').replace(/ý/g, 'y').replace(/č/g, 'c').replace(/š/g, 's').replace(/ť/g, 't').replace(/ď/g, 'd').replace(/ň/g, 'n');
               return (
@@ -120,24 +120,12 @@ const ServicesPage: React.FC = () => {
       <section id="montazni-plosina" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="flex flex-col">
+            <div>
               <img
                 src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
                 alt="Montážní plošina Renault Maxity"
-                className="rounded-xl shadow-lg w-full h-64 object-cover"
+                className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
-              <div className="grid grid-cols-2 gap-4 mt-4">
-                <img
-                  src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
-                  alt="Práce s montážní plošinou"
-                  className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
-                />
-                <img
-                  src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
-                  alt="Montážní plošina detail"
-                  className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
-                />
-              </div>
             </div>
             
             <div>

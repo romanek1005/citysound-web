@@ -168,15 +168,14 @@ const ReferencesSection: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              '/nove-fotky-vyber-pridat/Výstavba VO, Líšnice, 2024.jpg',
               '/nove-fotky-vyber-pridat/Osvětlení multifunkčního hřiště, Prostřední bečva, 2024 .jpg',
+              '/nove-fotky-vyber-pridat/Výstavba VO, Líšnice, 2024.jpg',
               '/nove-fotky-vyber-pridat/NN rozvody, Datové rozvody Continental Frenštát p.R. , 2024.jpg',
               '/nove-fotky-vyber-pridat/Rozšíření VO, Kateřinice, 2023.jpg',
               '/nove-fotky-vyber-pridat/Výstavba VO zanádražní prostor, Vsetín, 2023.jpg',
               '/nove-fotky-vyber-pridat/Výstavba bezbariérový chodník, Hutisko Solanec VO, 2022 .jpg',
               '/work/20210107_150459.jpg',
               '/work/20210630_145321.jpg', 
-              '/work/20220530_143714.jpg',
               '/work/20230219_150700.jpg',
               '/work/20241115_112046.jpg',
               '/work/20241213_085617.jpg',

@@ -136,7 +136,7 @@ const ServicesSection: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             Doplňkové služby
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {additionalServices.map((service, index) => (
               <Link
                 key={index}
