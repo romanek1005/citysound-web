@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Truck, Construction, Radar, TrafficCone as Lift, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
+import { Truck, Construction, TrafficCone as Lift, ArrowRight, CheckCircle, Wrench, Users } from 'lucide-react';
 import Header from '../components/Header';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -42,12 +42,6 @@ const ServicesPage: React.FC = () => {
       description: 'Přeprava materiálu a poskytování kontejnerů pro stavební práce.',
       image: '/work/20220530_143714.jpg'
     },
-    {
-      icon: Radar,
-      title: 'Montáž radarů',
-      description: 'Instalace měřičů rychlosti a dopravních systémů.',
-      image: '/work/radarRychlost.jpeg'
-    }
   ];
 
   const maxitySpecs = [
@@ -128,18 +122,18 @@ const ServicesPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="flex flex-col">
               <img
-                src="/work/20241115_112046.jpg"
+                src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
                 alt="Montážní plošina Renault Maxity"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
-                  src="/work/20250511_212135.jpg"
+                  src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
                   alt="Práce s montážní plošinou"
                   className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
                 />
                 <img
-                  src="/work/20220530_143714.jpg"
+                  src="/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg"
                   alt="Montážní plošina detail"
                   className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
                 />
@@ -249,18 +243,18 @@ const ServicesPage: React.FC = () => {
             
             <div className="order-1 lg:order-2 flex flex-col">
               <img
-                src="/work/20250511_211440.jpg"
+                src="/nove-fotky-vyber-pridat/Zamní_práce_minibagrem.jpg"
                 alt="Minibagr Kubota KX-019"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <img
-                  src="/work/20250226_091248.jpg"
+                  src="/nove-fotky-vyber-pridat/Zemní práce a NN sítě.jpg"
                   alt="Zemní práce"
                   className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
                 />
                 <img
-                  src="/work/20250412_091130.jpg"
+                  src="/nove-fotky-vyber-pridat/Zamní_práce_minibagrem.jpg"
                   alt="Výkopové práce"
                   className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
                 />
@@ -276,7 +270,7 @@ const ServicesPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <img
-                src="/work/doprava.jpg"
+                src="/nove-fotky-vyber-pridat/Autodoprava kontejner.jpg"
                 alt="Autodoprava a kontejnery"
                 className="rounded-xl shadow-lg w-full h-80 object-cover"
               />
@@ -287,22 +281,18 @@ const ServicesPage: React.FC = () => {
                 <span className="text-citysound-green-600">Autodoprava</span> a kontejnery
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Nabízíme možnost přepravy 3,5 t - 8 t. Máme k dispozici dodávkové vozy Renault Trafic, 
-                vůz Ford Tranzit Custom a kontejnerový sklápěč IVECO Eurocargo 8 t s možností různých typů kontejnerových nástaveb.
+                Nabízíme možnost přepravy 3,5 t - 8 t. Máme k dispozici 
+                vůz Fiat Talento a kontejnerový sklápěč DAF s možností různých typů kontejnerových nástaveb.
               </p>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Renault Trafic - dodávkový vůz</span>
+                  <span className="text-gray-700">Fiat Talento - dodávkový vůz</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">Ford Tranzit Custom</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">IVECO Eurocargo 8 t - kontejnerový sklápěč</span>
+                  <span className="text-gray-700">DAF - kontejnerový sklápěč</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-citysound-green-600 mt-0.5 flex-shrink-0" />
@@ -321,57 +311,6 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Radar Installation Section */}
-      <section id="montaz-radaru" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Montáž měřičů rychlosti <span className="text-citysound-green-600">(radary)</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Specializujeme se na instalaci moderních měřičů rychlosti a dopravních systémů 
-              pro zvýšení bezpečnosti na silnicích.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <img
-                src="/work/20250511_205703.jpg"
-                alt="Instalace měřiče rychlosti"
-                className="w-full h-64 object-cover rounded-xl mb-8"
-              />
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <img
-                  src="/work/20241115_112046.jpg"
-                  alt="Radar installation 1"
-                  className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
-                />
-                <img
-                  src="/work/20250511_212135.jpg"
-                  alt="Radar installation 2"
-                  className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
-                />
-                <img
-                  src="/work/20220530_143714.jpg"
-                  alt="Radar installation 3"
-                  className="rounded-lg shadow-md aspect-[4/3] w-full object-cover"
-                />
-              </div>
-              
-              <div className="text-center">
-                <button
-                  onClick={scrollToContact}
-                  className="bg-citysound-red-600 hover:bg-citysound-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block"
-                >
-                  Objednat instalaci radarů
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <ContactSection 

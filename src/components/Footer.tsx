@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               pro stavební firmy i obce po celé České republice.
             </p>
             <div className="flex items-center space-x-2 text-citysound-green-400">
-              <span className="text-2xl font-bold">15+</span>
+              <span className="text-2xl font-bold">20+</span>
               <span className="text-sm">let zkušeností</span>
             </div>
           </div>
@@ -97,6 +97,12 @@ const Footer: React.FC = () => {
                     +420 774 456 960
                   </a>
                   <p className="text-xs text-gray-400">Po-Pá: 7:00-16:00</p>
+                  <a
+                    href="tel:+420722113729"
+                    className="text-gray-300 hover:text-citysound-green-400 transition-colors text-sm mt-1 block"
+                  >
+                    +420 722 113 729 (servisní)
+                  </a>
                 </div>
               </div>
               

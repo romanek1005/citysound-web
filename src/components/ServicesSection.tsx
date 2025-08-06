@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lightbulb, Radio, TrafficCone as Lift, Truck, Radar, ArrowRight, Construction } from 'lucide-react';
+import { Lightbulb, Radio, TrafficCone as Lift, Truck, ArrowRight, Construction } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const ServicesSection: React.FC = () => {
@@ -14,7 +14,7 @@ const ServicesSection: React.FC = () => {
         'Moderní LED technologie',
         'Komplexní servis a údržba'
       ],
-      image: '/work/20250511_212135.jpg',
+      image: '/nove-fotky-vyber-pridat/Montáž Osvětlení.jpg',
       highlight: true,
       imagePosition: 'right'
     },
@@ -39,30 +39,23 @@ const ServicesSection: React.FC = () => {
       icon: Lift,
       title: 'Práce s montážní plošinou',
       description: 'Díky vlastní plošině jsme flexibilní a efektivní při montážních pracích ve výškách.',
-      image: '/work/plosina.jpg',
+      image: '/nove-fotky-vyber-pridat/Práce_s_montážní_plošinou.jpg',
       link: '/dalsi-sluzby#montazni-plosina'
     },
     {
       icon: Construction,
       title: 'Zemní práce minibagrem',
       description: 'Disponujeme vlastní technikou pro výkopy a terénní úpravy v těžko dostupných místech.',
-      image: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/nove-fotky-vyber-pridat/Zamní_práce_minibagrem.jpg',
       link: '/dalsi-sluzby#zemni-prace'
     },
     {
       icon: Truck,
       title: 'Autodoprava a kontejnerizace',
       description: 'Zajišťujeme dopravu materiálu i odvoz sutě během realizace projektů.',
-      image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/nove-fotky-vyber-pridat/Autodoprava kontejner.jpg',
       link: '/dalsi-sluzby#autodoprava'
-    },
-    {
-      icon: Radar,
-      title: 'Montáž radarů',
-      description: 'Vedle osvětlení zvyšujeme bezpečnost také instalací rychlostních radarů.',
-      image: '/work/radarRychlost.jpeg',
-      link: '/dalsi-sluzby#montaz-radaru'
-    }
+}
   ];
 
   return (

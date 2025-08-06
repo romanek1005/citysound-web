@@ -28,7 +28,7 @@ const BenefitsSection: React.FC = () => {
       icon: Clock,
       title: 'Spolehlivost a termíny',
       description: 'Zakládáme si na dodržování dohod a termínů. Naše reference hovoří za nás.',
-      bgImage: '/work/20250511_210358.jpg',
+      bgImage: '/nove-fotky-vyber-pridat/Výměna rozvaděče VO, Prostřední Bečva, 2021.jpg',
       details: 'Pečlivé plánování a koordinace zajišťuje dodržení stanovených termínů.'
     }
   ];

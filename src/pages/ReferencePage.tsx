@@ -135,7 +135,7 @@ const ReferencePage: React.FC = () => {
   const statistics = [
     { number: 150, suffix: '+', label: 'realizovaných projektů' },
     { number: 80, suffix: '+', label: 'spokojených měst a obcí' },
-    { number: 15, suffix: '+', label: 'let zkušeností v oboru' }
+    { number: 20, suffix: '+', label: 'let zkušeností v oboru' }
   ];
 
   // Counter hooks for statistics

@@ -316,6 +316,13 @@ const ContactPage: React.FC = () => {
       description: 'Volejte kdykoliv během pracovní doby'
     },
     {
+      icon: Phone,
+      title: 'Servisní linka',
+      value: '+420 722 113 729',
+      href: 'tel:+420722113729',
+      description: 'Technická podpora a servis'
+    },
+    {
       icon: Mail,
       title: 'E-mail',
       value: 'citysound@citysound.cz',
