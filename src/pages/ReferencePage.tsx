@@ -150,8 +150,22 @@ const ReferencePage: React.FC = () => {
   ];
 
   const companyLogos = {
-    municipalities: ['Praha', 'Brno', 'Ostrava', 'Plzeň', 'České Budějovice', 'Hradec Králové', 'Olomouc', 'Zlín', 'Pardubice'],
-    companies: ['PORR', 'STRAMAG', 'METROSTAV', 'SKANSKA', 'HOCHTIEF', 'Eurovia CS', 'SMP CZ', 'SWIETELSKY', 'Subterra']
+    municipalities: [
+      { name: 'Prostřední Bečva', logoPath: '/loga%20obce/prostredni-becva.svg' },
+      { name: 'Hutisko Solanec', logoPath: '/loga%20obce/Hutiskos.jpg', hasEmblem: true },
+      { name: 'Juřinka', logoPath: '/loga%20obce/jurinka.jpg', hasEmblem: true },
+      { name: 'Valašské Meziříčí', logoPath: '/loga%20obce/Pro%20obrazovka-logo-valmez-pozitiv.png' },
+      { name: 'Nový Hrozenkov', logoPath: '/loga%20obce/novy%20hrozenkov.jpg', hasEmblem: true },
+      { name: 'Líšnice', logoPath: '/loga%20obce/lisnice2.png', hasEmblem: true }
+    ],
+    companies: [
+      { name: 'Porr', logoPath: '/loga%20spolecnosti/csm_PORR_RGB_01_fa09b25e5c.png' },
+      { name: 'Cobbler', logoPath: '/loga%20spolecnosti/logo-retina-cobbler.png' },
+      { name: 'Commodum', logoPath: '/loga%20spolecnosti/logo-commodum.svg' },
+      { name: 'Swietelsky', logoPath: '/loga%20spolecnosti/swietelsky-logo.svg' },
+      { name: 'Marius Pedersen', logoPath: '/loga%20spolecnosti/Marius-Pedersen.png' },
+      { name: 'Empemont', logoPath: '/loga%20spolecnosti/Empemont-CZ-vertical.svg' }
+    ]
   };
 
 
@@ -365,14 +379,36 @@ const ReferencePage: React.FC = () => {
               </h3>
               <div className="bg-white rounded-xl p-8 shadow-lg">
                 <div className="grid grid-cols-2 gap-6">
-                  {companyLogos.municipalities.map((city, index) => (
+                  {companyLogos.municipalities.map((municipality, index) => (
                     <div
                       key={index}
                       className="group cursor-pointer"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
-                        <span className="font-medium text-gray-700">{city}</span>
+                        <div className="logo-container">
+                          {municipality.hasEmblem ? (
+                            <div className="flex flex-col items-center space-y-1">
+                              <img
+                                src={municipality.logoPath}
+                                alt={`${municipality.name} znak`}
+                                className="logo-image max-h-10"
+                              />
+                              <span className="text-xs text-gray-600 font-medium text-center leading-tight">
+                                {municipality.name}
+                              </span>
+                            </div>
+                          ) : (
+                            <img
+                              src={municipality.logoPath}
+                              alt={`${municipality.name} logo`}
+                              className="logo-image"
+                            />
+                          )}
+                          <div className="tooltip">
+                            {municipality.name}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -395,7 +431,16 @@ const ReferencePage: React.FC = () => {
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
-                        <span className="font-medium text-gray-700">{company}</span>
+                        <div className="logo-container">
+                          <img
+                            src={company.logoPath}
+                            alt={`${company.name} logo`}
+                            className="logo-image"
+                          />
+                          <div className="tooltip">
+                            {company.name}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}

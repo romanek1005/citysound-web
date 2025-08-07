@@ -25,11 +25,26 @@ const ContactPage: React.FC = () => {
       script.async = true;
       script.defer = true;
       
+      // Set a timeout to detect if map fails to load (common with API key issues)
+      const mapTimeout = setTimeout(() => {
+        if (!mapLoaded) {
+          setMapError(true);
+        }
+      }, 10000); // 10 seconds timeout
+      
       window.initMap = () => {
+        clearTimeout(mapTimeout);
         initializeMap();
       };
       
       script.onerror = () => {
+        clearTimeout(mapTimeout);
+        setMapError(true);
+      };
+      
+      // Also listen for global Google Maps API errors
+      window.gm_authFailure = () => {
+        clearTimeout(mapTimeout);
         setMapError(true);
       };
       
@@ -39,20 +54,21 @@ const ContactPage: React.FC = () => {
     const initializeMap = () => {
       if (!mapRef.current) return;
 
-      const coordinates = { lat: 49.4810689, lng: 17.9651569 };
-      console.log('Coordinates being used:', coordinates);
-      
-      const map = new window.google.maps.Map(mapRef.current, {
-        zoom: 9,
-        center: coordinates,
-        disableDefaultUI: false,
-        zoomControl: true,
-        mapTypeControl: false,
-        scaleControl: true,
-        streetViewControl: false,
-        rotateControl: false,
-        fullscreenControl: true
-      });
+      try {
+        const coordinates = { lat: 49.4810689, lng: 17.9651569 };
+        console.log('Coordinates being used:', coordinates);
+        
+        const map = new window.google.maps.Map(mapRef.current, {
+          zoom: 9,
+          center: coordinates,
+          disableDefaultUI: false,
+          zoomControl: true,
+          mapTypeControl: false,
+          scaleControl: true,
+          streetViewControl: false,
+          rotateControl: false,
+          fullscreenControl: true
+        });
 
       // Add CSS for pulsing animation based on your provided code
       const style = document.createElement('style');
@@ -253,6 +269,10 @@ const ContactPage: React.FC = () => {
       });
 
       setMapLoaded(true);
+      } catch (error) {
+        console.error('Error initializing Google Maps:', error);
+        setMapError(true);
+      }
     };
 
 
@@ -597,8 +617,18 @@ const ContactPage: React.FC = () => {
                   <div className="text-center text-gray-600">
                     <MapPin className="w-16 h-16 mx-auto mb-4 text-citysound-green-600" />
                     <p className="text-xl font-semibold mb-2">Chyba při načítání mapy</p>
-                    <p className="text-lg text-gray-700 font-medium">Oznice 101, 756 24 Bystřička</p>
+                    <p className="text-lg text-gray-700 font-medium">Hranická 272, 757 01 Valašské Meziříčí</p>
                     <p className="text-sm text-gray-500 mt-2">Možnost osobní konzultace po předchozí domluvě</p>
+                    <div className="mt-4">
+                      <a 
+                        href="https://mapy.cz/s/pukosahuvo" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-block bg-citysound-green-600 hover:bg-citysound-green-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                      >
+                        Zobrazit na Mapy.cz
+                      </a>
+                    </div>
                   </div>
                 </div>
               ) : (

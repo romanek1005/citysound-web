@@ -29,7 +29,7 @@ const ProcessSection: React.FC = () => {
       title: 'Revize & Předání',
       description: 'Vše odborně zapojíme, provedeme povinné revize a předáme vám kompletně funkční osvětlení.',
       details: ['Odborné zapojení', 'Elektrické revize', 'Předání dokumentace'],
-      bgImage: '/work/20250511_213123.jpg'
+      bgImage: '/nove-fotky-vyber-pridat/hand-shake.jpg'
     }
   ];
 

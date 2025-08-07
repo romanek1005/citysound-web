@@ -4,21 +4,21 @@ import { useCounter } from '../hooks/useCounter';
 
 const ReferencesSection: React.FC = () => {
   const constructionCompanies = [
-    { name: 'Porr', logoPath: '/loga spolecnosti/csm_PORR_RGB_01_fa09b25e5c.png' },
-    { name: 'Cobbler', logoPath: '/loga spolecnosti/logo-retina-cobbler.png' },
-    { name: 'Commodum', logoPath: '/loga spolecnosti/logo-commodum.svg' },
-    { name: 'Swietelsky', logoPath: '/loga spolecnosti/swietelsky-logo.svg' },
-    { name: 'Marius Pedersen', logoPath: '/loga spolecnosti/Marius-Pedersen.png' },
-    { name: 'Empemont', logoPath: '/loga spolecnosti/Empemont-CZ-vertical.svg' }
+    { name: 'Porr', logoPath: '/loga%20spolecnosti/csm_PORR_RGB_01_fa09b25e5c.png' },
+    { name: 'Cobbler', logoPath: '/loga%20spolecnosti/logo-retina-cobbler.png' },
+    { name: 'Commodum', logoPath: '/loga%20spolecnosti/logo-commodum.svg' },
+    { name: 'Swietelsky', logoPath: '/loga%20spolecnosti/swietelsky-logo.svg' },
+    { name: 'Marius Pedersen', logoPath: '/loga%20spolecnosti/Marius-Pedersen.png' },
+    { name: 'Empemont', logoPath: '/loga%20spolecnosti/Empemont-CZ-vertical.svg' }
   ];
 
   const municipalities = [
-    { name: 'Prostřední Bečva', logoPath: '/loga obce/prostredni-becva.svg' },
-    { name: 'Hutisko Solanec', logoPath: '/loga obce/Hutiskos.jpg', hasEmblem: true },
-    { name: 'Juřinka', logoPath: '/loga obce/jurinka.jpg', hasEmblem: true },
-    { name: 'Valašské Meziříčí', logoPath: '/loga obce/Pro obrazovka-logo-valmez-pozitiv.png' },
-    { name: 'Nový Hrozenkov', logoPath: '/loga obce/novy hrozenkov.jpg' },
-    { name: 'Líšnice', logoPath: '/loga obce/lisnice2.png', hasEmblem: true }
+    { name: 'Prostřední Bečva', logoPath: '/loga%20obce/prostredni-becva.svg' },
+    { name: 'Hutisko Solanec', logoPath: '/loga%20obce/Hutiskos.jpg', hasEmblem: true },
+    { name: 'Juřinka', logoPath: '/loga%20obce/jurinka.jpg', hasEmblem: true },
+    { name: 'Valašské Meziříčí', logoPath: '/loga%20obce/Pro%20obrazovka-logo-valmez-pozitiv.png' },
+    { name: 'Nový Hrozenkov', logoPath: '/loga%20obce/novy%20hrozenkov.jpg', hasEmblem: true },
+    { name: 'Líšnice', logoPath: '/loga%20obce/lisnice2.png', hasEmblem: true }
   ];
 
   const stats = [
