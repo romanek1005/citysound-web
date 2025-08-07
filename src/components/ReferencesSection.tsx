@@ -4,21 +4,21 @@ import { useCounter } from '../hooks/useCounter';
 
 const ReferencesSection: React.FC = () => {
   const constructionCompanies = [
-    { name: 'Continental Frenštát', logoPath: '/logos/companies/continental_frenstat.png' },
-    { name: 'IDS VM', logoPath: '/logos/companies/ids_vm.png' },
-    { name: 'Lars MK', logoPath: '/logos/companies/lars_mk.jpg' },
-    { name: 'SIVAP', logoPath: '/logos/companies/sivap.png' },
-    { name: 'TJ Juřinka', logoPath: '/logos/companies/tj_jurinka.png' },
-    { name: 'Zenit spol. s. r. o.', logoPath: '/logos/companies/zenit_spol_s_r_o.jpg' }
+    { name: 'Porr', logoPath: '/loga spolecnosti/csm_PORR_RGB_01_fa09b25e5c.png' },
+    { name: 'Cobbler', logoPath: '/loga spolecnosti/logo-retina-cobbler.png' },
+    { name: 'Commodum', logoPath: '/loga spolecnosti/logo-commodum.svg' },
+    { name: 'Swietelsky', logoPath: '/loga spolecnosti/swietelsky-logo.svg' },
+    { name: 'Marius Pedersen', logoPath: '/loga spolecnosti/Marius-Pedersen.png' },
+    { name: 'Empemont', logoPath: '/loga spolecnosti/Empemont-CZ-vertical.svg' }
   ];
 
   const municipalities = [
-    { name: 'Choryně', logoPath: '/logos/municipalities/choryne.png' },
-    { name: 'Hrachovec', logoPath: '/logos/municipalities/hrachovec.png' },
-    { name: 'Kateřinice', logoPath: '/logos/municipalities/katerinice.png' },
-    { name: 'Mořkov', logoPath: '/logos/municipalities/morkov.jpg' },
-    { name: 'Nový Hrozenkov', logoPath: '/logos/municipalities/novy_hrozenkov.png' },
-    { name: 'Valašské Meziříčí', logoPath: '/logos/municipalities/valasske_mezirici.jpg' }
+    { name: 'Prostřední Bečva', logoPath: '/loga obce/prostredni-becva.svg' },
+    { name: 'Hutisko Solanec', logoPath: '/loga obce/Hutiskos.jpg', hasEmblem: true },
+    { name: 'Juřinka', logoPath: '/loga obce/jurinka.jpg', hasEmblem: true },
+    { name: 'Valašské Meziříčí', logoPath: '/loga obce/Pro obrazovka-logo-valmez-pozitiv.png' },
+    { name: 'Nový Hrozenkov', logoPath: '/loga obce/novy hrozenkov.jpg' },
+    { name: 'Líšnice', logoPath: '/loga obce/lisnice2.png', hasEmblem: true }
   ];
 
   const stats = [
@@ -128,11 +128,24 @@ const ReferencesSection: React.FC = () => {
                   >
                     <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-citysound-green-50 transition-colors duration-300 p-4">
                       <div className="logo-container">
-                        <img
-                          src={municipality.logoPath}
-                          alt={`${municipality.name} logo`}
-                          className="logo-image"
-                        />
+                        {municipality.hasEmblem ? (
+                          <div className="flex flex-col items-center space-y-1">
+                            <img
+                              src={municipality.logoPath}
+                              alt={`${municipality.name} znak`}
+                              className="logo-image max-h-10"
+                            />
+                            <span className="text-xs text-gray-600 font-medium text-center leading-tight">
+                              {municipality.name}
+                            </span>
+                          </div>
+                        ) : (
+                          <img
+                            src={municipality.logoPath}
+                            alt={`${municipality.name} logo`}
+                            className="logo-image"
+                          />
+                        )}
                         <div className="tooltip">
                           {municipality.name}
                         </div>
@@ -173,6 +186,7 @@ const ReferencesSection: React.FC = () => {
               '/nove-fotky-vyber-pridat/NN rozvody, Datové rozvody Continental Frenštát p.R. , 2024.jpg',
               '/nove-fotky-vyber-pridat/Rozšíření VO, Kateřinice, 2023.jpg',
               '/nove-fotky-vyber-pridat/Výstavba VO zanádražní prostor, Vsetín, 2023.jpg',
+              '/nove-fotky-vyber-pridat/Výměna_VO,_Valašské_Meziříčí,_2025.jpg',
               '/nove-fotky-vyber-pridat/Výstavba bezbariérový chodník, Hutisko Solanec VO, 2022 .jpg',
               '/work/20210107_150459.jpg',
               '/work/20210630_145321.jpg', 
